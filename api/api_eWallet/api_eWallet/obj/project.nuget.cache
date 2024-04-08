@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "wSmOE5dXo8mrqRoc9k1iNlqMPKtfgPS/53n07RxTkRQWCbkz5m/ErFg9TgOel9u87ZjcgbH0/M9YCaJRMW8I8w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yash.l\\source\\repos\\eWallet\\api\\api_eWallet\\api_eWallet\\api_eWallet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "g+/Kri+1vWUg+aN+SrqsZ9crlS3ACegpTsVeaqFywyg=",
+  "Source": "api_eWallet",
+  "BasePath": "_content/api_eWallet",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
