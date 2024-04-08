@@ -1,4 +1,6 @@
-﻿namespace api_eWallet
+﻿using api_eWallet.Static;
+
+namespace api_eWallet
 {
     public class Startup
     {
@@ -8,6 +10,9 @@
         {
             services.AddControllers();
             services.AddSwaggerGen();
+
+            // Add all services in DI Container 
+            services.AddMyServices();
         }
 
         public void Configure(IApplicationBuilder app)

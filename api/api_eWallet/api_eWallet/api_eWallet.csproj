@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="BL\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
