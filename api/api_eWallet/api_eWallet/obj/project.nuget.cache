@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Om9A9rtF6m9mvch9wHg8U8paaS++OAhQv3XqSv/3tM9lIFBrf7t6QIDE/OvyV8XMmvuSOreSerSRXb+VM5tEdw==",
+  "dgSpecHash": "gTWP6E/yX5JqEDOh5t4uxBmy0Te/zOSz0J5kSaxi1TINpDCeYe3JGuxqoP/mCqWu18eBCI6dnmZgHZFeg5PVWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\yash.l\\source\\repos\\eWallet\\api\\api_eWallet\\api_eWallet\\api_eWallet.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\nlog\\5.2.8\\nlog.5.2.8.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
