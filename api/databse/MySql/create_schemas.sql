@@ -7,7 +7,7 @@ CREATE DATABASE
 
 CREATE TABLE `ewallet_yashl`.`usr01` (
   `r01f01` INT NOT NULL COMMENT 'user id - primary key',
-  `r01f02` VARCHAR(45) NOT NULL COMMENT 'wallet id - unique ',
+  `r01f02` INT NOT NULL DEFAULT 101 COMMENT 'wallet id - unique ',
   `r01f03` VARCHAR(255) NULL COMMENT 'password_hash',
   `r01f04` VARCHAR(45) NULL COMMENT 'email',
   `r01f05` VARCHAR(45) NULL COMMENT 'first name',
