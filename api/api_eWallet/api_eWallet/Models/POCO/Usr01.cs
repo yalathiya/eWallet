@@ -1,0 +1,70 @@
+﻿using System.Text.Json.Serialization;
+
+namespace api_eWallet.Models.POCO
+{
+    /// <summary>
+    /// POCO model of user class
+    /// </summary>
+    public class Usr01
+    {
+        /// <summary>
+        /// user id
+        /// </summary>
+        public int r01f01 { get; set; }
+
+        /// <summary>
+        /// wallet id
+        /// </summary>
+        public int r01f02 { get; set; }
+
+        /// <summary>
+        /// hash password
+        /// </summary>
+        [JsonPropertyName("r01102")]
+        public string r01f03 { get; set; }
+
+        /// <summary>
+        /// email id
+        /// </summary>
+        [JsonPropertyName("r01101")]
+        public string r01f04 { get; set; }
+
+        /// <summary>
+        /// first name
+        /// </summary>
+        [JsonPropertyName("r01103")]
+        public string r01f05 { get; set; }
+
+        /// <summary>
+        /// last name        
+        /// </summary>
+        [JsonPropertyName("r01104")]
+        public string r01f06 { get; set; }
+
+        /// <summary>
+        /// mobile number
+        /// </summary>
+        [JsonPropertyName("r01105")]
+        public string r01f07 { get; set; }
+
+        /// <summary>
+        /// created on
+        /// </summary>
+        public DateTime r01f08 { get; set; }
+
+        /// <summary>
+        /// updated on
+        /// </summary>
+        public DateTime r01f09 { get; set; }
+
+        /// <summary>
+        /// isDeleted
+        /// </summary>
+        public bool r01f10 { get; set; }
+
+        /// <summary>
+        /// deleted on
+        /// </summary>
+        public DateTime r01f11 { get; set; }
+    }
+}
