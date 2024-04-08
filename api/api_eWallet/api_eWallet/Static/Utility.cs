@@ -19,6 +19,9 @@ namespace api_eWallet.Static
         {
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
+            
+            // Register Email Service 
+            services.AddSingleton<ISender, EmailService>();
 
             return services; // This allows chaining of registrations
         }
