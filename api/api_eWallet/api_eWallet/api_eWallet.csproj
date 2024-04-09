@@ -13,7 +13,9 @@
     <PackageReference Include="MySql.Data" Version="8.3.0" />
     <PackageReference Include="NLog" Version="5.2.8" />
     <PackageReference Include="ServiceStack.OrmLite" Version="8.2.2" />
+    <PackageReference Include="ServiceStack.OrmLite.MySql" Version="8.2.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
   </ItemGroup>
 
   <ItemGroup>

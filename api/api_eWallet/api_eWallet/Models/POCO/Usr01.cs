@@ -1,12 +1,16 @@
-﻿using System.Text.Json.Serialization;
+﻿using ServiceStack.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace api_eWallet.Models.POCO
 {
     /// <summary>
     /// POCO model of user class
     /// </summary>
+    [Alias("Usr01")]
     public class Usr01
     {
+        #region Public Members
+
         /// <summary>
         /// user id
         /// </summary>
@@ -66,5 +70,8 @@ namespace api_eWallet.Models.POCO
         /// deleted on
         /// </summary>
         public DateTime r01f11 { get; set; }
+
+        #endregion
+
     }
 }

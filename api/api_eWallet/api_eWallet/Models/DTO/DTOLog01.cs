@@ -5,6 +5,8 @@
     /// </summary>
     public class DTOLog01
     {
+        #region Public Members 
+
         /// <summary>
         /// email Id
         /// </summary>
@@ -14,5 +16,8 @@
         /// password
         /// </summary>
         public string g01102 { get; set; }
+
+        #endregion
+
     }
 }

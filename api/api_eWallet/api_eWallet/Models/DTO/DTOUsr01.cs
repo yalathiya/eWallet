@@ -7,6 +7,8 @@ namespace api_eWallet.Models.DTO
     /// </summary>
     public class DTOUsr01
     {
+        #region Public Members
+
         /// <summary>
         /// Email Id
         /// </summary>
@@ -36,5 +38,8 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [JsonPropertyName("r01f07")]
         public string r01105 { get; set; }
+
+        #endregion
+
     }
 }

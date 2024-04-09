@@ -10,6 +10,8 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLTransaction : ControllerBase
     {
+        #region Public Methods
+
         /// <summary>
         /// Retrieve all transaction
         /// </summary>
@@ -20,5 +22,7 @@ namespace api_eWallet.Controllers
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

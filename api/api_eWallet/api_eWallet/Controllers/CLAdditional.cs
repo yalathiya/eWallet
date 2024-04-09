@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
 {
@@ -10,6 +9,9 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLAdditional : ControllerBase
     {
+        
+        #region Public Members
+
         /// <summary>
         /// Redirects to api documentation for help
         /// </summary>
@@ -33,5 +35,6 @@ namespace api_eWallet.Controllers
             throw new NotImplementedException();
         }
 
+        #endregion
     }
 }

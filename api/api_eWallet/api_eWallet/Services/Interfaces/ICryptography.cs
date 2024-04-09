@@ -5,6 +5,8 @@
     /// </summary>
     public interface ICryptography
     {
+        #region Abstract Methods
+
         /// <summary>
         /// To encrypt data
         /// </summary>
@@ -18,6 +20,8 @@
         /// <param name="cipherText"> cipher text </param>
         /// <returns> plain text </returns>
         string Decrypt(string cipherText);
+
+        #endregion
 
     }
 }

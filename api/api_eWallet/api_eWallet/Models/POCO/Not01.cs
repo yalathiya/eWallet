@@ -1,10 +1,15 @@
-﻿namespace api_eWallet.Models.POCO
+﻿using ServiceStack.DataAnnotations;
+
+namespace api_eWallet.Models.POCO
 {
     /// <summary>
     /// Class of POCO model - Notification 
     /// </summary>
+    [Alias("Not01")]
     public class Not01
     {
+        #region Public Members
+
         /// <summary>
         /// Notification Id
         /// </summary>
@@ -24,5 +29,8 @@
         /// Created on        
         /// </summary>
         public DateTime t01f04 { get; set; }
+
+        #endregion
+
     }
 }

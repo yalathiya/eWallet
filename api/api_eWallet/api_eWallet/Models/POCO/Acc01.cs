@@ -1,12 +1,16 @@
 ﻿using api_eWallet.Common;
+using ServiceStack.DataAnnotations;
 
 namespace api_eWallet.Models.POCO
 {
     /// <summary>
     /// Class of POCO Model - Account
     /// </summary>
+    [Alias("Acc01")]
     public class Acc01
     {
+        #region Public Members 
+
         /// <summary>
         /// Account Number
         /// </summary>
@@ -36,5 +40,8 @@ namespace api_eWallet.Models.POCO
         /// Updated on
         /// </summary>
         public int c01f07 { get; set; }
+
+        #endregion
+
     }
 }

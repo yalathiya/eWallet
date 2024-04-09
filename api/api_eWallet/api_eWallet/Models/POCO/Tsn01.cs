@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Common;
+using ServiceStack.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace api_eWallet.Models.POCO
@@ -6,8 +7,11 @@ namespace api_eWallet.Models.POCO
     /// <summary>
     /// Class of POCO model - Transaciton
     /// </summary>
+    [Alias("Tsn01")]
     public class Tsn01
     {
+        #region Public Members
+
         /// <summary>
         /// Transaction Id
         /// </summary>
@@ -60,5 +64,8 @@ namespace api_eWallet.Models.POCO
         /// Created on
         /// </summary>
         public DateTime n01f09 { get; set; }
+
+        #endregion
+
     }
 }

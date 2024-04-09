@@ -10,6 +10,8 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLWallet : ControllerBase
     {
+        #region Public Members
+
         /// <summary>
         /// to get current balance of user
         /// </summary>
@@ -53,5 +55,8 @@ namespace api_eWallet.Controllers
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
     }
 }

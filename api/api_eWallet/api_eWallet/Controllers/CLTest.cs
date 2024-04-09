@@ -1,15 +1,23 @@
-﻿using api_eWallet.Services.Interfaces;
-using api_eWallet.Static;
-using Microsoft.AspNetCore.Http;
+﻿using api_eWallet.Filters;
+using api_eWallet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
 namespace api_eWallet.Controllers
 {
+    /// <summary>
+    /// Tests controller which checks basic functionalities within function
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CLTest : ControllerBase
     {
+        #region Public Methods
+
+        /// <summary>
+        /// Tests MySwl Connection
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("TestConnection")]
         public IActionResult TestConnection()
@@ -21,6 +29,11 @@ namespace api_eWallet.Controllers
             return Ok("Connction established successfully");
         }
 
+        /// <summary>
+        /// Tests Cryptography
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("TestCryptography")]
         public IActionResult TestCryptography([FromServices] IServiceProvider provider)
@@ -33,5 +46,15 @@ namespace api_eWallet.Controllers
 
             return Ok(p + "  " + plain + "  "+ cipher);
         }
+
+        [HttpGet]
+        [Route("TestsJwtAuthorization")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
+        public IActionResult TestsJwtAuthorization()
+        {
+            return Ok("Authorized");
+        }
+
+        #endregion
     }
 }

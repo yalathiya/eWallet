@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace api_eWallet.Static
 {
@@ -8,8 +7,14 @@ namespace api_eWallet.Static
     /// </summary>
     public static class DbConnection
     {
+        #region Private Members
+
         // reference of configuration
         private static readonly IConfiguration _configuration;
+
+        #endregion
+
+        #region Static Members
 
         /// <summary>
         /// Collects data from appSettings.json file
@@ -28,6 +33,15 @@ namespace api_eWallet.Static
         /// </summary>
         /// <returns> MySql Connection </returns>
         public static MySqlConnection CreateConnection()
+        {     
+            return new MySqlConnection(GetConnectionString());
+        }
+
+        /// <summary>
+        /// To get connection string from appSettings.json
+        /// </summary>
+        /// <returns> connection string </returns>
+        public static string GetConnectionString()
         {
             string server = _configuration["ConnectionStrings:connectionString:Server"];
             int port = int.Parse(_configuration["ConnectionStrings:connectionString:Port"]);
@@ -37,8 +51,11 @@ namespace api_eWallet.Static
 
             // connection string 
             string connectionString = $"Server={server};Port={port};Database={database};User Id={userId};Password={password}";
-            
-            return new MySqlConnection(connectionString);
+
+            return connectionString;
         }
+
+        #endregion
+
     }
 }

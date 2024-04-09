@@ -10,6 +10,8 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLUser : ControllerBase
     {
+        #region Public Methods
+
         /// <summary>
         /// For User Registration
         /// </summary>
@@ -46,27 +48,6 @@ namespace api_eWallet.Controllers
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Admin method which returns all user within application
-        /// Also returns deleted users
-        /// </summary>
-        /// <returns> All user within database </returns>
-        [HttpGet]
-        [Route("GetAllUsers")]
-        public IActionResult GetAllUsers()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Admin method which returns active users within application
-        /// </summary>
-        /// <returns> All users ( Not deleted ) </returns>
-        [HttpGet]
-        [Route("GetActiveUsers")]
-        public IActionResult GetActiveUsers()
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
     }
 }

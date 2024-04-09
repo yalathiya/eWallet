@@ -9,6 +9,8 @@ namespace api_eWallet.Services.Implementation
     /// </summary>
     public class EmailService : ISender
     {
+        #region Public Members
+        
         /// <summary>
         /// Sends Email to user 
         /// </summary>
@@ -43,5 +45,8 @@ namespace api_eWallet.Services.Implementation
                 Console.WriteLine($"Error sending registration email: {ex.Message}");
             }
         }
+
+        #endregion
+
     }
 }

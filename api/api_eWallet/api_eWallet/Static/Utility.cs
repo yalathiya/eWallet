@@ -1,5 +1,9 @@
-﻿using api_eWallet.Services.Implementation;
+﻿using api_eWallet.Repository.Implementation;
+using api_eWallet.Repository.Interfaces;
+using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
+using ServiceStack.Data;
+using ServiceStack.OrmLite;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json.Serialization;
@@ -20,11 +24,28 @@ namespace api_eWallet.Static
         /// <returns> services </returns>
         public static IServiceCollection AddMyServices(this IServiceCollection services)
         {
+            // Register User Repository Service 
+            services.AddSingleton<IUserRepository, UserRepository>();
+
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
-            
+
+            // Connecting to OrmLite
+            // Configure IDbConnectionFactory
+            services.AddSingleton<IDbConnectionFactory>(c =>
+                new OrmLiteConnectionFactory(
+                    Static.DbConnection.GetConnectionString(),
+                    MySqlDialect.Provider));
+
+            // Register Authentication Service 
+            services.AddSingleton<IAuthentication, AuthenticationService>();
+
             // Register Email Service 
             services.AddSingleton<ISender, EmailService>();
+
+            
+
+
 
             return services; // This allows chaining of registrations
         }

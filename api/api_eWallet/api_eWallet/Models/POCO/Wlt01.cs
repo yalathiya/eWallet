@@ -1,12 +1,16 @@
 ﻿using api_eWallet.Common;
+using ServiceStack.DataAnnotations;
 
 namespace api_eWallet.Models.POCO
 {
     /// <summary>
     /// POCO model of wallet class
     /// </summary>
+    [Alias("Wlt01")]
     public class Wlt01
     {
+        #region Public Members
+
         /// <summary>
         /// Wallet id
         /// </summary>
@@ -36,5 +40,8 @@ namespace api_eWallet.Models.POCO
         /// Updated on
         /// </summary>
         public DateTime t01f06 { get; set; }
+
+        #endregion
+
     }
 }
