@@ -1,7 +1,10 @@
-﻿using api_eWallet.Repository.Implementation;
+﻿using api_eWallet.BL.Implementation;
+using api_eWallet.BL.Interfaces;
+using api_eWallet.Repository.Implementation;
 using api_eWallet.Repository.Interfaces;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
+using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using System.Reflection;
@@ -24,11 +27,12 @@ namespace api_eWallet.Static
         /// <returns> services </returns>
         public static IServiceCollection AddMyServices(this IServiceCollection services)
         {
-            // Register User Repository Service 
-            services.AddSingleton<IUserRepository, UserRepository>();
-
+           
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
+
+            // Register User Repository Service 
+            services.AddSingleton<IUserRepository, UserRepository>();
 
             // Connecting to OrmLite
             // Configure IDbConnectionFactory
@@ -43,9 +47,8 @@ namespace api_eWallet.Static
             // Register Email Service 
             services.AddSingleton<ISender, EmailService>();
 
-            
-
-
+            // Adding BLUser
+            services.AddScoped<IBLUser, BLUserManager>();
 
             return services; // This allows chaining of registrations
         }
@@ -67,15 +70,15 @@ namespace api_eWallet.Static
 
             // Get source properties with JSON property name attributes
             PropertyInfo[] sourceProps = sourceType.GetProperties()
-                                                   .Where(prop => prop.IsDefined(typeof(JsonPropertyNameAttribute), false))
+                                                   .Where(prop => prop.IsDefined(typeof(JsonPropertyAttribute), false))
                                                    .ToArray();
 
             // Iterate through source properties
             foreach (PropertyInfo prop in sourceProps)
             {
                 // Get the JSON property name from the attribute
-                JsonPropertyNameAttribute attribute = (JsonPropertyNameAttribute)Attribute.GetCustomAttribute(prop, typeof(JsonPropertyNameAttribute));
-                string targetPropName = attribute.Name;
+                JsonPropertyAttribute attribute = (JsonPropertyAttribute)Attribute.GetCustomAttribute(prop, typeof(JsonPropertyAttribute));
+                string targetPropName = attribute.PropertyName;
 
                 // Find corresponding property in target model
                 PropertyInfo targetPropertyInfo = targetType.GetProperty(targetPropName);
@@ -97,8 +100,9 @@ namespace api_eWallet.Static
         /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
         /// <returns>userid (r01f01)</returns>
         /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static int GetUserIdFromClaims(IHttpContextAccessor httpContextAccessor)
+        public static int GetUserIdFromClaims()
         {
+            var httpContextAccessor = new HttpContextAccessor();
             var claimsIdentity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
             var userIdClaim = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "jwt_userId");
 
@@ -118,8 +122,10 @@ namespace api_eWallet.Static
         /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
         /// <returns>userid (r01f01)</returns>
         /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static int GetWalletIdFromClaims(IHttpContextAccessor httpContextAccessor)
+        public static int GetWalletIdFromClaims()
         {
+            var httpContextAccessor = new HttpContextAccessor();
+
             var claimsIdentity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
             var walletIdClaim = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "jwt_walletId");
 
@@ -139,8 +145,10 @@ namespace api_eWallet.Static
         /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
         /// <returns>userid (r01f01)</returns>
         /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static string GetEmailIdFromClaims(IHttpContextAccessor httpContextAccessor)
+        public static string GetEmailIdFromClaims()
         {
+            var httpContextAccessor = new HttpContextAccessor();
+
             var claimsIdentity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
             var emailIdClaim = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "jwt_emailId");
 

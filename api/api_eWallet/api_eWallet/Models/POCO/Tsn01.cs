@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Common;
+using Newtonsoft.Json;
 using ServiceStack.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -15,49 +16,49 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Transaction Id
         /// </summary>
-        [JsonPropertyName("n01101")]
+        [JsonProperty("n01101")]
         public int n01f01 { get; set; }
 
         /// <summary>
         /// Wallet Id
         /// </summary>
-        [JsonPropertyName("n01102")]
+        [JsonProperty("n01102")]
         public int n01f02 { get; set; }
 
         /// <summary>
         /// from user Id
         /// </summary>
-        [JsonPropertyName("n01103")]
+        [JsonProperty("n01103")]
         public int n01f03 { get; set; }
 
         /// <summary>
         /// to user Id
         /// </summary>
-        [JsonPropertyName("n01104")]
+        [JsonProperty("n01104")]
         public int n01f04 { get; set; }
 
         /// <summary>
         /// Amount
         /// </summary>
-        [JsonPropertyName("n01105")]
+        [JsonProperty("n01105")]
         public double n01f05 { get; set; }
 
         /// <summary>
         /// Transaction Type
         /// </summary>
-        [JsonPropertyName("n01106")]
+        [JsonProperty("n01106")]
         public TransactionType n01f06 { get; set; }
 
         /// <summary>
         /// Transaction Fee
         /// </summary>
-        [JsonPropertyName("n01107")]
+        [JsonProperty("n01107")]
         public double n01f07 { get; set; }
 
         /// <summary>
         /// Description of Transaction
         /// </summary>
-        [JsonPropertyName("n01108")]
+        [JsonProperty("n01108")]
         public string n01f08 { get; set; }
 
         /// <summary>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MCV/MdEI+fREPA57iBW8M/29s3ee7xXmkrMNjSx0ph/inndosqGW0BxsocOQ2yOacckFAUcNZyFlNqg16VH9nA==",
+  "dgSpecHash": "0EOKHO/G+Pf32Ovk9j1cQA9Sy5pL23DsAe70gej1SdTLuQWbPrgoMKGn24xpPY04wY2FfFgibZWmL+6X+h49iQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\yash.l\\source\\repos\\eWallet\\api\\api_eWallet\\api_eWallet\\api_eWallet.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\nlog\\5.2.8\\nlog.5.2.8.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\servicestack.common\\8.2.2\\servicestack.common.8.2.2.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\servicestack.interfaces\\8.2.2\\servicestack.interfaces.8.2.2.nupkg.sha512",

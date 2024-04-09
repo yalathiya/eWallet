@@ -19,4 +19,13 @@
         Transfer,
         Withdraw
     }
+
+    /// <summary>
+    /// Operationt Type
+    /// </summary>
+    public enum Operation
+    {
+        Create,
+        Update
+    }
 }

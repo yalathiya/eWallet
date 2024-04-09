@@ -1,4 +1,7 @@
-﻿using api_eWallet.Models.DTO;
+﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Common;
+using api_eWallet.Filters;
+using api_eWallet.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -10,7 +13,22 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLUser : ControllerBase
     {
+        #region Private Members
+
+        private IBLUser _objBLUser;
+
+        #endregion
+
         #region Public Methods
+
+        /// <summary>
+        /// Reference from DI
+        /// </summary>
+        /// <param name="objBLUser"></param>
+        public CLUser(IBLUser objBLUser)
+        {
+            _objBLUser = objBLUser;
+        }
 
         /// <summary>
         /// For User Registration
@@ -23,7 +41,20 @@ namespace api_eWallet.Controllers
         [Route("user")]
         public IActionResult Register([FromBody] DTOUsr01 objDTOUsr01)
         {
-            throw new NotImplementedException();
+            // Presave
+            _objBLUser.Presave(objDTOUsr01);
+
+            // Validation
+            bool isValidated = _objBLUser.Validate();
+
+            if(!isValidated)
+            {
+                return BadRequest("Validation Unsuccessful");
+            }
+
+            _objBLUser.Save(Operation.Create);
+
+            return Ok("User Registered");
         }
 
         /// <summary>
@@ -32,6 +63,7 @@ namespace api_eWallet.Controllers
         /// <returns> User's Information </returns>
         [HttpGet]
         [Route("info")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetUserInfo()
         {
             throw new NotImplementedException();
@@ -43,6 +75,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("update")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult UpdateUser()
         {
             throw new NotImplementedException();

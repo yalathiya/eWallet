@@ -1,4 +1,5 @@
-﻿using api_eWallet.Models.DTO;
+﻿using api_eWallet.Filters;
+using api_eWallet.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -18,6 +19,7 @@ namespace api_eWallet.Controllers
         /// <returns> current balance </returns>
         [HttpGet]
         [Route("balance")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetCurrentBalance()
         {
             throw new NotImplementedException();
@@ -29,6 +31,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("deposit")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
         {
             throw new NotImplementedException();
@@ -40,6 +43,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("transfer")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
         {
             throw new NotImplementedException();
@@ -51,6 +55,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("withdraw")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
         {
             throw new NotImplementedException();

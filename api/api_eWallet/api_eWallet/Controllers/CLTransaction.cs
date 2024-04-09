@@ -1,4 +1,5 @@
-﻿using api_eWallet.Models.DTO;
+﻿using api_eWallet.Filters;
+using api_eWallet.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -18,6 +19,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("get")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetAllTransaction([FromBody] DTOTsn01 objDTOTsn01)
         {
             throw new NotImplementedException();

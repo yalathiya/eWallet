@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using api_eWallet.Filters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
 {
@@ -30,6 +31,7 @@ namespace api_eWallet.Controllers
         /// <exception cref="NotImplementedException"></exception>
         [HttpPost]
         [Route("settings")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Settings()
         {
             throw new NotImplementedException();

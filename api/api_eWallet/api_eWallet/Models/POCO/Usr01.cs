@@ -1,4 +1,5 @@
-﻿using ServiceStack.DataAnnotations;
+﻿using Newtonsoft.Json;
+using ServiceStack.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace api_eWallet.Models.POCO
@@ -17,38 +18,33 @@ namespace api_eWallet.Models.POCO
         public int r01f01 { get; set; }
 
         /// <summary>
-        /// wallet id
-        /// </summary>
-        public int r01f02 { get; set; }
-
-        /// <summary>
         /// hash password
         /// </summary>
-        [JsonPropertyName("r01102")]
+        [JsonProperty("r01102")]
         public string r01f03 { get; set; }
 
         /// <summary>
         /// email id
         /// </summary>
-        [JsonPropertyName("r01101")]
+        [JsonProperty("r01101")]
         public string r01f04 { get; set; }
 
         /// <summary>
         /// first name
         /// </summary>
-        [JsonPropertyName("r01103")]
+        [JsonProperty("r01103")]
         public string r01f05 { get; set; }
 
         /// <summary>
         /// last name        
         /// </summary>
-        [JsonPropertyName("r01104")]
+        [JsonProperty("r01104")]
         public string r01f06 { get; set; }
 
         /// <summary>
         /// mobile number
         /// </summary>
-        [JsonPropertyName("r01105")]
+        [JsonProperty("r01105")]
         public string r01f07 { get; set; }
 
         /// <summary>

@@ -35,7 +35,14 @@ namespace api_eWallet.Repository.Implementation
         {
             using (var db = _dbFactory.Open())
             {
-                db.Insert(objUsr01);
+                int r101f01 = (int)db.Insert(objUsr01, selectIdentity:true);
+
+                // Add Wallet Details 
+                Wlt01 objWlt01 = new Wlt01();
+                objWlt01.t01f02 = r101f01;
+                objWlt01.t01f05 = DateTime.Now;
+                objWlt01.t01f06 = DateTime.Now;
+                db.Insert(objWlt01);
             }
         }
 
@@ -53,5 +60,7 @@ namespace api_eWallet.Repository.Implementation
                 return db.Exists<Usr01>(user => user.r01f04 == email && user.r01f03 == encryptedPassword);
             }
         }
+
+        #endregion
     }
 }
