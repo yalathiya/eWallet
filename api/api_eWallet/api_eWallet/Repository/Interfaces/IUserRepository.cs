@@ -10,10 +10,11 @@ namespace api_eWallet.Repository.Interfaces
         #region Abstract Methods
 
         /// <summary>
-        /// Add user details in database
+        /// Add user in database
         /// </summary>
-        /// <param name="objDTOusr01"></param>
-        void RegisterUser(Usr01 objUsr01);
+        /// <param name="objUsr01"> POCO model of user </param>
+        /// <returns> details of registered user </returns>
+        Dictionary<object, object> RegisterUser(Usr01 objUsr01);
 
         /// <summary>
         /// Is Credential Correct or not
@@ -22,6 +23,19 @@ namespace api_eWallet.Repository.Interfaces
         /// <param name="encryptedPassword"></param>
         /// <returns></returns>
         bool IsCredentialCorrect(string email, string encryptedPassword);
+        
+        /// <summary>
+        /// Is Email Id available or not 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        bool IsEmailIdAvailable(string email);
+        
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <returns> POCO model of user </returns>
+        Usr01 GetUserById(int id);
 
         #endregion
 

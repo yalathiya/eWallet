@@ -22,9 +22,8 @@ namespace api_eWallet.Services.Interfaces
         /// <param name="emailId"> email id </param>
         /// <param name="userId"> user id </param>
         /// <param name="walletId"> wallet id </param>
-        /// <param name="roles"> array of string - roles </param>
         /// <returns> jwt token </returns>
-        string GenerateJwtToken(string emailId, int userId, int walletId, string[] roles);
+        string GenerateJwtToken(string emailId, int userId, int walletId);
 
         /// <summary>
         /// Login Method

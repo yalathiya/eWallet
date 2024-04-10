@@ -2,6 +2,7 @@
 using api_eWallet.Common;
 using api_eWallet.Filters;
 using api_eWallet.Models.DTO;
+using api_eWallet.Static;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -41,6 +42,13 @@ namespace api_eWallet.Controllers
         [Route("user")]
         public IActionResult Register([FromBody] DTOUsr01 objDTOUsr01)
         {
+            // Prevalidates
+            bool isPrevalidated = _objBLUser.Prevalidation(objDTOUsr01);
+            if (!isPrevalidated)
+            {
+                return BadRequest("Prevalidation Unsuccessful");
+            }
+
             // Presave
             _objBLUser.Presave(objDTOUsr01);
 
@@ -52,6 +60,7 @@ namespace api_eWallet.Controllers
                 return BadRequest("Validation Unsuccessful");
             }
 
+            // Save ( create )
             _objBLUser.Save(Operation.Create);
 
             return Ok("User Registered");
@@ -66,8 +75,9 @@ namespace api_eWallet.Controllers
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetUserInfo()
         {
-            throw new NotImplementedException();
+            return Ok(_objBLUser.GetUserDetails(HttpContext.GetUserIdFromClaims()));
         }
+    
 
         /// <summary>
         /// Update User Details 

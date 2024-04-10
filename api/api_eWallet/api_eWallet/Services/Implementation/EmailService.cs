@@ -1,22 +1,23 @@
 ﻿using api_eWallet.Services.Interfaces;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.IdentityModel.Tokens;
 
 namespace api_eWallet.Services.Implementation
 {
     /// <summary>
     /// Email Service which implements ISender
     /// </summary>
-    public class EmailService : ISender
+    public class EmailService : IEmailService
     {
         #region Public Members
         
         /// <summary>
         /// Sends Email to user 
         /// </summary>
-        /// <param name="recipientEmail"> recipientEmail </param>
+        /// <param name="email"> recipientEmail </param>
         /// <param name="message"> message </param>
-        public void Send(string message)
+        public void Send(string email, string message)
         {
             try
             {
@@ -25,7 +26,7 @@ namespace api_eWallet.Services.Implementation
                 string senderPassword = "eWallet@7777";
 
                 // fetch from jwt
-                string recipientEmail = "";
+                string recipientEmail = email;
 
                 MailMessage mail = new MailMessage(senderEmail, recipientEmail);
                 mail.Subject = "eWallet Notification";

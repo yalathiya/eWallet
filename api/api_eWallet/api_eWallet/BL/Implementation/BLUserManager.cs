@@ -2,10 +2,10 @@
 using api_eWallet.Common;
 using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
-using api_eWallet.Repository.Implementation;
 using api_eWallet.Repository.Interfaces;
 using api_eWallet.Services.Interfaces;
 using api_eWallet.Static;
+using System.Text.RegularExpressions;
 
 namespace api_eWallet.BL.Implementation
 {
@@ -19,11 +19,16 @@ namespace api_eWallet.BL.Implementation
         // To use Credit Service 
         private IUserRepository _objUserRepo;
 
-        // POCO Moodel
+        /// <summary>
+        /// POCO Model
+        /// </summary>
         private Usr01 _objUsr01;
 
         // Cryptography
         private ICryptography _cryptography;
+
+        // Sender Service
+        private IEmailService _sender;
 
         #endregion
 
@@ -33,10 +38,31 @@ namespace api_eWallet.BL.Implementation
         /// Reference of DI
         /// </summary>
         /// <param name="cryptography"></param>
-        public BLUserManager(ICryptography cryptography, IUserRepository userRepository)
+        /// <param name="userRepository"></param>
+        /// <param name="sender"></param>
+        public BLUserManager(ICryptography cryptography, IUserRepository userRepository, IEmailService sender)
         {
             _cryptography = cryptography;
             _objUserRepo = userRepository;
+            _sender = sender;
+        }
+
+        /// <summary>
+        /// Prevalidates DTO model
+        /// </summary>
+        /// <param name="objDTOUsr01"> DTO model of user </param>
+        /// <returns> true => if validated successfully 
+        ///           false => otherwise
+        /// </returns>
+        public bool Prevalidation(DTOUsr01 objDTOUsr01)
+        {
+            // check email id is available or not 
+            if (!_objUserRepo.IsEmailIdAvailable(objDTOUsr01.r01101))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -54,6 +80,18 @@ namespace api_eWallet.BL.Implementation
         /// <returns>true if validated else false </returns>
         public bool Validate()
         {
+            //validate email id
+            if (!IsEmailValid(_objUsr01.r01f04))
+            {
+                return false;
+            }
+
+            // validate mobile number
+            if (!IsMobileNumber(_objUsr01.r01f07))
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -78,7 +116,11 @@ namespace api_eWallet.BL.Implementation
                 _objUsr01.r01f09 = DateTime.Now;
 
                 // Create entry in database
-                _objUserRepo.RegisterUser(_objUsr01);
+                Dictionary<object, object> dictUserDetails =  _objUserRepo.RegisterUser(_objUsr01);
+
+                // send user id and wallet id to user
+                _sender.Send(_objUsr01.r01f04, $"Welcome to eWallet !! \r\n User Id : {dictUserDetails["r01f01"]} \r\n Wallet Id : {dictUserDetails["t01f01"]}");
+    
             }
             // Update Database Record
             else if (Operation.Update == op)
@@ -87,6 +129,62 @@ namespace api_eWallet.BL.Implementation
 
                 // update entry in database
             }
+        }
+
+        /// <summary>
+        /// Get current user details
+        /// </summary>
+        /// <returns> DTO model of user </returns>
+        public DTOUsr01 GetUserDetails(int id)
+        {
+            // fetch POCO model
+            Usr01 objUsr01 = _objUserRepo.GetUserById(id);
+
+            // convert to DTO model
+            DTOUsr01 objDTOUsr01 = objUsr01.ConvertModel<DTOUsr01>();
+
+            return objDTOUsr01;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Checks is Mobile number contsins 10 digits or not 
+        /// </summary>
+        /// <param name="r01f04"> Mobile Number </param>
+        /// <returns> true for valid mobile number otherwise invalid </returns>
+        private bool IsMobileNumber(string r01f04)
+        {
+            // Regex pattern to check length of digits 
+            Regex mobileNumberPattern = new Regex(@"\d{10}");
+
+            Match match = mobileNumberPattern.Match(r01f04);
+            if (match.Success)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks email id is valid or not 
+        /// </summary>
+        /// <param name="email"> emailId </param>
+        /// <returns> true => if emailId is valid
+        ///           false => otherwise
+        /// </returns>
+        private bool IsEmailValid(string email)
+        {
+            // Regex pattern to validate email address
+            Regex emailPattern = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+
+            // Match the email against the pattern
+            Match match = emailPattern.Match(email);
+
+            // Return true if the email matches the pattern, otherwise false
+            return match.Success;
         }
 
         #endregion

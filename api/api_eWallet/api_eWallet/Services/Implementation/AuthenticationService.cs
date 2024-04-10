@@ -81,9 +81,8 @@ namespace api_eWallet.Services.Implementation
         /// <param name="emailId"></param>
         /// <param name="userId"></param>
         /// <param name="walletId"></param>
-        /// <param name="roles"></param>
         /// <returns> Jwt Token </returns>
-        public string GenerateJwtToken(string emailId, int userId, int walletId, string[] roles)
+        public string GenerateJwtToken(string emailId, int userId, int walletId)
         {
             var issuer = _configuration["JwtSettings:Issuer"];
             var audience = _configuration["JwtSettings:Audience"];

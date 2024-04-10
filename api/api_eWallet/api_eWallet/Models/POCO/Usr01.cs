@@ -15,7 +15,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// user id
         /// </summary>
-        public int r01f01 { get; set; }
+        public int r01f01 { get; set; } 
 
         /// <summary>
         /// hash password

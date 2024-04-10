@@ -2,6 +2,7 @@
 using api_eWallet.Repository.Interfaces;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
+using ServiceStack.OrmLite.Legacy;
 
 namespace api_eWallet.Repository.Implementation
 {
@@ -31,19 +32,26 @@ namespace api_eWallet.Repository.Implementation
         /// Adds user in database 
         /// </summary>
         /// <param name="objUsr01"></param>
-        public void RegisterUser(Usr01 objUsr01)
+        public Dictionary<object, object> RegisterUser(Usr01 objUsr01)
         {
+            Dictionary<object, object> dictionaryUserDetails = new Dictionary<object, object>();
+
             using (var db = _dbFactory.Open())
             {
-                int r101f01 = (int)db.Insert(objUsr01, selectIdentity:true);
+                int r01f01 = (int)db.Insert(objUsr01, selectIdentity:true);
+                dictionaryUserDetails.Add("r01f01", r01f01);
 
                 // Add Wallet Details 
                 Wlt01 objWlt01 = new Wlt01();
-                objWlt01.t01f02 = r101f01;
+                objWlt01.t01f02 = r01f01;
                 objWlt01.t01f05 = DateTime.Now;
                 objWlt01.t01f06 = DateTime.Now;
-                db.Insert(objWlt01);
+                
+                int t01f01 = (int)db.Insert(objWlt01, selectIdentity:true);
+                dictionaryUserDetails.Add("t01f01", t01f01);
             }
+
+            return dictionaryUserDetails;
         }
 
         /// <summary>
@@ -58,6 +66,50 @@ namespace api_eWallet.Repository.Implementation
             {
                 // Check if there exists a user with the provided email and encrypted password
                 return db.Exists<Usr01>(user => user.r01f04 == email && user.r01f03 == encryptedPassword);
+            }
+        }
+
+        /// <summary>
+        /// Is Email Id available or not ?
+        /// </summary>
+        /// <param name="email"> email id </param>
+        /// <returns> true => If user can use that email id
+        ///           false => otherwise 
+        /// </returns>
+        public bool IsEmailIdAvailable(string email)
+        {
+            using (var db = _dbFactory.Open())
+            {
+                bool isPresentInDatabase = db.Exists<Usr01>(user => user.r01f04 == email);
+                return !isPresentInDatabase;
+            }
+        }
+        
+        /// <summary>
+        /// Get user by user Id
+        /// </summary>
+        /// <returns> POCO Model of user </returns>
+        public Usr01 GetUserById(int id)
+        {
+            using (var db = _dbFactory.Open())
+            {
+                Usr01 objUsr01 = db.SingleById<Usr01>(id);
+
+                return objUsr01;
+            }
+        }
+
+        /// <summary>
+        /// Get user id from email id
+        /// </summary>
+        /// <param name="email"> email id </param>
+        /// <returns> user id </returns>
+        public int GetUserId(string email)
+        {
+            using(var db = _dbFactory.Open())
+            {
+                int userId = db.Scalar<int>($"SELECT r01f01 FROM Usr01 WHERE r01f04 = {email}");
+                return userId;
             }
         }
 

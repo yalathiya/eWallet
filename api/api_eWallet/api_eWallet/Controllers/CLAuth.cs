@@ -44,9 +44,7 @@ namespace api_eWallet.Controllers
                 return BadRequest("Credential is incorrect");
             }
 
-            string[] roles = { "User" };
-
-            var token = _auth.GenerateJwtToken(objDTOLog01.g01101, 1, 101, roles);
+            var token = _auth.GenerateJwtToken(objDTOLog01.g01101, , 101);
 
             return Ok(token);
         }
