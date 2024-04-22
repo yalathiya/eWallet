@@ -12,12 +12,15 @@ namespace api_eWallet.Repository.Implementation
     public class UserRepository : IUserRepository
     {
         #region Private Members
-
+        
+        /// <summary>
+        /// OrmLite Connection Factory
+        /// </summary>
         private readonly IDbConnectionFactory _dbFactory;
 
         #endregion
 
-        #region Public Members
+        #region Constructor
 
         /// <summary>
         /// Reference of dbFactory
@@ -27,6 +30,10 @@ namespace api_eWallet.Repository.Implementation
         {
             _dbFactory = dbFactory;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Adds user in database 

@@ -34,11 +34,13 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Created on
         /// </summary>
+        [IgnoreOnUpdate]
         public DateTime t01f05 { get; set; }
 
         /// <summary>
         /// Updated on
         /// </summary>
+        [IgnoreOnInsert]
         public DateTime t01f06 { get; set; }
 
         #endregion

@@ -13,11 +13,14 @@ namespace api_eWallet.Controllers
     {
         #region Private Members
 
+        /// <summary>
+        /// Implemnts  IAuthentication interface
+        /// </summary>
         private IAuthentication _auth;
 
         #endregion
 
-        #region Public Members
+        #region Constructor
 
         /// <summary>
         /// Constructor Injection
@@ -27,6 +30,10 @@ namespace api_eWallet.Controllers
         {
             _auth = authentication;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Authenticates user credential

@@ -10,7 +10,7 @@ using ServiceStack.OrmLite;
 using System.Reflection;
 using System.Security.Claims;
 
-namespace api_eWallet.Static
+namespace api_eWallet.Utilities
 {
     /// <summary>
     /// Contains all necessary utilies within web api 
@@ -18,7 +18,7 @@ namespace api_eWallet.Static
     public static class Utility
     {
 
-        #region Extension Methods
+        #region Public Methods
 
         /// <summary>
         /// extension methos which register all services in DI container 
@@ -38,7 +38,7 @@ namespace api_eWallet.Static
             // Configure IDbConnectionFactory
             services.AddSingleton<IDbConnectionFactory>(c =>
                 new OrmLiteConnectionFactory(
-                    Static.DbConnection.GetConnectionString(),
+                    DbConnection.GetConnectionString(),
                     MySqlDialect.Provider));
 
             // Register Authentication Service 
@@ -50,7 +50,7 @@ namespace api_eWallet.Static
             // Adding BLUser
             services.AddScoped<IBLUser, BLUserManager>();
 
-            return services; // This allows chaining of registrations
+            return services; 
         }
 
         /// <summary>
@@ -90,6 +90,11 @@ namespace api_eWallet.Static
             return targetModel;
         }
 
+        /// <summary>
+        /// Extension method to get user id from jwt claims
+        /// </summary>
+        /// <param name="httpContext"> http context </param>
+        /// <returns> user id </returns>
         public static int GetUserIdFromClaims(this HttpContext httpContext)
         {
             var principal = httpContext.User as ClaimsPrincipal;
@@ -98,68 +103,30 @@ namespace api_eWallet.Static
             return Convert.ToInt32(userIdClaim.Value);
         }
 
-        #endregion
-
-        #region Static Methods
-
         /// <summary>
-        /// Get userid from jwt token claim
+        /// Extension method to get wallet id from jwt claims
         /// </summary>
-        /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
-        /// <returns>userid (r01f01)</returns>
-        /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static int GetUserIdFromClaims(IHttpContextAccessor httpContextAccessor)
+        /// <param name="httpContext"> http context </param>
+        /// <returns> wallet id </returns>
+        public static int GetWalletIdFromClaims(this HttpContext httpContext)
         {
-            var _accessor = httpContextAccessor;
-            string userId = _accessor.HttpContext?.User.FindFirstValue("jwt_userId");
-            return Convert.ToInt32(userId);
+            var principal = httpContext.User as ClaimsPrincipal;
+            var userIdClaim = principal.FindFirst(c => c.Type == "jwt_walletId");
+
+            return Convert.ToInt32(userIdClaim.Value);
         }
 
         /// <summary>
-        /// Get Wallet ID from jwt token claim
+        /// Extension method to get user id from jwt claims
         /// </summary>
-        /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
-        /// <returns>userid (r01f01)</returns>
-        /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static int GetWalletIdFromClaims()
+        /// <param name="httpContext"> http context </param>
+        /// <returns> email id </returns>
+        public static string GetEmailIdFromClaims(this HttpContext httpContext)
         {
-            var httpContextAccessor = new HttpContextAccessor();
-
-            var claimsIdentity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
-            var walletIdClaim = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "jwt_walletId");
-
-            if (walletIdClaim != null && int.TryParse(walletIdClaim.Value, out int walletId))
-            {
-                return walletId;
-            }
-
-            // Handle the case when the user ID is not found in claims or cannot be parsed
-            throw new InvalidOperationException("User ID not found in claims or invalid.");
-
-        }
-
-        /// <summary>
-        /// Get Email ID from jwt token claim
-        /// </summary>
-        /// <param name="httpContextAccessor">The HttpContextAccessor instance to access HttpContext</param>
-        /// <returns>userid (r01f01)</returns>
-        /// <exception cref="InvalidOperationException">If issue related to find claim</exception>
-        public static string GetEmailIdFromClaims()
-        {
-            var httpContextAccessor = new HttpContextAccessor();
-
-            var claimsIdentity = httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
-            var emailIdClaim = claimsIdentity?.Claims.FirstOrDefault(c => c.Type == "jwt_emailId");
-
-            if (emailIdClaim != null)
-            {
-                string emailId = emailIdClaim.Value;
-                return emailId;
-            }
-
-            // Handle the case when the user ID is not found in claims or cannot be parsed
-            throw new InvalidOperationException("User ID not found in claims or invalid.");
-
+            var principal = httpContext.User as ClaimsPrincipal;
+            var userIdClaim = principal.FindFirst(c => c.Type == "jwt_eamilId");
+        
+            return userIdClaim.Value;
         }
 
         #endregion

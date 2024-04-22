@@ -1,4 +1,7 @@
-﻿namespace api_eWallet.Models.DTO
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+
+namespace api_eWallet.Models.DTO
 {
     /// <summary>
     /// Class of DTO model of login
@@ -10,12 +13,17 @@
         /// <summary>
         /// email Id
         /// </summary>
-        public string g01101 { get; set; }
+        [Required(ErrorMessage = "EmailId required")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email id")]
+        [JsonProperty("g01101")]
+        public string g01f01 { get; set; }
 
         /// <summary>
         /// password
         /// </summary>
-        public string g01102 { get; set; }
+        [Required(ErrorMessage = "Password required")]
+        [JsonProperty("g01102")]
+        public string g01f02 { get; set; }
 
         #endregion
 

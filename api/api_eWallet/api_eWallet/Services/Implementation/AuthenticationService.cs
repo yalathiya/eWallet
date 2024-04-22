@@ -12,15 +12,30 @@ namespace api_eWallet.Services.Implementation
     public class AuthenticationService : IAuthentication
     {
         #region Private Members 
-
+        
+        /// <summary>
+        /// Jwt Token Handler
+        /// </summary>
         private readonly JwtSecurityTokenHandler _tokenHandler;
+
+        /// <summary>
+        /// Server configurations
+        /// </summary>
         private readonly IConfiguration _configuration;
+        
+        /// <summary>
+        /// Implements user repository
+        /// </summary>
         private readonly IUserRepository _userRepository;
+        
+        /// <summary>
+        /// Implements Cryptography
+        /// </summary>
         private readonly ICryptography _cryptography;
 
         #endregion
 
-        #region Public Members
+        #region Constructor
 
         /// <summary>
         /// Take reference of DI from IoC
@@ -37,6 +52,10 @@ namespace api_eWallet.Services.Implementation
             _userRepository = userRepository;
             _cryptography = cryptography;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Validates token 

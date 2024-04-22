@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Common;
+using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 
 namespace api_eWallet.BL.Interfaces
@@ -8,6 +9,8 @@ namespace api_eWallet.BL.Interfaces
     /// </summary>
     public interface IBLUser
     {
+        #region Public Methods
+
         /// <summary>
         /// Prevalidates DTO model
         /// </summary>
@@ -15,7 +18,7 @@ namespace api_eWallet.BL.Interfaces
         /// <returns> true => if validated successfully 
         ///           false => otherwise
         /// </returns>
-        bool Prevalidation(DTOUsr01 objDTOUsr01);
+        Response Prevalidation(DTOUsr01 objDTOUsr01);
 
         /// <summary>
         /// Convert DTO model to POCO Model 
@@ -27,7 +30,7 @@ namespace api_eWallet.BL.Interfaces
         /// Validate POCO Model 
         /// </summary>
         /// <returns>true if validated else false </returns>
-        bool Validate();
+        Response Validate();
 
         /// <summary>
         /// Add or update user as per operation  
@@ -35,12 +38,14 @@ namespace api_eWallet.BL.Interfaces
         /// <param name="opeartion"> Create => Create database record
         ///                          Update  => Update database record
         /// </param>
-        void Save(Operation op);
+        Response Save(Operation op);
         
         /// <summary>
         /// Get Current User Details
         /// </summary>
         /// <returns> DTO model of user </returns>
         DTOUsr01 GetUserDetails(int userId);
+
+        #endregion
     }
 }

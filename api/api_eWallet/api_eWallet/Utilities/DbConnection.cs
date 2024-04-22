@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 
-namespace api_eWallet.Static
+namespace api_eWallet.Utilities
 {
     /// <summary>
     /// Provides Database Connection
@@ -9,12 +9,14 @@ namespace api_eWallet.Static
     {
         #region Private Members
 
-        // reference of configuration
+        /// <summary>
+        /// reference of configuration
+        /// </summary>
         private static readonly IConfiguration _configuration;
 
         #endregion
 
-        #region Static Members
+        #region Constructors
 
         /// <summary>
         /// Collects data from appSettings.json file
@@ -27,6 +29,10 @@ namespace api_eWallet.Static
                 .AddJsonFile("appSettings.json", optional: false, reloadOnChange: true)
                 .Build();
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Establishes the MySqlConnection
@@ -56,6 +62,5 @@ namespace api_eWallet.Static
         }
 
         #endregion
-
     }
 }

@@ -10,7 +10,7 @@ namespace api_eWallet.Services.Implementation
     /// </summary>
     public class EmailService : IEmailService
     {
-        #region Public Members
+        #region Public Methods
         
         /// <summary>
         /// Sends Email to user 

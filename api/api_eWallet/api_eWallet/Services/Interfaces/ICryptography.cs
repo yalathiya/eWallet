@@ -5,7 +5,7 @@
     /// </summary>
     public interface ICryptography
     {
-        #region Abstract Methods
+        #region Public Methods
 
         /// <summary>
         /// To encrypt data

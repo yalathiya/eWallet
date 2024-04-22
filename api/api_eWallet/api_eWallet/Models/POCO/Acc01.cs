@@ -1,5 +1,4 @@
-﻿using api_eWallet.Common;
-using ServiceStack.DataAnnotations;
+﻿using ServiceStack.DataAnnotations;
 
 namespace api_eWallet.Models.POCO
 {
@@ -29,16 +28,18 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Currency
         /// </summary>
-        public Currency c01f05 { get; set; }
+        public string c01f05 { get; set; }
 
         /// <summary>
         /// Created On
         /// </summary>
+        [IgnoreOnUpdate]
         public DateTime c01f06 { get; set; }
 
         /// <summary>
         /// Updated on
         /// </summary>
+        [IgnoreOnInsert]
         public int c01f07 { get; set; }
 
         #endregion

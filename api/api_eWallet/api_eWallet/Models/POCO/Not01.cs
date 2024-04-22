@@ -28,6 +28,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Created on        
         /// </summary>
+        [IgnoreOnUpdate]
         public DateTime t01f04 { get; set; }
 
         #endregion

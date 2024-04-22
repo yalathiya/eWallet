@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace api_eWallet.Models.DTO
 {
@@ -10,34 +11,49 @@ namespace api_eWallet.Models.DTO
         #region Public Members
 
         /// <summary>
-        /// Email Id
+        /// user id
         /// </summary>
-        [JsonProperty("r01f04")]
-        public string r01101 { get; set; }
+        [Required(ErrorMessage = "userid required")]
+        [Range(0, int.MaxValue, ErrorMessage = "incorrect format of userid")]
+        [JsonProperty("r01101")]
+        public int r01f01 { get; set; }
 
         /// <summary>
         /// Password
         /// </summary>
-        [JsonProperty("r01f03")]
-        public string r01102 { get; set; }
+        [Required(ErrorMessage = "userid required")]
+        [JsonProperty("r01102")]
+        public string r01f03 { get; set; }
+
+        /// <summary>
+        /// Email Id
+        /// </summary>
+        [Required(ErrorMessage = "email-id required")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "invalid email id")]
+        [JsonProperty("r01103")]
+        public string r01f04 { get; set; }
 
         /// <summary>
         /// First Name
         /// </summary>
-        [JsonProperty("r01f05")]
-        public string r01103 { get; set; }
+        [Required(ErrorMessage = "first name required")]
+        [JsonProperty("r01104")]
+        public string r01f05 { get; set; }
 
         /// <summary>
         /// Last Name
         /// </summary>
-        [JsonProperty("r01f06")]
-        public string r01104 { get; set; }
+        [Required(ErrorMessage = "last name required")]
+        [JsonProperty("r01105")]
+        public string r01f06 { get; set; }
 
         /// <summary>
         /// Mobile Number
         /// </summary>
-        [JsonProperty("r01f07")]
-        public string r01105 { get; set; }
+        [Required(ErrorMessage = "mobile number required")]
+        [RegularExpression(@"^\d{10}$", ErrorMessage = "invalid mobile number")]
+        [JsonProperty("r01106")]
+        public string r01f07 { get; set; }
 
         #endregion
 

@@ -9,9 +9,8 @@ namespace api_eWallet.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class CLAdditional : ControllerBase
-    {
-        
-        #region Public Members
+    {        
+        #region Public Methods
 
         /// <summary>
         /// Redirects to api documentation for help

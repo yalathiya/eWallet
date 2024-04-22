@@ -4,7 +4,6 @@ using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
 using api_eWallet.Repository.Interfaces;
 using api_eWallet.Services.Interfaces;
-using api_eWallet.Static;
 using System.Text.RegularExpressions;
 
 namespace api_eWallet.BL.Implementation
@@ -16,7 +15,9 @@ namespace api_eWallet.BL.Implementation
     {
         #region Private Members
 
-        // To use Credit Service 
+        /// <summary>
+        /// To use Credit Service 
+        /// </summary>
         private IUserRepository _objUserRepo;
 
         /// <summary>
@@ -24,15 +25,19 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private Usr01 _objUsr01;
 
-        // Cryptography
+        /// <summary>
+        /// Cryptography
+        /// </summary>
         private ICryptography _cryptography;
 
-        // Sender Service
+        /// <summary>
+        /// Sender Service
+        /// </summary>
         private IEmailService _sender;
 
         #endregion
 
-        #region Public Members 
+        #region Constructor 
 
         /// <summary>
         /// Reference of DI
@@ -46,6 +51,10 @@ namespace api_eWallet.BL.Implementation
             _objUserRepo = userRepository;
             _sender = sender;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Prevalidates DTO model

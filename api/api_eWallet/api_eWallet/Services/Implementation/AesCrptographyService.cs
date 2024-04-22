@@ -11,14 +11,24 @@ namespace api_eWallet.Services.Implementation
     {
         #region Private Members 
 
-        // AES Crypto Service Provider class implements logic of AES Algorithm
+        /// <summary>
+        /// AES Crypto Service Provider class implements logic of AES Algorithm
+        /// </summary>
         private AesCryptoServiceProvider _aes;
+        
+        /// <summary>
+        /// Key of AES algorithm
+        /// </summary>
         private byte[] key = Encoding.UTF8.GetBytes("IamPrivateKeyofEWalletApi1234123");
+        
+        /// <summary>
+        /// Initial vector for AES algorithm
+        /// </summary>
         private byte[] iv = Encoding.UTF8.GetBytes("IamInitialVector");
 
         #endregion
 
-        #region Public Members 
+        #region Constructor
 
         /// <summary>
         /// Provide Instance to class
@@ -29,6 +39,10 @@ namespace api_eWallet.Services.Implementation
             _aes.Key = key;
             _aes.IV = iv;
         }
+
+        #endregion
+
+        #region Public Members
 
         /// <summary>
         /// To encrypt data

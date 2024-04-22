@@ -5,7 +5,7 @@
     /// </summary>
     public interface IEmailService
     {
-        #region Abstract Methods
+        #region Public Methods
 
         /// <summary>
         /// Sending message to user

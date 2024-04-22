@@ -10,12 +10,15 @@ namespace api_eWallet.Filters
     public class JwtAuthenticationFilter : IAuthorizationFilter
     {
         #region Private Members
-
+        
+        /// <summary>
+        /// Implements IAuthentication interface
+        /// </summary>
         private readonly IAuthentication _authService;
 
         #endregion
 
-        #region Public Members
+        #region Constructor
 
         /// <summary>
         /// Reference of IoC

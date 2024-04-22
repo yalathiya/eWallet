@@ -5,5 +5,9 @@
     /// </summary>
     public interface IBLAuth
     {
+        #region Public Methods
+
+
+        #endregion
     }
 }

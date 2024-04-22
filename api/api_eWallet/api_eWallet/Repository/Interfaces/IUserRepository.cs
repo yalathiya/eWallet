@@ -7,7 +7,7 @@ namespace api_eWallet.Repository.Interfaces
     /// </summary>
     public interface IUserRepository
     {
-        #region Abstract Methods
+        #region Public Methods
 
         /// <summary>
         /// Add user in database

@@ -7,7 +7,7 @@ namespace api_eWallet.Services.Interfaces
     /// </summary>
     public interface IAuthentication
     {
-        #region Abstract Methods
+        #region Public Methods
 
         /// <summary>
         /// Validate jwt token 

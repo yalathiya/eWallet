@@ -2,7 +2,7 @@
 using api_eWallet.Common;
 using api_eWallet.Filters;
 using api_eWallet.Models.DTO;
-using api_eWallet.Static;
+using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -15,12 +15,15 @@ namespace api_eWallet.Controllers
     public class CLUser : ControllerBase
     {
         #region Private Members
-
+        
+        /// <summary>
+        /// Implements IBLInterface 
+        /// </summary>
         private IBLUser _objBLUser;
 
         #endregion
 
-        #region Public Methods
+        #region Constructor
 
         /// <summary>
         /// Reference from DI
@@ -30,6 +33,10 @@ namespace api_eWallet.Controllers
         {
             _objBLUser = objBLUser;
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// For User Registration
