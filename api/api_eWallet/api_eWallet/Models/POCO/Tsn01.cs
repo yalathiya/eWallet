@@ -13,47 +13,47 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Transaction Id
         /// </summary>
-        public int n01f01 { get; set; }
+        public int N01f01 { get; set; }
 
         /// <summary>
         /// Wallet Id
         /// </summary>
-        public int n01f02 { get; set; }
+        public int N01f02 { get; set; }
 
         /// <summary>
         /// from user Id
         /// </summary>
-        public int n01f03 { get; set; }
+        public int N01f03 { get; set; }
 
         /// <summary>
         /// to user Id
         /// </summary>
-        public int n01f04 { get; set; }
+        public int N01f04 { get; set; }
 
         /// <summary>
         /// Amount
         /// </summary>
-        public double n01f05 { get; set; }
+        public double N01f05 { get; set; }
 
         /// <summary>
         /// Transaction Type
         /// </summary>
-        public string n01f06 { get; set; }
+        public string N01f06 { get; set; }
 
         /// <summary>
         /// Transaction Fee
         /// </summary>
-        public double n01f07 { get; set; }
+        public double N01f07 { get; set; }
 
         /// <summary>
         /// Description of Transaction
         /// </summary>
-        public string n01f08 { get; set; }
+        public string N01f08 { get; set; }
 
         /// <summary>
         /// Created on
         /// </summary>
-        public DateTime n01f09 { get; set; }
+        public DateTime N01f09 { get; set; }
 
         #endregion
 

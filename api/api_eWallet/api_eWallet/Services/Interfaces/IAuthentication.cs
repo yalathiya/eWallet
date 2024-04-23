@@ -25,14 +25,6 @@ namespace api_eWallet.Services.Interfaces
         /// <returns> jwt token </returns>
         string GenerateJwtToken(string emailId, int userId, int walletId);
 
-        /// <summary>
-        /// Login Method
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        bool Login(string email, string password);
-
         #endregion
 
     }

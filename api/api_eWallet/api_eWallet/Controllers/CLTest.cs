@@ -2,6 +2,7 @@
 using api_eWallet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using System.Data.Common;
 
 namespace api_eWallet.Controllers
 {
@@ -22,7 +23,7 @@ namespace api_eWallet.Controllers
         [Route("TestConnection")]
         public IActionResult TestConnection()
         {
-            using(MySqlConnection con = Static.DbConnection.CreateConnection())
+            using (MySqlConnection con = new MySqlConnection(Utilities.DbConnection.GetConnectionString()))
             {
                 con.Open();
             }

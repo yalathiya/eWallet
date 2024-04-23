@@ -1,7 +1,6 @@
 ﻿using api_eWallet.Services.Interfaces;
-using System.Net.Mail;
 using System.Net;
-using Microsoft.IdentityModel.Tokens;
+using System.Net.Mail;
 
 namespace api_eWallet.Services.Implementation
 {

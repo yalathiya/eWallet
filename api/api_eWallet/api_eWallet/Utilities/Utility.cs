@@ -1,12 +1,15 @@
 ﻿using api_eWallet.BL.Implementation;
 using api_eWallet.BL.Interfaces;
-using api_eWallet.Repository.Implementation;
-using api_eWallet.Repository.Interfaces;
+using api_eWallet.DL.Implementation;
+using api_eWallet.DL.Interfaces;
+using api_eWallet.Models;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
 using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
+using System.Data;
+using System.Net;
 using System.Reflection;
 using System.Security.Claims;
 
@@ -31,9 +34,6 @@ namespace api_eWallet.Utilities
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
 
-            // Register User Repository Service 
-            services.AddSingleton<IUserRepository, UserRepository>();
-
             // Connecting to OrmLite
             // Configure IDbConnectionFactory
             services.AddSingleton<IDbConnectionFactory>(c =>
@@ -47,8 +47,14 @@ namespace api_eWallet.Utilities
             // Register Email Service 
             services.AddSingleton<IEmailService, EmailService>();
 
-            // Adding BLUser
-            services.AddScoped<IBLUser, BLUserManager>();
+            // Adding BLUserHandler
+            services.AddScoped<IBLUserHandler, BLUserHandler>();
+
+            // Adding BLAuthHandler
+            services.AddScoped<IBLAuthHandler, BLAuthHandler>();
+
+            // Adding DbUsr01Context
+            services.AddScoped<IDbUsr01Context, DbUsr01Context>();
 
             return services; 
         }
@@ -127,6 +133,59 @@ namespace api_eWallet.Utilities
             var userIdClaim = principal.FindFirst(c => c.Type == "jwt_eamilId");
         
             return userIdClaim.Value;
+        }
+
+
+        /// <summary>
+        /// Set Response message 
+        /// </summary>
+        /// <param name="response"> response object</param>
+        /// <param name="isErrorFlag"> error flag </param>
+        /// <param name="statusCode"> status code </param>
+        /// <param name="message"> message </param>
+        /// <param name="data"> data </param>
+        public static void SetResponse(this Response response, bool isErrorFlag, HttpStatusCode statusCode, string message, object data)
+        {
+            response.HasError = isErrorFlag;
+            response.StatusCode = statusCode;
+            response.Message = message;
+            response.Data = data ;
+        }
+
+        /// <summary>
+        /// Set Response message which does not consist error 
+        /// </summary>
+        /// <param name="response"> response object</param>
+        /// <param name="statusCode"> status code </param>
+        /// <param name="message"> message </param>
+        /// <param name="data"> data </param>
+        public static void SetResponse(this Response response, HttpStatusCode statusCode, string message, object data)
+        {
+            response.StatusCode = statusCode;
+            response.Message = message;
+            response.Data = data;
+        }
+
+        /// <summary>
+        /// Set response message with default status code
+        /// </summary>
+        /// <param name="response"> response object </param>
+        /// <param name="message"> message </param>
+        /// <param name="data"> data </param>
+        public static void SetResponse(this Response response, string message, object data)
+        {
+            response.Message = message;
+            response.Data = data;
+        }
+
+        /// <summary>
+        /// Set response message with default status code
+        /// </summary>
+        /// <param name="response"> response object </param>
+        /// <param name="message"> message </param>
+        public static void SetResponse(this Response response, string message)
+        {
+            response.Message = message;
         }
 
         #endregion

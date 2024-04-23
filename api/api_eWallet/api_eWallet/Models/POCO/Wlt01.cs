@@ -1,4 +1,4 @@
-﻿using api_eWallet.Common;
+﻿using api_eWallet.Utilities;
 using ServiceStack.DataAnnotations;
 
 namespace api_eWallet.Models.POCO
@@ -14,34 +14,34 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Wallet id
         /// </summary>
-        public int t01f01 { get; set; }
+        public int T01f01 { get; set; }
 
         /// <summary>
         /// user id
         /// </summary>
-        public int t01f02 { get; set; }
+        public int T01f02 { get; set; }
 
         /// <summary>
         /// current balance
         /// </summary>
-        public double t01f03 { get; set; }
+        public double T01f03 { get; set; }
 
         /// <summary>
-        /// currency
+        /// EnmCurrency
         /// </summary>
-        public Currency t01f04 { get; set; }
+        public string T01f04 { get; set; } 
 
         /// <summary>
         /// Created on
         /// </summary>
         [IgnoreOnUpdate]
-        public DateTime t01f05 { get; set; }
+        public DateTime T01f05 { get; set; }
 
         /// <summary>
         /// Updated on
         /// </summary>
         [IgnoreOnInsert]
-        public DateTime t01f06 { get; set; }
+        public DateTime T01f06 { get; set; }
 
         #endregion
 

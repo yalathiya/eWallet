@@ -13,34 +13,34 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Account Number
         /// </summary>
-        public int c01f01 { get; set; }
+        public int C01f01 { get; set; }
 
         /// <summary>
         /// User Id
         /// </summary>
-        public int c01f02 { get; set; }
+        public int C01f02 { get; set; }
 
         /// <summary>
         /// Current Balance
         /// </summary>
-        public double c01f03 { get; set; }
+        public double C01f03 { get; set; }
 
         /// <summary>
-        /// Currency
+        /// EnmCurrency
         /// </summary>
-        public string c01f05 { get; set; }
+        public string C01f04 { get; set; }
 
         /// <summary>
         /// Created On
         /// </summary>
         [IgnoreOnUpdate]
-        public DateTime c01f06 { get; set; }
+        public DateTime C01f05 { get; set; }
 
         /// <summary>
         /// Updated on
         /// </summary>
         [IgnoreOnInsert]
-        public int c01f07 { get; set; }
+        public int C01f06 { get; set; }
 
         #endregion
 

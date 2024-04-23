@@ -13,44 +13,44 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// user id
         /// </summary>
-        public int r01f01 { get; set; } 
+        public int R01f01 { get; set; } 
 
         /// <summary>
         /// hash password
         /// </summary>
-        public string r01f03 { get; set; }
+        public string R01f03 { get; set; }
 
         /// <summary>
         /// email id
         /// </summary>
-        public string r01f04 { get; set; }
+        public string R01f04 { get; set; }
 
         /// <summary>
         /// first name
         /// </summary>
-        public string r01f05 { get; set; }
+        public string R01f05 { get; set; }
 
         /// <summary>
         /// last name        
         /// </summary>
-        public string r01f06 { get; set; }
+        public string R01f06 { get; set; }
 
         /// <summary>
         /// mobile number
         /// </summary>
-        public string r01f07 { get; set; }
+        public string R01f07 { get; set; }
 
         /// <summary>
         /// created on
         /// </summary>
         [IgnoreOnUpdate]
-        public DateTime r01f08 { get; set; }
+        public DateTime R01f08 { get; set; }
 
         /// <summary>
         /// updated on
         /// </summary>
         [IgnoreOnInsert]
-        public DateTime r01f09 { get; set; }
+        public DateTime R01f09 { get; set; }
 
         #endregion
 

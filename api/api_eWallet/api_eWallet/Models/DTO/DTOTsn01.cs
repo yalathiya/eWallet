@@ -14,7 +14,7 @@ namespace api_eWallet.Models.DTO
         /// Transaction Id
         /// </summary>
         [JsonProperty("n01101")]
-        public int n01f01 { get; set; }
+        public int N01f01 { get; set; }
 
         /// <summary>
         /// Wallet Id
@@ -22,7 +22,7 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "wallet id required")]
         [Range(0, int.MaxValue, ErrorMessage = "Invalid Wallet id")]
         [JsonProperty("n01102")]
-        public int n01f02 { get; set; }
+        public int N01f02 { get; set; }
 
         /// <summary>
         /// from user id
@@ -30,7 +30,7 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "from-userid required")]
         [Range(0, int.MaxValue, ErrorMessage = "Invalid from-user-id")]
         [JsonProperty("n01103")]
-        public int n01f03 { get; set; }
+        public int N01f03 { get; set; }
 
         /// <summary>
         /// to user id
@@ -38,7 +38,7 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "too-userid required")]
         [Range(0, int.MaxValue, ErrorMessage = "Invalid to-userid")]
         [JsonProperty("n01104")]
-        public int n01f04 { get; set; }
+        public int N01f04 { get; set; }
 
         /// <summary>
         /// Amount
@@ -46,14 +46,14 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "Amount Required")]
         [Range(0, double.MaxValue, ErrorMessage = "Invalid amount")]
         [JsonProperty("n01105")]
-        public double n01f05 { get; set; }
+        public double N01f05 { get; set; }
 
         /// <summary>
         /// Transaction Type
         /// </summary>     
         [Required(ErrorMessage = "Transaction Type Required")]
         [JsonProperty("n01106")]
-        public string n01f06 { get; set; }
+        public string N01f06 { get; set; }
 
         /// <summary>
         /// Transaction Fee
@@ -61,13 +61,13 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "Transaction Fees Required")]
         [Range(0, double.MaxValue, ErrorMessage = "Invalid Transaction Fees")]
         [JsonProperty("n01107")]
-        public double n01f07 { get; set; }
+        public double N01f07 { get; set; }
 
         /// <summary>
         /// Description of Transaction
         /// </summary>
         [JsonProperty("n01108")]
-        public int n01f08 { get; set; }
+        public int N01f08 { get; set; }
 
         #endregion
 

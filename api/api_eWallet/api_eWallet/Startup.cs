@@ -1,5 +1,5 @@
 ﻿using api_eWallet.Filters;
-using api_eWallet.Static;
+using api_eWallet.Utilities;
 
 namespace api_eWallet
 {
@@ -17,7 +17,6 @@ namespace api_eWallet
 
             // Add all services in DI Container 
             services.AddMyServices();
-            
         }
 
         public void Configure(IApplicationBuilder app)

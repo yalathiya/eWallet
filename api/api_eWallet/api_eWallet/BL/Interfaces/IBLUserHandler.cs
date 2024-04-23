@@ -1,14 +1,25 @@
-﻿using api_eWallet.Common;
-using api_eWallet.Models;
+﻿using api_eWallet.Models;
 using api_eWallet.Models.DTO;
+using api_eWallet.Utilities;
 
 namespace api_eWallet.BL.Interfaces
 {
     /// <summary>
     /// Interface for BLUserManager
     /// </summary>
-    public interface IBLUser
+    public interface IBLUserHandler
     {
+        #region Public Members
+
+        /// <summary>
+        /// Type of operation 
+        /// C => Create
+        /// U => Update
+        /// </summary>
+        EnmOperation EnmOperation { get; set; }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -33,18 +44,15 @@ namespace api_eWallet.BL.Interfaces
         Response Validate();
 
         /// <summary>
-        /// Add or update user as per operation  
+        /// Add or update user as per EnmOperation  
         /// </summary>
-        /// <param name="opeartion"> Create => Create database record
-        ///                          Update  => Update database record
-        /// </param>
-        Response Save(Operation op);
+        Response Save();
         
         /// <summary>
         /// Get Current User Details
         /// </summary>
         /// <returns> DTO model of user </returns>
-        DTOUsr01 GetUserDetails(int userId);
+        Response GetUserDetails();
 
         #endregion
     }

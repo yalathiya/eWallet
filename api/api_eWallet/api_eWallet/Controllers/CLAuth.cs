@@ -1,5 +1,5 @@
-﻿using api_eWallet.Models.DTO;
-using api_eWallet.Services.Interfaces;
+﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -14,9 +14,9 @@ namespace api_eWallet.Controllers
         #region Private Members
 
         /// <summary>
-        /// Implemnts  IAuthentication interface
+        /// Implemnts  IBLAuthHandler interface
         /// </summary>
-        private IAuthentication _auth;
+        private IBLAuthHandler _objBLAuthHandler;
 
         #endregion
 
@@ -26,9 +26,9 @@ namespace api_eWallet.Controllers
         /// Constructor Injection
         /// </summary>
         /// <param name="authentication"> IAuthentication </param>
-        public CLAuth(IAuthentication authentication)
+        public CLAuth(IBLAuthHandler objBLAuthHandler)
         {
-            _auth = authentication;
+            _objBLAuthHandler = objBLAuthHandler;
         }
 
         #endregion
@@ -46,14 +46,7 @@ namespace api_eWallet.Controllers
         [Route("")]
         public IActionResult Login([FromBody] DTOLog01 objDTOLog01)
         {
-            if(!_auth.Login(objDTOLog01.g01101, objDTOLog01.g01102))
-            {
-                return BadRequest("Credential is incorrect");
-            }
-
-            var token = _auth.GenerateJwtToken(objDTOLog01.g01101, , 101);
-
-            return Ok(token);
+            return Ok(_objBLAuthHandler.Login(objDTOLog01.G01f01, objDTOLog01.G01f02));
         }
 
         #endregion

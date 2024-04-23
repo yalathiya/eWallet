@@ -1,5 +1,4 @@
-﻿using api_eWallet.Repository.Interfaces;
-using api_eWallet.Services.Interfaces;
+﻿using api_eWallet.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -22,16 +21,6 @@ namespace api_eWallet.Services.Implementation
         /// Server configurations
         /// </summary>
         private readonly IConfiguration _configuration;
-        
-        /// <summary>
-        /// Implements user repository
-        /// </summary>
-        private readonly IUserRepository _userRepository;
-        
-        /// <summary>
-        /// Implements Cryptography
-        /// </summary>
-        private readonly ICryptography _cryptography;
 
         #endregion
 
@@ -41,16 +30,11 @@ namespace api_eWallet.Services.Implementation
         /// Take reference of DI from IoC
         /// </summary>
         /// <param name="configuration"></param>
-        /// <param name="userRepository"></param>
         /// <param name="cryptography"></param>
-        public AuthenticationService(IConfiguration configuration, 
-                                     IUserRepository userRepository,
-                                     ICryptography cryptography)
+        public AuthenticationService(IConfiguration configuration)
         {
             _configuration = configuration;
             _tokenHandler = new JwtSecurityTokenHandler();
-            _userRepository = userRepository;
-            _cryptography = cryptography;
         }
 
         #endregion
@@ -117,11 +101,6 @@ namespace api_eWallet.Services.Implementation
                 new Claim("jwt_walletId", Convert.ToString(walletId)),
             };
 
-            foreach (var role in roles)
-            {
-                claims.Append(new Claim(ClaimTypes.Role, role));
-            }
-
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
@@ -131,25 +110,6 @@ namespace api_eWallet.Services.Implementation
             );
 
             return _tokenHandler.WriteToken(token);
-        }
-
-        /// <summary>
-        /// Login Method 
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
-        public bool Login(string email, string password)
-        {
-            string encryptedPassword = _cryptography.Encrypt(password);
-
-            if(_userRepository.IsCredentialCorrect(email, encryptedPassword))
-            {
-                // Login successful
-                return true;
-            }
-
-            return false; // Login failed
         }
 
         #endregion

@@ -16,14 +16,14 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "EmailId required")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email id")]
         [JsonProperty("g01101")]
-        public string g01f01 { get; set; }
+        public string G01f01 { get; set; }
 
         /// <summary>
         /// password
         /// </summary>
         [Required(ErrorMessage = "Password required")]
         [JsonProperty("g01102")]
-        public string g01f02 { get; set; }
+        public string G01f02 { get; set; }
 
         #endregion
 

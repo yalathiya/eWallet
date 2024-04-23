@@ -1,6 +1,6 @@
 ﻿using api_eWallet.BL.Interfaces;
-using api_eWallet.Common;
 using api_eWallet.Filters;
+using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,12 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Implements IBLInterface 
         /// </summary>
-        private IBLUser _objBLUser;
+        private IBLUserHandler _objBLUserHandler;
+
+        /// <summary>
+        /// Response to Action Method
+        /// </summary>
+        private Response _objResponse;
 
         #endregion
 
@@ -29,9 +34,9 @@ namespace api_eWallet.Controllers
         /// Reference from DI
         /// </summary>
         /// <param name="objBLUser"></param>
-        public CLUser(IBLUser objBLUser)
+        public CLUser(IBLUserHandler objBLUser)
         {
-            _objBLUser = objBLUser;
+            _objBLUserHandler = objBLUser;
         }
 
         #endregion
@@ -49,28 +54,29 @@ namespace api_eWallet.Controllers
         [Route("user")]
         public IActionResult Register([FromBody] DTOUsr01 objDTOUsr01)
         {
-            // Prevalidates
-            bool isPrevalidated = _objBLUser.Prevalidation(objDTOUsr01);
-            if (!isPrevalidated)
+            _objBLUserHandler.EnmOperation = EnmOperation.C;
+
+            // prevalidation
+            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01);
+            if (_objResponse.HasError)
             {
-                return BadRequest("Prevalidation Unsuccessful");
+                return Ok(_objResponse);
             }
 
             // Presave
-            _objBLUser.Presave(objDTOUsr01);
+            _objBLUserHandler.Presave(objDTOUsr01);
 
-            // Validation
-            bool isValidated = _objBLUser.Validate();
-
-            if(!isValidated)
+            // validation
+            _objResponse = _objBLUserHandler.Validate();
+            if (_objResponse.HasError)
             {
-                return BadRequest("Validation Unsuccessful");
+                return Ok(_objResponse);
             }
 
-            // Save ( create )
-            _objBLUser.Save(Operation.Create);
+            // save
+            _objResponse = _objBLUserHandler.Save();
 
-            return Ok("User Registered");
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace api_eWallet.Controllers
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetUserInfo()
         {
-            return Ok(_objBLUser.GetUserDetails(HttpContext.GetUserIdFromClaims()));
+            return Ok(_objBLUserHandler.GetUserDetails());
         }
     
 
@@ -93,9 +99,31 @@ namespace api_eWallet.Controllers
         [HttpPut]
         [Route("update")]
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
-        public IActionResult UpdateUser()
+        public IActionResult UpdateUser([FromBody] DTOUsr01 objDTOUsr01)
         {
-            throw new NotImplementedException();
+            _objBLUserHandler.EnmOperation = EnmOperation.U;
+
+            // prevalidation
+            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01);
+            if (_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
+
+            // Presave
+            _objBLUserHandler.Presave(objDTOUsr01);
+
+            // validation
+            _objResponse = _objBLUserHandler.Validate();
+            if (_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
+
+            // save
+            _objResponse = _objBLUserHandler.Save();
+
+            return Ok(_objResponse);
         }
 
         #endregion

@@ -16,14 +16,14 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "userid required")]
         [Range(0, int.MaxValue, ErrorMessage = "incorrect format of userid")]
         [JsonProperty("r01101")]
-        public int r01f01 { get; set; }
+        public int R01f01 { get; set; }
 
         /// <summary>
         /// Password
         /// </summary>
         [Required(ErrorMessage = "userid required")]
         [JsonProperty("r01102")]
-        public string r01f03 { get; set; }
+        public string R01f03 { get; set; }
 
         /// <summary>
         /// Email Id
@@ -31,21 +31,21 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "email-id required")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "invalid email id")]
         [JsonProperty("r01103")]
-        public string r01f04 { get; set; }
+        public string R01f04 { get; set; }
 
         /// <summary>
         /// First Name
         /// </summary>
         [Required(ErrorMessage = "first name required")]
         [JsonProperty("r01104")]
-        public string r01f05 { get; set; }
+        public string R01f05 { get; set; }
 
         /// <summary>
         /// Last Name
         /// </summary>
         [Required(ErrorMessage = "last name required")]
         [JsonProperty("r01105")]
-        public string r01f06 { get; set; }
+        public string R01f06 { get; set; }
 
         /// <summary>
         /// Mobile Number
@@ -53,7 +53,7 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "mobile number required")]
         [RegularExpression(@"^\d{10}$", ErrorMessage = "invalid mobile number")]
         [JsonProperty("r01106")]
-        public string r01f07 { get; set; }
+        public string R01f07 { get; set; }
 
         #endregion
 

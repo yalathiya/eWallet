@@ -1,9 +1,9 @@
-﻿namespace api_eWallet.Common
+﻿namespace api_eWallet.Utilities
 {
     /// <summary>
-    /// Currency
+    /// EnmCurrency
     /// </summary>
-    public enum Currency
+    public enum EnmCurrency
     {
         /// <summary>
         /// Indian National Rupees
@@ -11,7 +11,7 @@
         INR,
 
         /// <summary>
-        /// Japanise Currency
+        /// Japanise EnmCurrency
         /// </summary>
         YEN,
 
@@ -24,7 +24,7 @@
     /// <summary>
     /// Transaction Type
     /// </summary>
-    public enum TransactionType
+    public enum EnmTransactionType
     {
         /// <summary>
         /// Deposit
@@ -43,9 +43,9 @@
     }
 
     /// <summary>
-    /// Operationt Type
+    /// EnmOperationt Type
     /// </summary>
-    public enum Operation
+    public enum EnmOperation
     {
         /// <summary>
         /// Create 
