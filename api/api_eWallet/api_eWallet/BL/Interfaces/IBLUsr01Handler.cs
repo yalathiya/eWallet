@@ -7,7 +7,7 @@ namespace api_eWallet.BL.Interfaces
     /// <summary>
     /// Interface for BLUserManager
     /// </summary>
-    public interface IBLUserHandler
+    public interface IBLUsr01Handler
     {
         #region Public Members
 

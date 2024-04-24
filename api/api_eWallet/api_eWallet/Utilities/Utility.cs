@@ -48,10 +48,13 @@ namespace api_eWallet.Utilities
             services.AddSingleton<IEmailService, EmailService>();
 
             // Adding BLUserHandler
-            services.AddScoped<IBLUserHandler, BLUserHandler>();
+            services.AddScoped<IBLUsr01Handler, BLUsr01Handler>();
 
             // Adding BLAuthHandler
             services.AddScoped<IBLAuthHandler, BLAuthHandler>();
+
+            // Adding BLWltHandler
+            services.AddScoped<IBLWlt01Handler, BLWlt01Handler>();
 
             // Adding DbUsr01Context
             services.AddScoped<IDbUsr01Context, DbUsr01Context>();

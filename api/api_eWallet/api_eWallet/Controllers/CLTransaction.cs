@@ -14,6 +14,42 @@ namespace api_eWallet.Controllers
         #region Public Methods
 
         /// <summary>
+        /// Deposit Money to Wallet from bank account 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("deposit")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
+        public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Transfer Money from My Wallet to another Wallet  
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("transfer")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
+        public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Withdraw money from wallet & transfer it into bank account   
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("withdraw")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
+        public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Retrieve all transaction
         /// </summary>
         /// <returns></returns>
