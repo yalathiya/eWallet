@@ -21,7 +21,7 @@ namespace api_eWallet.Models.DTO
         /// <summary>
         /// Password
         /// </summary>
-        [Required(ErrorMessage = "userid required")]
+        [Required(ErrorMessage = "password required")]
         [JsonProperty("r01102")]
         public string R01f03 { get; set; }
 

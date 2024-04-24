@@ -57,7 +57,7 @@ namespace api_eWallet.Controllers
             _objBLUserHandler.EnmOperation = EnmOperation.C;
 
             // prevalidation
-            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01);
+            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01, 0);
             if (_objResponse.HasError)
             {
                 return Ok(_objResponse);
@@ -88,7 +88,7 @@ namespace api_eWallet.Controllers
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetUserInfo()
         {
-            return Ok(_objBLUserHandler.GetUserDetails());
+            return Ok(_objBLUserHandler.GetUserDetails(HttpContext.GetUserIdFromClaims()));
         }
     
 
@@ -104,7 +104,7 @@ namespace api_eWallet.Controllers
             _objBLUserHandler.EnmOperation = EnmOperation.U;
 
             // prevalidation
-            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01);
+            _objResponse = _objBLUserHandler.Prevalidation(objDTOUsr01, HttpContext.GetUserIdFromClaims());
             if (_objResponse.HasError)
             {
                 return Ok(_objResponse);

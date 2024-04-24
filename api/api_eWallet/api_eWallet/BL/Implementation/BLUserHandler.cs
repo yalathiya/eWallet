@@ -5,7 +5,6 @@ using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
 using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
-using NLog.LayoutRenderers;
 using ServiceStack;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
@@ -99,10 +98,27 @@ namespace api_eWallet.BL.Implementation
             
             if(EnmOperation == EnmOperation.C)
             {
+                // Invalid Access
+                if(objDTOUsr01.R01f01 != userId)
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Request is forbidden due to invalid user id. User id must be zero.", null);
+                    return _objResponse;
+                }
+
                 // user cant create profile with existed email id in database 
                 if (IsEmailIdExists(objDTOUsr01.R01f04))
                 {
-                    _objResponse.SetResponse(true, System.Net.HttpStatusCode.BadRequest, "EmailId already exists in database", null);
+                    _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "EmailId already exists in database", null);
+                    return _objResponse;
+                }
+            }
+
+            if(EnmOperation == EnmOperation.U)
+            {
+                // Invalid Access
+                if (objDTOUsr01.R01f01 != userId)
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Request is forbidden due to invalid user id. You have no accesss of given user id.", null);
                     return _objResponse;
                 }
             }
@@ -207,6 +223,9 @@ namespace api_eWallet.BL.Implementation
                     db.Update<Usr01>(_objUsr01);
                 }
 
+                // send message to user 
+                _sender.Send(_objUsr01.R01f04, $"Your user profile is updated successfully");
+                 
                 _objResponse.SetResponse("User updated successfully");
                 return _objResponse;
             }

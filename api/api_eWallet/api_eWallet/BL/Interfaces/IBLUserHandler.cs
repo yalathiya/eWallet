@@ -26,10 +26,11 @@ namespace api_eWallet.BL.Interfaces
         /// Prevalidates DTO model
         /// </summary>
         /// <param name="objDTOUsr01"> DTO model of user </param>
+        /// <param name="userId"> user id extracted from claim </param>
         /// <returns> true => if validated successfully 
         ///           false => otherwise
         /// </returns>
-        Response Prevalidation(DTOUsr01 objDTOUsr01);
+        Response Prevalidation(DTOUsr01 objDTOUsr01, int userId);
 
         /// <summary>
         /// Convert DTO model to POCO Model 
@@ -47,12 +48,13 @@ namespace api_eWallet.BL.Interfaces
         /// Add or update user as per EnmOperation  
         /// </summary>
         Response Save();
-        
+
         /// <summary>
         /// Get Current User Details
         /// </summary>
+        /// <param name="userId"> user id extracted from claim </param>
         /// <returns> DTO model of user </returns>
-        Response GetUserDetails();
+        Response GetUserDetails(int userId);
 
         #endregion
     }

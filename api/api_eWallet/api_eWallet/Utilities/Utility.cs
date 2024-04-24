@@ -75,22 +75,19 @@ namespace api_eWallet.Utilities
             Type targetType = typeof(T);
 
             // Get source properties with JSON property name attributes
-            PropertyInfo[] sourceProps = sourceType.GetProperties()
-                                                   .Where(prop => prop.IsDefined(typeof(JsonPropertyAttribute), false))
-                                                   .ToArray();
+            PropertyInfo[] sourceProps = sourceType.GetProperties().ToArray();
 
             // Iterate through source properties
-            foreach (PropertyInfo prop in sourceProps)
+            foreach (PropertyInfo sourceProp in sourceProps)
             {
-                // Get the JSON property name from the attribute
-                JsonPropertyAttribute attribute = (JsonPropertyAttribute)Attribute.GetCustomAttribute(prop, typeof(JsonPropertyAttribute));
-                string targetPropName = attribute.PropertyName;
+                // get field name from source model
+                string sourcePropName = sourceProp.Name;
 
-                // Find corresponding property in target model
-                PropertyInfo targetPropertyInfo = targetType.GetProperty(targetPropName);
+                // fetch that field from target model
+                PropertyInfo targetProp = targetType.GetProperty(sourcePropName);
 
-                // Set the value of the target property from the source property
-                targetPropertyInfo.SetValue(targetModel, prop.GetValue(sourceModel));
+                // If target model consists that field then assign value 
+                targetProp?.SetValue(targetModel, sourceProp.GetValue(sourceModel, null), null);
             }
 
             return targetModel;

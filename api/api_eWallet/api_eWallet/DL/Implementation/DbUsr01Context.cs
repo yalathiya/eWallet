@@ -40,8 +40,8 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object of user details </returns>
         public object GetUsr01ById(int r01f01)
         {
-            // Create a DataTable
-            DataTable dtUsr01 = new DataTable();
+            // Object of user details 
+            object userDetails = null;
 
             // retrieve user from the database in form of DataTable
             using (MySqlCommand command = new MySqlCommand())
@@ -60,16 +60,28 @@ namespace api_eWallet.DL.Implementation
 
                 try
                 {
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     _connection.Open();
-                    adapter.Fill(dtUsr01);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userDetails = new
+                            {
+                                UserId = Convert.ToInt32(reader["USER_ID"]),
+                                EmailId = Convert.ToString(reader["EMAIL_ID"]),
+                                FirstName = Convert.ToString(reader["FIRST_NAME"]),
+                                LastName = Convert.ToString(reader["LAST_NAME"]),
+                                MobileNumber = Convert.ToString(reader["MONILE_NUMBER"])
+                            };
+                        }
+                    }
                 }
                 finally
                 {
                     _connection.Close();
                 }
             }
-            return dtUsr01;
+            return userDetails;
         }
 
         #endregion

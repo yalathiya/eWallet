@@ -73,7 +73,7 @@ namespace api_eWallet.BL.Implementation
             // extracting information to be added in claims
             using(var db = _dbFactory.Open())
             {
-                Usr01 objUsr01 = db.Single<Usr01>(usr => usr.R01f04 == email && usr.R01f03 == password);
+                Usr01 objUsr01 = db.Single<Usr01>(usr => usr.R01f04 == email && usr.R01f03 == encryptedPassword);
                 // Invalid Credential
                 if(objUsr01 == null)
                 {
