@@ -35,8 +35,17 @@ namespace api_eWallet.DL.Interfaces
         /// Get all transaction of wallet 
         /// </summary>
         /// <param name="walletId"> wallet id </param>
+        /// <param name="pageNumber"> page number </param>
         /// <returns> list of transactions </returns>
-        object GetAllTransactions(int walletId);
+        object GetAllTransactions(int walletId, int pageNumber);
+
+        /// <summary>
+        /// Get particular transaction
+        /// </summary>
+        /// <param name="walletId"> wallet id </param>
+        /// <param name="transactionId"> transaction id </param>
+        /// <returns> object consisting transaction details </returns>
+        object GetTransaction(int walletId, int transactionId);
 
         #endregion
     }

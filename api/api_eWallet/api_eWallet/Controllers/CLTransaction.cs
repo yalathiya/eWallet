@@ -1,5 +1,8 @@
-﻿using api_eWallet.Filters;
+﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Filters;
+using api_eWallet.Models;
 using api_eWallet.Models.DTO;
+using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -11,6 +14,33 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLTransaction : ControllerBase
     {
+        #region Private Members
+
+        /// <summary>
+        /// BL logic of Transaction process
+        /// </summary>
+        private IBLTsn01Handler _objBLTsn01Handler;
+
+        /// <summary>
+        /// Response to action method
+        /// </summary>
+        private Response _objResponse;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Adding Dependency Injection
+        /// </summary>
+        /// <param name="objBLTsn01Handler"> BL logic of transaction </param>
+        public CLTransaction(IBLTsn01Handler objBLTsn01Handler)
+        {
+            _objBLTsn01Handler = objBLTsn01Handler;
+        }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -50,15 +80,27 @@ namespace api_eWallet.Controllers
         }
 
         /// <summary>
-        /// Retrieve all transaction
+        /// Retrieve all transactions
         /// </summary>
-        /// <returns></returns>
+        /// <returns>page of transaction</returns>
         [HttpPost]
-        [Route("get")]
+        [Route("GetTransactions")]
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
-        public IActionResult GetAllTransaction([FromBody] DTOTsn01 objDTOTsn01)
+        public IActionResult GetAllTransaction(int pageNumber)
         {
-            throw new NotImplementedException();
+            return Ok(_objBLTsn01Handler.GetAllTransactions(HttpContext.GetWalletIdFromClaims(), pageNumber));
+        }
+
+        /// <summary>
+        /// Retrieve particular transaction
+        /// </summary>
+        /// <returns>transaction details</returns>
+        [HttpPost]
+        [Route("GetTransaction")]
+        [ServiceFilter(typeof(JwtAuthenticationFilter))]
+        public IActionResult GetTransaction(int transactionId)
+        {
+            return Ok(_objBLTsn01Handler.GetTransaction(HttpContext.GetWalletIdFromClaims(), transactionId));
         }
 
         #endregion

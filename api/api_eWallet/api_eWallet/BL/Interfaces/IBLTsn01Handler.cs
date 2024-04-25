@@ -54,8 +54,17 @@ namespace api_eWallet.BL.Interfaces
         /// Get All Transaction Details        
         /// </summary>
         /// <param name="walletId"> wallet id extracted from claim </param>
+        /// <param name="pageNumber"> page number </param>
         /// <returns> DTO model of user </returns>
-        Response GetAllTransactions(int walletId);
+        Response GetAllTransactions(int walletId,  int pageNumber);
+
+        /// <summary>
+        /// Get particular Transaction Details        
+        /// </summary>
+        /// <param name="walletId"> wallet id extracted from claim </param>
+        /// <param name="transactionId"> transaction id </param>
+        /// <returns> object of response </returns>
+        Response GetTransaction(int walletId, int transactionId);
 
         #endregion
     }

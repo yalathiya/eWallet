@@ -5,10 +5,8 @@ using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
-using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
-using System.Data;
 using System.Net;
 using System.Reflection;
 using System.Security.Claims;
@@ -69,6 +67,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
+        /// Extension method that
         /// Converts properties of a source model to properties of a target model based on JSON property names.
         /// </summary>
         /// <typeparam name="T">The type of the target model.</typeparam>
@@ -143,7 +142,7 @@ namespace api_eWallet.Utilities
 
 
         /// <summary>
-        /// Set Response message 
+        /// Extension method that set Response message with all paramters 
         /// </summary>
         /// <param name="response"> response object</param>
         /// <param name="isErrorFlag"> error flag </param>
@@ -159,7 +158,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set Response message which does not consist error 
+        /// Extension method thst set Response message which does not consist error 
         /// </summary>
         /// <param name="response"> response object</param>
         /// <param name="statusCode"> status code </param>
@@ -173,7 +172,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set response message with default status code
+        /// Extension method that set response message with default status code 
         /// </summary>
         /// <param name="response"> response object </param>
         /// <param name="message"> message </param>
@@ -185,7 +184,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set response message with default status code
+        /// Extension method that set response message with default status code and no data 
         /// </summary>
         /// <param name="response"> response object </param>
         /// <param name="message"> message </param>

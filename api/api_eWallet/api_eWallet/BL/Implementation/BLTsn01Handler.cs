@@ -1,10 +1,14 @@
 ﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
 using api_eWallet.Utilities;
 using Newtonsoft.Json.Linq;
+using ServiceStack.Data;
+using System.Data;
 using System.Net;
+using System.Transactions;
 
 namespace api_eWallet.BL.Implementation
 {
@@ -42,6 +46,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private IBLWlt01Handler _objBLWlt01Handler;
 
+        /// <summary>
+        /// DbContext of Tsn01
+        /// </summary>
+        private IDbTsn01Context _objDbTsn01Context;
+
         #endregion
 
         #region Constructor
@@ -49,9 +58,10 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Configuring Dependency Injection
         /// </summary>
-        public BLTsn01Handler(IBLWlt01Handler objBLWlt01Handler)
+        public BLTsn01Handler(IBLWlt01Handler objBLWlt01Handler, IDbTsn01Context objDbTsn01Context)
         {
             _objBLWlt01Handler = objBLWlt01Handler;
+            _objDbTsn01Context = objDbTsn01Context;
         }
 
         #endregion
@@ -201,10 +211,25 @@ namespace api_eWallet.BL.Implementation
         /// Get All Transaction Details        
         /// </summary>
         /// <param name="walletId"> wallet id extracted from claim </param>
-        /// <returns> DTO model of user </returns>
-        public Response GetAllTransactions(int walletId)
+        /// <returns> object of response </returns>
+        public Response GetAllTransactions(int walletId, int pageNumber)
         {
-            throw new NotImplementedException();
+            _objResponse = new Response();
+            _objResponse.SetResponse("Transactions Fetched", _objDbTsn01Context.GetAllTransactions(walletId, pageNumber));
+            return _objResponse;
+        }
+
+        /// <summary>
+        /// Get particular Transaction Details        
+        /// </summary>
+        /// <param name="walletId"> wallet id extracted from claim </param>
+        /// <param name="transactionId"> transaction id </param>
+        /// <returns> object of response </returns>
+        public Response GetTransaction(int walletId, int transactionId)
+        {
+            _objResponse = new Response();
+            _objResponse.SetResponse("Transaction Fetched", _objDbTsn01Context.GetTransaction(walletId, transactionId));
+            return _objResponse;
         }
 
         #endregion
