@@ -49,13 +49,6 @@ namespace api_eWallet.Models.DTO
         public double N01f05 { get; set; }
 
         /// <summary>
-        /// Transaction Type
-        /// </summary>     
-        [Required(ErrorMessage = "Transaction Type Required")]
-        [JsonProperty("n01106")]
-        public string N01f06 { get; set; }
-
-        /// <summary>
         /// Transaction Fees
         /// </summary>
         [Required(ErrorMessage = "Transaction Fees Required")]

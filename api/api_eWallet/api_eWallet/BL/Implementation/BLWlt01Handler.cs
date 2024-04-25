@@ -2,6 +2,7 @@
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
 using api_eWallet.Utilities;
+using Newtonsoft.Json.Linq;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 
@@ -54,7 +55,8 @@ namespace api_eWallet.BL.Implementation
             {
                 double currentBalance = db.SingleById<Wlt01>(walletId).T01f03;
 
-                _objResponse.SetResponse("Fetched Current Balance", new { CurrentBalance = currentBalance});
+
+                _objResponse.SetResponse("Fetched Current Balance", new JObject( new { CurrentBalance = currentBalance}));
                 return _objResponse;
             }
         }

@@ -3,6 +3,7 @@ using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
 using api_eWallet.Utilities;
+using Newtonsoft.Json.Linq;
 using System.Net;
 
 namespace api_eWallet.BL.Implementation
@@ -92,16 +93,19 @@ namespace api_eWallet.BL.Implementation
             // Wallet to Wallet Transfer
             if(EnmTransactionType == EnmTransactionType.T)
             {
+                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05;
             }
             // Deposit
-            if(EnmTransactionType == EnmTransactionType.D)
+            else if(EnmTransactionType == EnmTransactionType.D)
             {
+                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05;
             }
             // Withdrawal
-            if(EnmTransactionType == EnmTransactionType.W)
+            else if(EnmTransactionType == EnmTransactionType.W)
             {
+                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05 + _objTsn01.N01f07;
             }
         }
@@ -114,11 +118,56 @@ namespace api_eWallet.BL.Implementation
         {
             _objResponse = new Response();
 
-            // has user sufficient balance
-            if(_objTsn01.N01f10 < (double)_objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data["CurrentBalance"])
+            // Wallet to Wallet Transfer
+            if (EnmTransactionType == EnmTransactionType.T)
             {
 
+                if(_objTsn01.N01f07 != 0.0)
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid Transaction Fees", null);
+                    return _objResponse;
+                }
+
+                // has user sufficient balance
+                if (_objTsn01.N01f10 < (double)((JObject)(_objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data))["CurrentBalance"])
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Insufficient balance to process the transaction", null);
+                    return _objResponse;
+                }
             }
+            // Deposit
+            else if (EnmTransactionType == EnmTransactionType.D)
+            {
+                if (_objTsn01.N01f07 != 0.0)
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid Transaction Fees", null);
+                    return _objResponse;
+                }
+            }
+            // Withdrawal
+            else if (EnmTransactionType == EnmTransactionType.W)
+            {
+                if (_objTsn01.N01f07 != (_objTsn01.N01f05*.02))
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid Transaction Fees", null);
+                    return _objResponse;
+                }
+
+                // has user sufficient balance
+                if (_objTsn01.N01f10 < (double)((JObject)(_objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data))["CurrentBalance"])
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Insufficient balance to process the transaction", null);
+                    return _objResponse;
+                }
+            }
+            else
+            {
+                _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Invalid Transaction Type", null);
+                return _objResponse;
+            }
+
+            _objResponse.SetResponse("Validation Successful", null);
+            return _objResponse;
         }
 
         /// <summary>
@@ -126,7 +175,26 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         public Response Save()
         {
-            throw new NotImplementedException();
+            _objResponse = new Response();
+
+            // Wallet to Wallet Transfer
+            if (EnmTransactionType == EnmTransactionType.T)
+            {
+                 
+            }
+            // Deposit
+            else if (EnmTransactionType == EnmTransactionType.D)
+            {
+             
+            }
+            // Withdrawal
+            else if (EnmTransactionType == EnmTransactionType.W)
+            {
+             
+            }
+
+            _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Failed to proceed transaction", null);
+            return _objResponse;
         }
 
         /// <summary>
