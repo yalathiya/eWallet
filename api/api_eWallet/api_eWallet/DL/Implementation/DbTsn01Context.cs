@@ -1,12 +1,10 @@
 ﻿using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
-using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using System.Data;
-using System.Data.Common;
-using System.Transactions;
+
 
 namespace api_eWallet.DL.Implementation
 {
@@ -36,7 +34,7 @@ namespace api_eWallet.DL.Implementation
         /// </summary>
         public DbTsn01Context()
         {
-            _connection = new MySqlConnection(DbConnection.GetConnectionString());
+            _connection = new MySqlConnection(Utilities.DbConnection.GetConnectionString());
         }
 
         #endregion
