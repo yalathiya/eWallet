@@ -13,6 +13,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Transaction Id
         /// </summary>
+        [PrimaryKey]
         public int N01f01 { get; set; }
 
         /// <summary>
@@ -54,6 +55,11 @@ namespace api_eWallet.Models.POCO
         /// Created on
         /// </summary>
         public DateTime N01f09 { get; set; }
+
+        /// <summary>
+        /// Total amount of transaction
+        /// </summary>
+        public double N01f10 { get; set; }
 
         #endregion
 

@@ -13,6 +13,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Notification Id
         /// </summary>
+        [PrimaryKey]
         public int T01f01 { get; set; }
 
         /// <summary>

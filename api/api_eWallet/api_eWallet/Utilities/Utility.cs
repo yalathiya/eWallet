@@ -5,7 +5,6 @@ using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
-using Newtonsoft.Json;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using System.Data;
@@ -48,18 +47,28 @@ namespace api_eWallet.Utilities
             services.AddSingleton<IEmailService, EmailService>();
 
             // Adding BLUserHandler
-            services.AddScoped<IBLUserHandler, BLUserHandler>();
+            services.AddScoped<IBLUsr01Handler, BLUsr01Handler>();
 
             // Adding BLAuthHandler
             services.AddScoped<IBLAuthHandler, BLAuthHandler>();
 
+            // Adding BLWltHandler
+            services.AddScoped<IBLWlt01Handler, BLWlt01Handler>();
+
+            // Adding BLTsnHandler
+            services.AddScoped<IBLTsn01Handler, BLTsn01Handler>();
+
             // Adding DbUsr01Context
             services.AddScoped<IDbUsr01Context, DbUsr01Context>();
+
+            // Adding DbTsn01Context
+            services.AddScoped<IDbTsn01Context, DbTsn01Context>();
 
             return services; 
         }
 
         /// <summary>
+        /// Extension method that
         /// Converts properties of a source model to properties of a target model based on JSON property names.
         /// </summary>
         /// <typeparam name="T">The type of the target model.</typeparam>
@@ -134,7 +143,7 @@ namespace api_eWallet.Utilities
 
 
         /// <summary>
-        /// Set Response message 
+        /// Extension method that set Response message with all paramters 
         /// </summary>
         /// <param name="response"> response object</param>
         /// <param name="isErrorFlag"> error flag </param>
@@ -150,7 +159,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set Response message which does not consist error 
+        /// Extension method thst set Response message which does not consist error 
         /// </summary>
         /// <param name="response"> response object</param>
         /// <param name="statusCode"> status code </param>
@@ -164,7 +173,7 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set response message with default status code
+        /// Extension method that set response message with default status code 
         /// </summary>
         /// <param name="response"> response object </param>
         /// <param name="message"> message </param>
@@ -176,13 +185,39 @@ namespace api_eWallet.Utilities
         }
 
         /// <summary>
-        /// Set response message with default status code
+        /// Extension method that set response message with default status code and no data 
         /// </summary>
         /// <param name="response"> response object </param>
         /// <param name="message"> message </param>
         public static void SetResponse(this Response response, string message)
         {
             response.Message = message;
+        }
+
+        /// <summary>
+        /// Extension method to convert DataTable to a list of objects
+        /// </summary>
+        /// <param name="dt"> data table </param>
+        /// <returns> list of objects </returns>
+        public static List<dynamic> ToList(this DataTable dt)
+        {
+            List<dynamic> list = new List<dynamic>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                dynamic obj = new System.Dynamic.ExpandoObject();
+                var dict = (IDictionary<string, object>)obj;
+
+                // Populate the dynamic object with column values from the DataRow
+                foreach (DataColumn column in dt.Columns)
+                {
+                    dict[column.ColumnName] = row[column];
+                }
+
+                list.Add(obj);
+            }
+
+            return list;
         }
 
         #endregion

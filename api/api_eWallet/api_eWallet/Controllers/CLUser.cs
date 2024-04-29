@@ -19,7 +19,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Implements IBLInterface 
         /// </summary>
-        private IBLUserHandler _objBLUserHandler;
+        private IBLUsr01Handler _objBLUserHandler;
 
         /// <summary>
         /// Response to Action Method
@@ -34,7 +34,7 @@ namespace api_eWallet.Controllers
         /// Reference from DI
         /// </summary>
         /// <param name="objBLUser"></param>
-        public CLUser(IBLUserHandler objBLUser)
+        public CLUser(IBLUsr01Handler objBLUser)
         {
             _objBLUserHandler = objBLUser;
         }

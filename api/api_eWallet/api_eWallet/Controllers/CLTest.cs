@@ -2,7 +2,6 @@
 using api_eWallet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-using System.Data.Common;
 
 namespace api_eWallet.Controllers
 {

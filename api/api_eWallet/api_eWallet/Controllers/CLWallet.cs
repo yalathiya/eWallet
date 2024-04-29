@@ -1,5 +1,6 @@
-﻿using api_eWallet.Filters;
-using api_eWallet.Models.DTO;
+﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Filters;
+using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -11,7 +12,29 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLWallet : ControllerBase
     {
-        #region Public Members
+        #region Private Members
+
+        /// <summary>
+        /// Reference of IBLWlt01 Handler
+        /// </summary>
+        private IBLWlt01Handler _objBLWlt01Handler;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Dependency Injection
+        /// </summary>
+        /// <param name="objBLWlt01Handler"> BL class of Wlt01 Handler </param>
+        public CLWallet(IBLWlt01Handler objBLWlt01Handler)
+        {
+            _objBLWlt01Handler = objBLWlt01Handler;
+        }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// to get current balance of user
@@ -22,43 +45,7 @@ namespace api_eWallet.Controllers
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetCurrentBalance()
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Deposit Money to Wallet from bank account 
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("deposit")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
-        public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Transfer Money from My Wallet to another Wallet  
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("transfer")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
-        public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Withdraw money from wallet & transfer it into bank account   
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("withdraw")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
-        public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
-        {
-            throw new NotImplementedException();
+            return Ok(_objBLWlt01Handler.GetCurrentBalance(HttpContext.GetWalletIdFromClaims()));
         }
 
         #endregion
