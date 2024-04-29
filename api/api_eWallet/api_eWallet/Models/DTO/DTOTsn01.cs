@@ -11,12 +11,6 @@ namespace api_eWallet.Models.DTO
         #region Public Members
 
         /// <summary>
-        /// Transaction Id
-        /// </summary>
-        [JsonProperty("n01101")]
-        public int N01f01 { get; set; }
-
-        /// <summary>
         /// Wallet Id
         /// </summary>
         [Required(ErrorMessage = "wallet id required")]
@@ -35,8 +29,8 @@ namespace api_eWallet.Models.DTO
         /// <summary>
         /// to user id
         /// </summary>
-        [Required(ErrorMessage = "too-userid required")]
-        [Range(1, int.MaxValue, ErrorMessage = "Invalid to-userid")]
+        [Required(ErrorMessage = "to-userid required")]
+        [Range(0, int.MaxValue, ErrorMessage = "Invalid to-userid")]
         [JsonProperty("n01104")]
         public int N01f04 { get; set; }
 

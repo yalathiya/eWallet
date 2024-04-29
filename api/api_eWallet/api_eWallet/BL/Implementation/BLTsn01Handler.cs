@@ -88,6 +88,15 @@ namespace api_eWallet.BL.Implementation
                 return _objResponse;
             }
 
+            if(EnmTransactionType == EnmTransactionType.T)
+            {
+                if (objDTOTsn01.N01f04 == 0)
+                {
+                    _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid to-user id", null);
+                    return _objResponse;
+                }
+            }
+            
             _objResponse.SetResponse("prevalidation successful", null);
             return _objResponse;
         }
@@ -113,12 +122,14 @@ namespace api_eWallet.BL.Implementation
             {
                 _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05;
+                _objTsn01.N01f04 = 0;
             }
             // Withdrawal
             else if(EnmTransactionType == EnmTransactionType.W)
             {
                 _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05 + _objTsn01.N01f07;
+                _objTsn01.N01f04 = 0;
             }
         }
 
@@ -199,8 +210,6 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         public Response Save()
         {
-            _objResponse = new Response();
-
             // Wallet to Wallet Transfer
             if (EnmTransactionType == EnmTransactionType.T)
             {
@@ -209,14 +218,15 @@ namespace api_eWallet.BL.Implementation
             // Deposit
             else if (EnmTransactionType == EnmTransactionType.D)
             {
-             
+                return _objDbTsn01Context.Deposit(_objTsn01);
             }
             // Withdrawal
             else if (EnmTransactionType == EnmTransactionType.W)
             {
-             
+                return _objDbTsn01Context.Withdraw(_objTsn01);
             }
 
+            _objResponse = new Response();
             _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Failed to proceed transaction", null);
             return _objResponse;
         }

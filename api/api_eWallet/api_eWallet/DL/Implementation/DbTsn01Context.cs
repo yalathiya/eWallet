@@ -48,7 +48,51 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object of response </returns>
         public Response Deposit(Tsn01 objTsn01)
         {
-            throw new NotImplementedException();
+            _objResponse = new Response();
+
+            try
+            {
+                _connection.Open();
+                
+                using (var transaction = _connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Lock the rows in the source and destination wallets
+                        LockWalletRows(objTsn01.N01f03, 0, transaction);
+
+                        // Add amount to destination wallet
+                        AddAmountToWallet(objTsn01.N01f03, objTsn01.N01f10, transaction);
+
+                        // Insert transaction record
+                        InsertTransaction(objTsn01, transaction);
+
+                        // Commit the transaction
+                        transaction.Commit();
+
+                        _objResponse.SetResponse("Deposit Successful", null);
+                        return _objResponse;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll back the transaction on exception
+                        transaction.Rollback();
+
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", null);
+                        return _objResponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed", null);
+                return _objResponse;
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         /// <summary>
@@ -115,7 +159,50 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object of response </returns>
         public Response Withdraw(Tsn01 objTsn01)
         {
-            throw new NotImplementedException();
+             _objResponse = new Response();
+
+            try
+            {
+                _connection.Open();
+
+                using (var transaction = _connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Lock the row in the wallet
+                        LockWalletRows(objTsn01.N01f03, 0, transaction);
+
+                        // Deduct amount from wallet
+                        DeductAmountFromWallet(objTsn01.N01f03, objTsn01.N01f10, transaction);
+
+                        // Insert transaction record
+                        InsertTransaction(objTsn01, transaction);
+
+                        // Commit the transaction
+                        transaction.Commit();
+
+                        _objResponse.SetResponse("Withdrawal Successful", null);
+                        return _objResponse;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll back the transaction on exception
+                        transaction.Rollback();
+
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", null);
+                        return _objResponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed", null);
+                return _objResponse;
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         /// <summary>
@@ -245,7 +332,7 @@ namespace api_eWallet.DL.Implementation
                                                       WHERE 
                                                         T01F02 = {2}",
                                                       n01f10,
-                                                      DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                      DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f03);
                 command.ExecuteNonQuery();
             }
@@ -270,7 +357,7 @@ namespace api_eWallet.DL.Implementation
                                                       WHERE 
                                                         T01F02 = {2}",
                                                       n01f10,
-                                                      DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                      DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f04);
                 command.ExecuteNonQuery();
             }
@@ -291,7 +378,12 @@ namespace api_eWallet.DL.Implementation
                                                         TSN01 
                                                         (N01F01, N01F02, N01F03, N01F04, N01F05, N01F06, N01F07, N01F08, N01F09, N01F10) 
                                                       VALUES 
-                                                        ({0}, {1}, {2}, {3}, {4}, '{5}', {6}, '{7}', '{8}', {9})",
+                                                        ({0}, {1}, {2}, 
+                                                        CASE WHEN {3} = 0 
+                                                              THEN NULL
+                                                              ELSE {3} 
+                                                        END,
+                                                        {4}, '{5}', {6}, '{7}', '{8}', {9})",
                                                         objTsn01.N01f01,
                                                         objTsn01.N01f02,
                                                         objTsn01.N01f03,
@@ -300,7 +392,7 @@ namespace api_eWallet.DL.Implementation
                                                         objTsn01.N01f06.ToString(),
                                                         objTsn01.N01f07,
                                                         objTsn01.N01f08,
-                                                        objTsn01.N01f09.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                        objTsn01.N01f09.ToString("yyyy-MM-dd HH-mm-ss"),
                                                         objTsn01.N01f10);
                 command.ExecuteNonQuery();
             }
