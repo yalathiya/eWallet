@@ -43,8 +43,8 @@ namespace api_eWallet.Services.Implementation
             try
             {
                 // sender details
-                string senderEmail = _config["EmailSettings:SenderEmail"]; ;
-                string senderPassword = _config["EmailSettings:SenderPassword"]; ;
+                string senderEmail = _config["EmailSettings:SenderEmail"];
+                string senderPassword = _config["EmailSettings:SenderPassword"];
 
                 // fetch from jwt
                 string recipientEmail = email;

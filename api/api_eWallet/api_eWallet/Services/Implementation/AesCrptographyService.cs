@@ -17,27 +17,23 @@ namespace api_eWallet.Services.Implementation
         private AesCryptoServiceProvider _aes;
         
         /// <summary>
-        /// Key of AES algorithm
+        /// Configuration of api 
         /// </summary>
-        private byte[] key = Encoding.UTF8.GetBytes("IamPrivateKeyofEWalletApi1234123");
-        
-        /// <summary>
-        /// Initial vector for AES algorithm
-        /// </summary>
-        private byte[] iv = Encoding.UTF8.GetBytes("IamInitialVector");
+        private IConfiguration _config;
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Provide Instance to class
+        /// Provide Instance to class & extracts deta from configurations
         /// </summary>
-        public AesCrptographyService()
+        public AesCrptographyService(IConfiguration config)
         {
+            _config = config;
             _aes = new AesCryptoServiceProvider();
-            _aes.Key = key;
-            _aes.IV = iv;
+            _aes.Key = Encoding.UTF8.GetBytes(_config["Cryptography:PrivateKey"]);
+            _aes.IV = Encoding.UTF8.GetBytes(_config["Cryptography:InitialVector"]);
         }
 
         #endregion
