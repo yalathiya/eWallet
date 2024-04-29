@@ -7,6 +7,7 @@ using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
+using System.Data;
 using System.Net;
 using System.Reflection;
 using System.Security.Claims;
@@ -191,6 +192,32 @@ namespace api_eWallet.Utilities
         public static void SetResponse(this Response response, string message)
         {
             response.Message = message;
+        }
+
+        /// <summary>
+        /// Extension method to convert DataTable to a list of objects
+        /// </summary>
+        /// <param name="dt"> data table </param>
+        /// <returns> list of objects </returns>
+        public static List<dynamic> ToList(this DataTable dt)
+        {
+            List<dynamic> list = new List<dynamic>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                dynamic obj = new System.Dynamic.ExpandoObject();
+                var dict = (IDictionary<string, object>)obj;
+
+                // Populate the dynamic object with column values from the DataRow
+                foreach (DataColumn column in dt.Columns)
+                {
+                    dict[column.ColumnName] = row[column];
+                }
+
+                list.Add(obj);
+            }
+
+            return list;
         }
 
         #endregion

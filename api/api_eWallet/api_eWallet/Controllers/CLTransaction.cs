@@ -64,7 +64,29 @@ namespace api_eWallet.Controllers
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
         {
-            throw new NotImplementedException();
+            _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.T;
+
+            // prevalidation
+            _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
+            if (_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
+
+            // Presave
+            _objBLTsn01Handler.Presave(objDTOTsn01);
+
+            // validation
+            _objResponse = _objBLTsn01Handler.Validate();
+            if (_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
+
+            // save
+            _objResponse = _objBLTsn01Handler.Save();
+
+            return Ok(_objResponse);
         }
 
         /// <summary>

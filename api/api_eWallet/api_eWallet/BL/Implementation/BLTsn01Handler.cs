@@ -4,7 +4,9 @@ using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
 using api_eWallet.Utilities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using ServiceStack;
 using ServiceStack.Data;
 using System.Data;
 using System.Net;
@@ -138,8 +140,14 @@ namespace api_eWallet.BL.Implementation
                     return _objResponse;
                 }
 
+                // Extracting current balance 
+                var data = _objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data;
+                string serializedData = JsonConvert.SerializeObject(data);
+                JObject obj = JObject.Parse(serializedData);
+                double currentBalance = (double)obj["currentBalance"];
+
                 // has user sufficient balance
-                if (_objTsn01.N01f10 < (double)((JObject)(_objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data))["CurrentBalance"])
+                if (_objTsn01.N01f10 > currentBalance)
                 {
                     _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Insufficient balance to process the transaction", null);
                     return _objResponse;
@@ -163,8 +171,14 @@ namespace api_eWallet.BL.Implementation
                     return _objResponse;
                 }
 
+                // Extracting current balance 
+                var data = _objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data;
+                string serializedData = JsonConvert.SerializeObject(data);
+                JObject obj = JObject.Parse(serializedData);
+                double currentBalance = (double)obj["currentBalance"];
+
                 // has user sufficient balance
-                if (_objTsn01.N01f10 < (double)((JObject)(_objBLWlt01Handler.GetCurrentBalance(_objTsn01.N01f02).Data))["CurrentBalance"])
+                if (_objTsn01.N01f10 > currentBalance)
                 {
                     _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Insufficient balance to process the transaction", null);
                     return _objResponse;
@@ -190,7 +204,7 @@ namespace api_eWallet.BL.Implementation
             // Wallet to Wallet Transfer
             if (EnmTransactionType == EnmTransactionType.T)
             {
-                 
+                return _objDbTsn01Context.Transfer(_objTsn01);
             }
             // Deposit
             else if (EnmTransactionType == EnmTransactionType.D)

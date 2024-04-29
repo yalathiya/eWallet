@@ -1,10 +1,10 @@
 ﻿using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
+using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
 using System.Data;
-
+using System.Net;
 
 namespace api_eWallet.DL.Implementation
 {
@@ -58,7 +58,54 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object of response </returns>
         public Response Transfer(Tsn01 objTsn01)
         {
-            throw new NotImplementedException();
+            _objResponse = new Response();
+
+            try
+            {
+                _connection.Open();
+
+                // Begin a database transaction
+                using (var transaction = _connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Lock the rows in the source and destination wallets
+                        LockWalletRows(objTsn01.N01f03, objTsn01.N01f04, transaction);
+
+                        // Deduct amount from source wallet
+                        DeductAmountFromWallet(objTsn01.N01f03, objTsn01.N01f10, transaction);
+
+                        // Add amount to destination wallet
+                        AddAmountToWallet(objTsn01.N01f04, objTsn01.N01f10, transaction);
+
+                        // Insert transaction record
+                        InsertTransaction(objTsn01, transaction);
+
+                        // Commit the transaction
+                        transaction.Commit();
+
+                        _objResponse.SetResponse("Transaction Successful", null);
+                        return _objResponse;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Roll back the transaction on exception
+                        transaction.Rollback();
+
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", null);
+                        return _objResponse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed", null);
+                return _objResponse;
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         /// <summary>
@@ -88,9 +135,9 @@ namespace api_eWallet.DL.Implementation
                 command.Connection = _connection;
                 command.CommandText = String.Format(@"SELECT 
                                                         N01F01 AS TRANSACTION_ID,
-                                                        N01F05 AS AMOUNT
+                                                        N01F05 AS AMOUNT,
                                                         N01F06 AS TRANSACTION_TYPE,
-                                                        N01F09 AS CREATED_ON,
+                                                        N01F09 AS CREATED_ON
                                                      FROM
                                                         TSN01 AS TRANSACTION_DETAILS
                                                      WHERE
@@ -104,7 +151,7 @@ namespace api_eWallet.DL.Implementation
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtTransactions);
             }
-            return JsonConvert.SerializeObject(dtTransactions);
+            return dtTransactions.ToList();
         }
 
         /// <summary>
@@ -127,7 +174,7 @@ namespace api_eWallet.DL.Implementation
                                                         N01F02 AS WALLET_ID,
                                                         N01F03 AS FROM_USER_ID,
                                                         N01F04 AS TO_USER_ID,
-                                                        N01F05 AS AMOUNT
+                                                        N01F05 AS AMOUNT,
                                                         N01F06 AS TRANSACTION_TYPE,
                                                         N01F07 AS TRANSACTION_FEES,
                                                         N01F08 AS DESCRIPTION,
@@ -142,7 +189,121 @@ namespace api_eWallet.DL.Implementation
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtTransaction);
             }
-            return JsonConvert.SerializeObject(dtTransaction);
+            return dtTransaction.ToList();
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Method to acquire locks on the rows corresponding to the source and destination wallets
+        /// </summary>
+        /// <param name="n01f03"> from user id</param>
+        /// <param name="n01f04"> to user id </param>
+        /// <param name="transaction"> refer to mysql transaction </param>
+        private void LockWalletRows(int n01f03, int n01f04, MySqlTransaction transaction)
+        {
+            // Execute SQL commands to acquire locks on the rows corresponding to the source and destination wallets
+            // Acquired row level locks for UPDATE 
+            using (var command = _connection.CreateCommand())
+            {
+                command.Transaction = transaction;
+                command.CommandText = String.Format(@"SELECT 
+                                                        T01F01,
+                                                        T01F02,
+                                                        T01F03,
+                                                        T01F04,
+                                                        T01F05,
+                                                        T01F06
+                                                      FROM 
+                                                        WLT01 
+                                                      WHERE 
+                                                        T01F01 IN ({0}, {1}) 
+                                                      FOR 
+                                                        UPDATE", n01f03, n01f04);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Deduct amount from source wallet 
+        /// </summary>
+        /// <param name="n01f03"> source user id </param>
+        /// <param name="n01f10"> total transaction amount </param>
+        /// <param name="transaction"> refer to mysql transaction </param>
+        private void DeductAmountFromWallet(int n01f03, double n01f10, MySqlTransaction transaction)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.Transaction = transaction;
+                command.CommandText = String.Format(@"UPDATE 
+                                                        WLT01 
+                                                      SET 
+                                                        T01F03 = T01F03 - {0},
+                                                        T01F06 = '{1}'
+                                                      WHERE 
+                                                        T01F02 = {2}",
+                                                      n01f10,
+                                                      DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                      n01f03);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Add amount from source wallet 
+        /// </summary>
+        /// <param name="n01f04"> destination user id </param>
+        /// <param name="n01f10"> total transaction amount </param>
+        /// <param name="transaction"> refer to mysql transaction </param>
+        private void AddAmountToWallet(int n01f04, double n01f10, MySqlTransaction transaction)
+        {
+            using (var command = _connection.CreateCommand())
+            {
+                command.Transaction = transaction;
+                command.CommandText = String.Format(@"UPDATE 
+                                                        WLT01 
+                                                      SET 
+                                                        T01F03 = T01F03 + {0},
+                                                        T01F06 = '{1}'
+                                                      WHERE 
+                                                        T01F02 = {2}",
+                                                      n01f10,
+                                                      DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                      n01f04);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Insert record in transaction table 
+        /// </summary>
+        /// <param name="objTsn01"> object of transaction </param>
+        /// <param name="transaction"> refer to mysql transaction </param>
+        private void InsertTransaction(Tsn01 objTsn01, MySqlTransaction transaction)
+        {
+            // Execute SQL command to insert a transaction record
+            using (var command = _connection.CreateCommand())
+            {
+                command.Transaction = transaction;
+                command.CommandText = String.Format(@"INSERT INTO 
+                                                        TSN01 
+                                                        (N01F01, N01F02, N01F03, N01F04, N01F05, N01F06, N01F07, N01F08, N01F09, N01F10) 
+                                                      VALUES 
+                                                        ({0}, {1}, {2}, {3}, {4}, '{5}', {6}, '{7}', '{8}', {9})",
+                                                        objTsn01.N01f01,
+                                                        objTsn01.N01f02,
+                                                        objTsn01.N01f03,
+                                                        objTsn01.N01f04,
+                                                        objTsn01.N01f05,
+                                                        objTsn01.N01f06.ToString(),
+                                                        objTsn01.N01f07,
+                                                        objTsn01.N01f08,
+                                                        objTsn01.N01f09.ToString("yyyy-MM-dd hh-mm-ss"),
+                                                        objTsn01.N01f10);
+                command.ExecuteNonQuery();
+            }
         }
 
         #endregion

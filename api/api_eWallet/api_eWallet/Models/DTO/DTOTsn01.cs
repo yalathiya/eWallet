@@ -60,7 +60,7 @@ namespace api_eWallet.Models.DTO
         /// Description of Transaction
         /// </summary>
         [JsonProperty("n01108")]
-        public int N01f08 { get; set; }
+        public string N01f08 { get; set; }
 
         #endregion
 
