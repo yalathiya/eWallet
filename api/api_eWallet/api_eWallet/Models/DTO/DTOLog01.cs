@@ -16,6 +16,7 @@ namespace api_eWallet.Models.DTO
         [Required(ErrorMessage = "EmailId required")]
         [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email id")]
         [JsonProperty("g01101")]
+        [DataType(DataType.EmailAddress)]
         public string G01f01 { get; set; }
 
         /// <summary>

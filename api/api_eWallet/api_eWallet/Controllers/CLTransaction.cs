@@ -149,7 +149,7 @@ namespace api_eWallet.Controllers
         /// Retrieve all transactions
         /// </summary>
         /// <returns>page of transaction</returns>
-        [HttpPost]
+        [HttpGet]
         [Route("GetTransactions")]
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetAllTransaction(int pageNumber)
@@ -161,7 +161,7 @@ namespace api_eWallet.Controllers
         /// Retrieve particular transaction
         /// </summary>
         /// <returns>transaction details</returns>
-        [HttpPost]
+        [HttpGet]
         [Route("GetTransaction")]
         [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetTransaction(int transactionId)
