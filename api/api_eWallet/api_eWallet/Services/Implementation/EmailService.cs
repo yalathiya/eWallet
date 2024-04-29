@@ -9,8 +9,30 @@ namespace api_eWallet.Services.Implementation
     /// </summary>
     public class EmailService : IEmailService
     {
+        #region Private Members
+
+        /// <summary>
+        /// Api configuration from appSettings.json 
+        /// </summary>
+        private IConfiguration _config;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Dependency of IConfiguration
+        /// </summary>
+        /// <param name="config"> interface implementation of IConfiguration </param>
+        public EmailService(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        #endregion
+
         #region Public Methods
-        
+
         /// <summary>
         /// Sends Email to user 
         /// </summary>
@@ -21,8 +43,8 @@ namespace api_eWallet.Services.Implementation
             try
             {
                 // sender details
-                string senderEmail = "eWallet.notify.user@outlook.com";
-                string senderPassword = "eWallet@7777";
+                string senderEmail = _config["EmailSettings:SenderEmail"]; ;
+                string senderPassword = _config["EmailSettings:SenderPassword"]; ;
 
                 // fetch from jwt
                 string recipientEmail = email;
@@ -31,8 +53,8 @@ namespace api_eWallet.Services.Implementation
                 mail.Subject = "eWallet Notification";
                 mail.Body = message;
 
-                SmtpClient smtpClient = new SmtpClient("smtp-mail.outlook.com");
-                smtpClient.Port = 587;
+                SmtpClient smtpClient = new SmtpClient(_config["EmailSettings:SmtpClient"]);
+                smtpClient.Port = Convert.ToInt32(_config["EmailSettings:Port"]);
                 smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
                 smtpClient.EnableSsl = true;
 
