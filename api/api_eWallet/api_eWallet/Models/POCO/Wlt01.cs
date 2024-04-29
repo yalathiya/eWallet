@@ -1,5 +1,4 @@
-﻿using api_eWallet.Utilities;
-using ServiceStack.DataAnnotations;
+﻿using ServiceStack.DataAnnotations;
 
 namespace api_eWallet.Models.POCO
 {
@@ -14,6 +13,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Wallet id
         /// </summary>
+        [PrimaryKey]
         public int T01f01 { get; set; }
 
         /// <summary>

@@ -1,7 +1,6 @@
 ﻿using api_eWallet.DL.Interfaces;
 using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
-using System.Data;
 
 namespace api_eWallet.DL.Implementation
 {

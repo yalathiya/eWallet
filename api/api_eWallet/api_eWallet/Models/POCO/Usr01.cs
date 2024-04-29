@@ -13,6 +13,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// user id
         /// </summary>
+        [PrimaryKey]
         public int R01f01 { get; set; } 
 
         /// <summary>

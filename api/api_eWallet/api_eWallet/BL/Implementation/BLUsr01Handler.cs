@@ -15,7 +15,7 @@ namespace api_eWallet.BL.Implementation
     /// <summary>
     /// BL logic for user manager 
     /// </summary>
-    public class BLUserHandler : IBLUserHandler
+    public class BLUsr01Handler : IBLUsr01Handler
     {
         #region Public Members
 
@@ -70,7 +70,7 @@ namespace api_eWallet.BL.Implementation
         /// <param name="cryptography"> Cryptography Algorithm</param>
         /// <param name="dbFactory"> OrmLite database factory </param>
         /// <param name="sender"> sender service </param>
-        public BLUserHandler(ICryptography cryptography, 
+        public BLUsr01Handler(ICryptography cryptography, 
                              IDbConnectionFactory dbFactory, 
                              IEmailService sender,
                              IDbUsr01Context dbUsr01Context)
