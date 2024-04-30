@@ -1,5 +1,4 @@
 ﻿using api_eWallet.BL.Interfaces;
-using api_eWallet.Filters;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 

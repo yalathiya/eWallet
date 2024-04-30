@@ -1,5 +1,4 @@
-﻿using api_eWallet.Filters;
-using api_eWallet.Services.Interfaces;
+﻿using api_eWallet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
@@ -49,7 +48,6 @@ namespace api_eWallet.Controllers
 
         [HttpGet]
         [Route("TestsJwtAuthorization")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult TestsJwtAuthorization()
         {
             return Ok("Authorized");
