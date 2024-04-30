@@ -16,6 +16,11 @@ namespace api_eWallet.Services.Implementation
         /// </summary>
         private IConfiguration _config;
 
+        /// <summary>
+        /// Support of logging 
+        /// </summary>
+        private ILogging _logging;
+
         #endregion
 
         #region Constructor
@@ -24,8 +29,10 @@ namespace api_eWallet.Services.Implementation
         /// Dependency of IConfiguration
         /// </summary>
         /// <param name="config"> interface implementation of IConfiguration </param>
-        public EmailService(IConfiguration config)
+        /// <param name="logging"> logging support </param>
+        public EmailService(IConfiguration config, ILogging logging)
         {
+            _logging = logging;
             _config = config;
         }
 
@@ -60,11 +67,11 @@ namespace api_eWallet.Services.Implementation
 
                 smtpClient.Send(mail);
 
-                Console.WriteLine("Registration email sent successfully!");
+                _logging.LogInformation("email is sent successfully to email-id " + email);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error sending registration email: {ex.Message}");
+                _logging.LogException(ex, "Email is not sent to email - id " + email + " due to exception");
             }
         }
 

@@ -1,0 +1,2 @@
+2024-04-30 15:51:35.9414||ERROR|api_eWallet.Services.Implementation.NLogService|Transaction Fetched from wallet-id : 12 System.Exception: Exception of type 'System.Exception' was thrown.
+2024-04-30 15:56:48.7478||ERROR|api_eWallet.Services.Implementation.NLogService|Transaction Fetched from wallet-id : 12 System.Exception: Exception of type 'System.Exception' was thrown.
