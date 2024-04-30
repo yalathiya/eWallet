@@ -1,6 +1,7 @@
 ﻿using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
+using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
 using System.Data;
@@ -25,6 +26,11 @@ namespace api_eWallet.DL.Implementation
         /// </summary>
         private Response _objResponse;
 
+        /// <summary>
+        /// logging support
+        /// </summary>
+        private ILogging _logging; 
+
         #endregion
 
         #region Constructor
@@ -32,8 +38,9 @@ namespace api_eWallet.DL.Implementation
         /// <summary>
         /// Configuring mysql connection
         /// </summary>
-        public DbTsn01Context()
+        public DbTsn01Context(ILogging logging)
         {
+            _logging = logging;
             _connection = new MySqlConnection(Utilities.DbConnection.GetConnectionString());
         }
 
@@ -53,9 +60,12 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
-                
+                _logging.LogInformation("Connection is opened for processing " + objTsn01);
+
                 using (var transaction = _connection.BeginTransaction())
                 {
+                    _logging.LogTrace("Transaction is started : " + objTsn01);
+
                     try
                     {
                         // Lock the rows in the source and destination wallets
@@ -70,6 +80,8 @@ namespace api_eWallet.DL.Implementation
                         // Commit the transaction
                         transaction.Commit();
 
+                        _logging.LogTrace("transaction is commited : " + objTsn01);
+
                         _objResponse.SetResponse("Deposit Successful", null);
                         return _objResponse;
 
@@ -79,6 +91,8 @@ namespace api_eWallet.DL.Implementation
                         // Roll back the transaction on exception
                         transaction.Rollback();
 
+                        _logging.LogWarning("transaction is rollbacked : " + objTsn01);
+
                         _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", null);
                         return _objResponse;
                     }
@@ -86,12 +100,16 @@ namespace api_eWallet.DL.Implementation
             }
             catch (Exception ex)
             {
+
+                _logging.LogException(ex, ex.Message);
+
                 _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed", null);
                 return _objResponse;
             }
             finally
             {
                 _connection.Close();
+                _logging.LogInformation("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -107,6 +125,7 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
+                _logging.LogInformation("Connection is opened for processing " + objTsn01);
 
                 // Begin a database transaction
                 using (var transaction = _connection.BeginTransaction())
@@ -135,6 +154,7 @@ namespace api_eWallet.DL.Implementation
                     {
                         // Roll back the transaction on exception
                         transaction.Rollback();
+                        _logging.LogWarning("transaction is rollbacked : " + objTsn01);
 
                         _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", null);
                         return _objResponse;
@@ -143,12 +163,14 @@ namespace api_eWallet.DL.Implementation
             }
             catch (Exception ex)
             {
+                _logging.LogException(ex, ex.Message);
                 _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed", null);
                 return _objResponse;
             }
             finally
             {
                 _connection.Close();
+                _logging.LogInformation("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -164,6 +186,7 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
+                _logging.LogInformation("Connection is opened for processing " + objTsn01);
 
                 using (var transaction = _connection.BeginTransaction())
                 {
@@ -188,6 +211,7 @@ namespace api_eWallet.DL.Implementation
                     {
                         // Roll back the transaction on exception
                         transaction.Rollback();
+                        _logging.LogWarning("transaction is rollbacked : " + objTsn01);
 
                         _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", null);
                         return _objResponse;
@@ -196,12 +220,14 @@ namespace api_eWallet.DL.Implementation
             }
             catch (Exception ex)
             {
+                _logging.LogException(ex, ex.Message);
                 _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed", null);
                 return _objResponse;
             }
             finally
             {
                 _connection.Close();
+                _logging.LogInformation("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -319,6 +345,7 @@ namespace api_eWallet.DL.Implementation
                                                         UPDATE", n01f03, n01f04);
                 command.ExecuteNonQuery();
             }
+            _logging.LogInformation($" database rows are locked for user id {n01f03} , {n01f04}");
         }
 
         /// <summary>
@@ -343,6 +370,7 @@ namespace api_eWallet.DL.Implementation
                                                       DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f03);
                 command.ExecuteNonQuery();
+                _logging.LogInformation($"{n01f10} is deducted from user id {n01f03}");
             }
         }
 
@@ -368,6 +396,7 @@ namespace api_eWallet.DL.Implementation
                                                       DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f04);
                 command.ExecuteNonQuery();
+                _logging.LogInformation($"{n01f10} is credited to user id {n01f04}");
             }
         }
 
@@ -403,6 +432,7 @@ namespace api_eWallet.DL.Implementation
                                                         objTsn01.N01f09.ToString("yyyy-MM-dd HH-mm-ss"),
                                                         objTsn01.N01f10);
                 command.ExecuteNonQuery();
+                _logging.LogInformation($"Transaction is added {objTsn01}");
             }
         }
 

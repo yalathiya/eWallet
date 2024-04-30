@@ -3,14 +3,11 @@ using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Models.POCO;
+using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using ServiceStack;
-using ServiceStack.Data;
-using System.Data;
 using System.Net;
-using System.Transactions;
 
 namespace api_eWallet.BL.Implementation
 {
@@ -53,6 +50,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private IDbTsn01Context _objDbTsn01Context;
 
+        /// <summary>
+        /// Implementation of logging
+        /// </summary>
+        private ILogging _logging;
+
         #endregion
 
         #region Constructor
@@ -60,8 +62,14 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Configuring Dependency Injection
         /// </summary>
-        public BLTsn01Handler(IBLWlt01Handler objBLWlt01Handler, IDbTsn01Context objDbTsn01Context)
+        /// <param name="logging"> logging support </param>
+        /// <param name="objBLWlt01Handler"> BL for Wlt01 handler </param>
+        /// <param name="objDbTsn01Context"> Bl for Tsn01 handler </param>
+        public BLTsn01Handler(IBLWlt01Handler objBLWlt01Handler, 
+                              IDbTsn01Context objDbTsn01Context,
+                              ILogging logging)
         {
+            _logging = logging;
             _objBLWlt01Handler = objBLWlt01Handler;
             _objDbTsn01Context = objDbTsn01Context;
         }
@@ -84,6 +92,7 @@ namespace api_eWallet.BL.Implementation
 
             if(objDTOTsn01.N01f02 != walletId)
             {
+
                 _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Request is forbidden due to access constraints", null);
                 return _objResponse;
             }
@@ -240,6 +249,9 @@ namespace api_eWallet.BL.Implementation
         {
             _objResponse = new Response();
             _objResponse.SetResponse("Transactions Fetched", _objDbTsn01Context.GetAllTransactions(walletId, pageNumber));
+
+            _logging.LogInformation("Transactions Fetched from wallet-id : " + walletId);
+
             return _objResponse;
         }
 
@@ -253,6 +265,9 @@ namespace api_eWallet.BL.Implementation
         {
             _objResponse = new Response();
             _objResponse.SetResponse("Transaction Fetched", _objDbTsn01Context.GetTransaction(walletId, transactionId));
+
+            _logging.LogInformation("Transaction Fetched with the transaction-id " + transactionId);
+
             return _objResponse;
         }
 

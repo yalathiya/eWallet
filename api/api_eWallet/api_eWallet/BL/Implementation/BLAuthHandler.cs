@@ -36,6 +36,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private IAuthentication _authService;
 
+        /// <summary>
+        /// Logging support 
+        /// </summary>
+        private ILogging _logging;
+
         #endregion
 
         #region Constructor
@@ -43,8 +48,16 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Configures necessary dependency injections
         /// </summary>
-        public BLAuthHandler(ICryptography cryptography, IDbConnectionFactory dbFactory, IAuthentication authentication)
+        /// <param name="authentication"> authentication service </param>
+        /// <param name="logging"> logging service </param>
+        /// <param name="cryptography"> cryptography service </param>
+        /// <param name="dbFactory"> refer to OrmLite connection </param>
+        public BLAuthHandler(ICryptography cryptography, 
+                             IDbConnectionFactory dbFactory, 
+                             IAuthentication authentication,
+                             ILogging logging)
         {
+            _logging = logging;
             _cryptography = cryptography;
             _dbFactory = dbFactory;
             _authService = authentication;
@@ -62,6 +75,8 @@ namespace api_eWallet.BL.Implementation
         /// <returns></returns>
         public Response Login(string email, string password)
         {
+            _logging.LogTrace("Login Request from : " + email);
+
             string encryptedPassword = _cryptography.Encrypt(password);
 
             _objResponse = new Response();
@@ -77,6 +92,7 @@ namespace api_eWallet.BL.Implementation
                 // Invalid Credential
                 if(objUsr01 == null)
                 {
+                    _logging.LogTrace("Login unsuccessful : " + email);
                     _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Login Unsuccessful", null);
                     return _objResponse;
                 }
@@ -86,6 +102,7 @@ namespace api_eWallet.BL.Implementation
 
             string token = _authService.GenerateJwtToken(email, userId, walletId);
 
+            _logging.LogInformation($"user with {email} is logged in successfully");
             _objResponse.SetResponse("Login Successful", new { token = token });
             return _objResponse;
         }

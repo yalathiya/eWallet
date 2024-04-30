@@ -1,6 +1,9 @@
-﻿using api_eWallet.Filters;
+﻿using api_eWallet.Middlewares;
+using api_eWallet.Middlewares.Filters;
 using api_eWallet.Utilities;
 using Microsoft.OpenApi.Models;
+using NLog.Extensions.Logging;
+using System.Configuration;
 
 namespace api_eWallet
 {
@@ -9,7 +12,20 @@ namespace api_eWallet
     /// </summary>
     public class Startup
     {
-        #region Public Members 
+        #region Constructor
+
+        /// <summary>
+        /// Extract nlog configuration
+        /// </summary>
+        public Startup()
+        {
+            // providing nlog configuration file 
+            NLog.LogManager.LoadConfiguration(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nlog.config"));
+        }
+
+        #endregion
+
+        #region Public Methods 
 
         /// <summary>
         /// Configures all services 
@@ -24,6 +40,15 @@ namespace api_eWallet
                 options.Filters.Add(typeof(JwtAuthenticationFilter));
             });
 
+
+            // Configuring Logging
+            services.AddLogging(logging =>
+            {
+                logging.ClearProviders();
+                logging.AddNLog();
+            });
+
+            // Configuring Swagger 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eWallet", Version = "v1" });
@@ -73,11 +98,14 @@ namespace api_eWallet
 
             app.UseRouting();
 
+            app.UseMiddleware<LoggingMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
 
+            
         }
 
         #endregion

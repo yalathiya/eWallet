@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Security.Claims;
 
-namespace api_eWallet.Filters
+namespace api_eWallet.Middlewares.Filters
 {
     /// <summary>
     /// Authentication filter which valides jwt token
@@ -13,7 +13,7 @@ namespace api_eWallet.Filters
     public class JwtAuthenticationFilter : IAuthorizationFilter
     {
         #region Private Members
-        
+
         /// <summary>
         /// Implements IAuthentication interface
         /// </summary>
@@ -107,7 +107,7 @@ namespace api_eWallet.Filters
                         context.HttpContext.User = claimsPrincipal;
 
                         // space separed value of user id, wallet id & email id 
-                        string value = String.Format(@"{0} {1} {2}",
+                        string value = string.Format(@"{0} {1} {2}",
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_userId")?.Value,
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_walletId")?.Value,
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_emailId")?.Value);

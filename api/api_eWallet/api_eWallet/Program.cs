@@ -1,3 +1,5 @@
+using NLog.Web;
+
 namespace api_eWallet
 {
     /// <summary>
@@ -23,7 +25,7 @@ namespace api_eWallet
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseNLog();
                 });
     }
 }

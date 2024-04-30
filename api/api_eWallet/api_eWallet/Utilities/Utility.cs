@@ -27,7 +27,10 @@ namespace api_eWallet.Utilities
         /// <param name="services"> collection of services </param>
         /// <returns> services </returns>
         public static IServiceCollection AddMyServices(this IServiceCollection services)
-        {      
+        {
+            // register logging service
+            services.AddSingleton<ILogging, NLogService>();
+
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
 
