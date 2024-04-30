@@ -1,5 +1,6 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -43,6 +44,7 @@ namespace api_eWallet.Controllers
         ///           else => Login Failed 
         /// </returns>
         [HttpPost]
+        [AllowAnonymous]
         [Route("")]
         public IActionResult Login([FromBody] DTOLog01 objDTOLog01)
         {

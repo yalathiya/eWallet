@@ -1,4 +1,4 @@
-﻿using api_eWallet.Filters;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -9,14 +9,15 @@ namespace api_eWallet.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class CLAdditional : ControllerBase
-    {        
+    {
         #region Public Methods
 
         /// <summary>
         /// Redirects to api documentation for help
         /// </summary>
-        /// <returns></returns>
+        /// <returns></returns>        
         [HttpGet]
+        [AllowAnonymous]
         [Route("help")]
         public IActionResult Help()
         {
@@ -30,7 +31,6 @@ namespace api_eWallet.Controllers
         /// <exception cref="NotImplementedException"></exception>
         [HttpPost]
         [Route("settings")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Settings()
         {
             throw new NotImplementedException();

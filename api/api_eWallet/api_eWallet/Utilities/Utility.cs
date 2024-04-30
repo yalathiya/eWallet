@@ -19,7 +19,6 @@ namespace api_eWallet.Utilities
     /// </summary>
     public static class Utility
     {
-
         #region Public Methods
 
         /// <summary>
@@ -29,7 +28,9 @@ namespace api_eWallet.Utilities
         /// <returns> services </returns>
         public static IServiceCollection AddMyServices(this IServiceCollection services)
         {
-           
+            // register logging service
+            services.AddSingleton<ILogging, NLogService>();
+
             // Register Aes Cryptography Service
             services.AddSingleton<ICryptography, AesCrptographyService>();
 
@@ -39,6 +40,9 @@ namespace api_eWallet.Utilities
                 new OrmLiteConnectionFactory(
                     DbConnection.GetConnectionString(),
                     MySqlDialect.Provider));
+
+            // Register RedisStackService
+            services.AddSingleton<IRedisService, RedisService>();
 
             // Register Authentication Service 
             services.AddSingleton<IAuthentication, AuthenticationService>();

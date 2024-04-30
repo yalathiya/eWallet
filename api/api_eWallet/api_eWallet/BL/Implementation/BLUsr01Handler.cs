@@ -60,6 +60,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private Response _objResponse;
 
+        /// <summary>
+        /// Logging Support 
+        /// </summary>
+        private ILogging _logging;
+
         #endregion
 
         #region Constructor 
@@ -70,10 +75,13 @@ namespace api_eWallet.BL.Implementation
         /// <param name="cryptography"> Cryptography Algorithm</param>
         /// <param name="dbFactory"> OrmLite database factory </param>
         /// <param name="sender"> sender service </param>
+        /// <param name="logging"> logging support </param>
+        /// <param name="dbUsr01Context"> db context of Usr01 </param>
         public BLUsr01Handler(ICryptography cryptography, 
                              IDbConnectionFactory dbFactory, 
                              IEmailService sender,
-                             IDbUsr01Context dbUsr01Context)
+                             IDbUsr01Context dbUsr01Context,
+                             ILogging logging)
         {
             _dbFactory = dbFactory;
             _dbUsr01Context = dbUsr01Context;
@@ -212,6 +220,7 @@ namespace api_eWallet.BL.Implementation
                 // send user id and wallet id to user
                 _sender.Send(_objUsr01.R01f04, $"Welcome to eWallet !! \r\n User Id : {userId} \r\n Wallet Id : {walletId}");
 
+                _logging.LogInformation("user is registered with user id : " + userId);
                 _objResponse.SetResponse("User registered successfully");
                 return _objResponse;    
             }
@@ -225,7 +234,8 @@ namespace api_eWallet.BL.Implementation
 
                 // send message to user 
                 _sender.Send(_objUsr01.R01f04, $"Your user profile is updated successfully");
-                 
+
+                _logging.LogInformation("user is updated with user id : " + _objUsr01.R01f01);
                 _objResponse.SetResponse("User updated successfully");
                 return _objResponse;
             }
