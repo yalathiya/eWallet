@@ -49,7 +49,6 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("deposit")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.D;
@@ -83,7 +82,6 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("transfer")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.T;
@@ -117,7 +115,6 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("withdraw")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.W;
@@ -151,7 +148,6 @@ namespace api_eWallet.Controllers
         /// <returns>page of transaction</returns>
         [HttpGet]
         [Route("GetTransactions")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetAllTransaction(int pageNumber)
         {
             return Ok(_objBLTsn01Handler.GetAllTransactions(HttpContext.GetWalletIdFromClaims(), pageNumber));
@@ -163,7 +159,6 @@ namespace api_eWallet.Controllers
         /// <returns>transaction details</returns>
         [HttpGet]
         [Route("GetTransaction")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetTransaction(int transactionId)
         {
             return Ok(_objBLTsn01Handler.GetTransaction(HttpContext.GetWalletIdFromClaims(), transactionId));

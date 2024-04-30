@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -40,6 +41,15 @@ namespace api_eWallet.Filters
         /// <param name="context"> AuthorizationFilter Context </param>
         void IAuthorizationFilter.OnAuthorization(AuthorizationFilterContext context)
         {
+            // Retrieve the endpoint information
+            var endpoint = context.HttpContext.GetEndpoint();
+
+            // Check if the endpoint is excluded from authentication
+            if (endpoint?.Metadata?.GetMetadata<IAllowAnonymous>() != null)
+            {
+                return; // Skip authentication for this endpoint
+            }
+
             // Retrieve authorization header from request
             var authorizationHeader = context.HttpContext.Request.Headers["Authorization"];
 

@@ -42,7 +42,6 @@ namespace api_eWallet.Controllers
         /// <returns> current balance </returns>
         [HttpGet]
         [Route("balance")]
-        [ServiceFilter(typeof(JwtAuthenticationFilter))]
         public IActionResult GetCurrentBalance()
         {
             return Ok(_objBLWlt01Handler.GetCurrentBalance(HttpContext.GetWalletIdFromClaims()));

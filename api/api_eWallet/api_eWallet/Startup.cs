@@ -4,13 +4,26 @@ using Microsoft.OpenApi.Models;
 
 namespace api_eWallet
 {
+    /// <summary>
+    /// Class which consists configurations of application and services within the web api 
+    /// </summary>
     public class Startup
     {
         #region Public Members 
 
+        /// <summary>
+        /// Configures all services 
+        /// </summary>
+        /// <param name="services"> refer to IServiceCollection interface (DI container of .NET) </param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            // Configures Controllers
+            services.AddControllers(options =>
+            {
+                // Add JwtAuthenticationFilter as a global filter, excluding specific endpoint
+                options.Filters.Add(typeof(JwtAuthenticationFilter));
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eWallet", Version = "v1" });
@@ -49,6 +62,10 @@ namespace api_eWallet
             services.AddMyServices();
         }
 
+        /// <summary>
+        /// Configure application
+        /// </summary>
+        /// <param name="app"> refer to IapllicationBuilder interface </param>
         public void Configure(IApplicationBuilder app)
         {
             app.UseSwagger();
