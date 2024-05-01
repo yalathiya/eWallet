@@ -32,6 +32,7 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// Configures redis stack 
         /// </summary>
+        /// <param name="config"> Refer to appSetting </param>
         public RedisService(IConfiguration config)
         {
             _config = config;

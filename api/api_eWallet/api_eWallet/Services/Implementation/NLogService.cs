@@ -20,7 +20,7 @@ namespace api_eWallet.Services.Implementation
         #region Constructor
 
         /// <summary>
-        /// 
+        /// Starting NLog Service 
         /// </summary>
         public NLogService()
         {

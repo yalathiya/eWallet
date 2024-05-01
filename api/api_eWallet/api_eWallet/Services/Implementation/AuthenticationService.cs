@@ -29,8 +29,7 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// Take reference of DI from IoC
         /// </summary>
-        /// <param name="configuration"></param>
-        /// <param name="cryptography"></param>
+        /// <param name="configuration"> refer to appSetting </param>
         public AuthenticationService(IConfiguration configuration)
         {
             _configuration = configuration;
