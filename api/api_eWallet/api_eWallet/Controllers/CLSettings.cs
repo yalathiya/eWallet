@@ -8,7 +8,7 @@ namespace api_eWallet.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class CLAdditional : ControllerBase
+    public class CLSettings : ControllerBase
     {
         #region Public Methods
 
@@ -21,19 +21,32 @@ namespace api_eWallet.Controllers
         [Route("help")]
         public IActionResult Help()
         {
-            throw new NotImplementedException();
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Files", "Help.pdf");
+            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+
+            return File(fileBytes, "application/pdf", "Help.pdf");
         }
 
         /// <summary>
-        /// To change settings of the user within application
+        /// To deactive users wallet 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         [HttpPost]
-        [Route("settings")]
-        public IActionResult Settings()
+        [Route("deactive")]
+        public IActionResult DeactiveWallet()
         {
-            throw new NotImplementedException();
+            
+        }
+
+        /// <summary>
+        /// To active users wallet 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("active")]
+        public IActionResult ActiveWallet()
+        {
+
         }
 
         #endregion
