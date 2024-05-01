@@ -55,6 +55,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private ILogging _logging;
 
+        /// <summary>
+        /// Notification Service 
+        /// </summary>
+        private INotificationService _notificationService;
+
         #endregion
 
         #region Constructor
@@ -65,13 +70,16 @@ namespace api_eWallet.BL.Implementation
         /// <param name="logging"> logging support </param>
         /// <param name="objBLWlt01Handler"> BL for Wlt01 handler </param>
         /// <param name="objDbTsn01Context"> Bl for Tsn01 handler </param>
+        /// <param name="notificationService"> Notification Service </param>
         public BLTsn01Handler(IBLWlt01Handler objBLWlt01Handler, 
                               IDbTsn01Context objDbTsn01Context,
-                              ILogging logging)
+                              ILogging logging,
+                              INotificationService notificationService)
         {
             _logging = logging;
             _objBLWlt01Handler = objBLWlt01Handler;
             _objDbTsn01Context = objDbTsn01Context;
+            _notificationService = notificationService;
         }
 
         #endregion
@@ -219,19 +227,30 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         public Response Save()
         {
+            Not01 objNot01 = new Not01();
+
             // Wallet to Wallet Transfer
             if (EnmTransactionType == EnmTransactionType.T)
             {
+                objNot01.SetNotification(_objTsn01.N01f02, "Your wallet transfer is processing", false, false, DateTime.Now);
+                _notificationService.SendNotification(objNot01);
+
                 return _objDbTsn01Context.Transfer(_objTsn01);
             }
             // Deposit
             else if (EnmTransactionType == EnmTransactionType.D)
             {
+                objNot01.SetNotification(_objTsn01.N01f02, "Your deposit is processing", false, false, DateTime.Now);
+                _notificationService.SendNotification(objNot01);
+
                 return _objDbTsn01Context.Deposit(_objTsn01);
             }
             // Withdrawal
             else if (EnmTransactionType == EnmTransactionType.W)
             {
+                objNot01.SetNotification(_objTsn01.N01f02, "Your withdrwal is processing", false, false, DateTime.Now);
+                _notificationService.SendNotification(objNot01);
+
                 return _objDbTsn01Context.Withdraw(_objTsn01);
             }
 
