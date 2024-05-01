@@ -3,7 +3,6 @@ using api_eWallet.Middlewares.Filters;
 using api_eWallet.Utilities;
 using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
-using System.Configuration;
 
 namespace api_eWallet
 {

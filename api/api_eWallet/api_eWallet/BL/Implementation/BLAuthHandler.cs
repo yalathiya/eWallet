@@ -102,7 +102,7 @@ namespace api_eWallet.BL.Implementation
 
             string token = _authService.GenerateJwtToken(email, userId, walletId);
 
-            _logging.LogInformation($"user with {email} is logged in successfully");
+            _logging.LogTrace($"user with {email} is logged in successfully");
             _objResponse.SetResponse("Login Successful", new { token = token });
             return _objResponse;
         }

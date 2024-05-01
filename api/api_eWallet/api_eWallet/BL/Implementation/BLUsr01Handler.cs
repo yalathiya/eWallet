@@ -220,7 +220,7 @@ namespace api_eWallet.BL.Implementation
                 // send user id and wallet id to user
                 _sender.Send(_objUsr01.R01f04, $"Welcome to eWallet !! \r\n User Id : {userId} \r\n Wallet Id : {walletId}");
 
-                _logging.LogInformation("user is registered with user id : " + userId);
+                _logging.LogTrace("user is registered with user id : " + userId);
                 _objResponse.SetResponse("User registered successfully");
                 return _objResponse;    
             }
@@ -235,7 +235,7 @@ namespace api_eWallet.BL.Implementation
                 // send message to user 
                 _sender.Send(_objUsr01.R01f04, $"Your user profile is updated successfully");
 
-                _logging.LogInformation("user is updated with user id : " + _objUsr01.R01f01);
+                _logging.LogTrace("user is updated with user id : " + _objUsr01.R01f01);
                 _objResponse.SetResponse("User updated successfully");
                 return _objResponse;
             }

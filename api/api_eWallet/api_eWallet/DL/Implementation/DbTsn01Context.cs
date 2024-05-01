@@ -60,7 +60,7 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
-                _logging.LogInformation("Connection is opened for processing " + objTsn01);
+                _logging.LogTrace("Connection is opened for processing " + objTsn01);
 
                 using (var transaction = _connection.BeginTransaction())
                 {
@@ -109,7 +109,7 @@ namespace api_eWallet.DL.Implementation
             finally
             {
                 _connection.Close();
-                _logging.LogInformation("Connection is closed for processing " + objTsn01);
+                _logging.LogTrace("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -125,7 +125,7 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
-                _logging.LogInformation("Connection is opened for processing " + objTsn01);
+                _logging.LogTrace("Connection is opened for processing " + objTsn01);
 
                 // Begin a database transaction
                 using (var transaction = _connection.BeginTransaction())
@@ -170,7 +170,7 @@ namespace api_eWallet.DL.Implementation
             finally
             {
                 _connection.Close();
-                _logging.LogInformation("Connection is closed for processing " + objTsn01);
+                _logging.LogTrace("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -186,7 +186,7 @@ namespace api_eWallet.DL.Implementation
             try
             {
                 _connection.Open();
-                _logging.LogInformation("Connection is opened for processing " + objTsn01);
+                _logging.LogTrace("Connection is opened for processing " + objTsn01);
 
                 using (var transaction = _connection.BeginTransaction())
                 {
@@ -227,7 +227,7 @@ namespace api_eWallet.DL.Implementation
             finally
             {
                 _connection.Close();
-                _logging.LogInformation("Connection is closed for processing " + objTsn01);
+                _logging.LogTrace("Connection is closed for processing " + objTsn01);
             }
         }
 
@@ -345,7 +345,7 @@ namespace api_eWallet.DL.Implementation
                                                         UPDATE", n01f03, n01f04);
                 command.ExecuteNonQuery();
             }
-            _logging.LogInformation($" database rows are locked for user id {n01f03} , {n01f04}");
+            _logging.LogWarning($" database rows are locked for user id {n01f03} , {n01f04}");
         }
 
         /// <summary>
@@ -370,7 +370,7 @@ namespace api_eWallet.DL.Implementation
                                                       DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f03);
                 command.ExecuteNonQuery();
-                _logging.LogInformation($"{n01f10} is deducted from user id {n01f03}");
+                _logging.LogWarning($"{n01f10} is deducted from user id {n01f03}");
             }
         }
 
@@ -396,7 +396,7 @@ namespace api_eWallet.DL.Implementation
                                                       DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"),
                                                       n01f04);
                 command.ExecuteNonQuery();
-                _logging.LogInformation($"{n01f10} is credited to user id {n01f04}");
+                _logging.LogWarning($"{n01f10} is credited to user id {n01f04}");
             }
         }
 
@@ -432,7 +432,7 @@ namespace api_eWallet.DL.Implementation
                                                         objTsn01.N01f09.ToString("yyyy-MM-dd HH-mm-ss"),
                                                         objTsn01.N01f10);
                 command.ExecuteNonQuery();
-                _logging.LogInformation($"Transaction is added {objTsn01}");
+                _logging.LogTrace($"Transaction is added {objTsn01}");
             }
         }
 

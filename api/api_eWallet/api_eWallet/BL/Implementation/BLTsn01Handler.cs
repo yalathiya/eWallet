@@ -250,7 +250,7 @@ namespace api_eWallet.BL.Implementation
             _objResponse = new Response();
             _objResponse.SetResponse("Transactions Fetched", _objDbTsn01Context.GetAllTransactions(walletId, pageNumber));
 
-            _logging.LogInformation("Transactions Fetched from wallet-id : " + walletId);
+            _logging.LogTrace("Transactions Fetched from wallet-id : " + walletId);
 
             return _objResponse;
         }
@@ -266,7 +266,7 @@ namespace api_eWallet.BL.Implementation
             _objResponse = new Response();
             _objResponse.SetResponse("Transaction Fetched", _objDbTsn01Context.GetTransaction(walletId, transactionId));
 
-            _logging.LogInformation("Transaction Fetched with the transaction-id " + transactionId);
+            _logging.LogTrace("Transaction Fetched with the transaction-id " + transactionId);
 
             return _objResponse;
         }

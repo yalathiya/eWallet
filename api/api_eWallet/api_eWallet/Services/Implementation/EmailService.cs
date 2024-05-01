@@ -67,7 +67,7 @@ namespace api_eWallet.Services.Implementation
 
                 smtpClient.Send(mail);
 
-                _logging.LogInformation("email is sent successfully to email-id " + email);
+                _logging.LogTrace("email is sent successfully to email-id " + email);
             }
             catch (Exception ex)
             {
