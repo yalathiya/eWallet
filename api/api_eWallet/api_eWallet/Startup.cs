@@ -2,10 +2,12 @@
 using api_eWallet.Middlewares.Filters;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Utilities;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
 using ServiceStack.Text;
+using System.Configuration;
 
 namespace api_eWallet
 {
