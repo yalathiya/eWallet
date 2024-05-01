@@ -1,9 +1,8 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
+using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;
 
@@ -34,9 +33,10 @@ namespace api_eWallet.BL.Implementation
         /// Configuring dependency injection
         /// </summary>
         /// <param name="dbFactory"> OrmLite database factory </param>
+        /// <param name="notificationService"> notification service </param>
         public BLWlt01Handler(IDbConnectionFactory dbFactory)
         {
-            _dbFactory = dbFactory; 
+            _dbFactory = dbFactory;  
         }
 
         #endregion

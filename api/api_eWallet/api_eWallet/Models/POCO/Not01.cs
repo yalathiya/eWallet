@@ -27,10 +27,20 @@ namespace api_eWallet.Models.POCO
         public string T01f03 { get; set; }
 
         /// <summary>
+        /// Is Email Notification 
+        /// </summary>
+        public bool T01f04 { get; set; }
+
+        /// <summary>
+        /// Is SMS Notification 
+        /// </summary>
+        public bool T01f05 { get; set; }
+
+        /// <summary>
         /// Created on        
         /// </summary>
         [IgnoreOnUpdate]
-        public DateTime T01f04 { get; set; }
+        public DateTime T01f06 { get; set; }
 
         #endregion
 

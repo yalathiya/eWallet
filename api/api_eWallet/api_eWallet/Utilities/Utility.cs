@@ -3,6 +3,7 @@ using api_eWallet.BL.Interfaces;
 using api_eWallet.DL.Implementation;
 using api_eWallet.DL.Interfaces;
 using api_eWallet.Models;
+using api_eWallet.Models.POCO;
 using api_eWallet.Services.Implementation;
 using api_eWallet.Services.Interfaces;
 using ServiceStack.Data;
@@ -46,9 +47,12 @@ namespace api_eWallet.Utilities
 
             // Register Authentication Service 
             services.AddSingleton<IAuthentication, AuthenticationService>();
-
+            
             // Register Email Service 
             services.AddSingleton<IEmailService, EmailService>();
+
+            // Register Notification Service 
+            services.AddSingleton<INotificationService, NotificationService>();
 
             // Adding BLUserHandler
             services.AddScoped<IBLUsr01Handler, BLUsr01Handler>();
@@ -198,6 +202,23 @@ namespace api_eWallet.Utilities
             response.Message = message;
         }
 
+        /// <summary>
+        /// Set Notification object 
+        /// </summary>
+        /// <param name="objNot01"> object of notification </param>
+        /// <param name="userId"> user id </param>
+        /// <param name="message"> notification message </param>
+        /// <param name="isEmailNotification"> is email notification </param>
+        /// <param name="isSmsNotication"> is sms notification </param>
+        /// <param name="createdOn"> creation time </param>
+        public static void SetNotification(this Not01 objNot01, int userId, string message, bool isEmailNotification, bool isSmsNotication, DateTime createdOn)
+        {
+            objNot01.T01f02 = userId;
+            objNot01.T01f03 = message;
+            objNot01.T01f04 = isEmailNotification;
+            objNot01.T01f05 = isSmsNotication;
+            objNot01.T01f06 = createdOn;
+        }
         /// <summary>
         /// Extension method to convert DataTable to a list of objects
         /// </summary>
