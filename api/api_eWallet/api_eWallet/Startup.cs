@@ -1,8 +1,10 @@
 ﻿using api_eWallet.Middlewares;
 using api_eWallet.Middlewares.Filters;
 using api_eWallet.Utilities;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
 using NLog.Extensions.Logging;
+using ServiceStack.Text;
 
 namespace api_eWallet
 {
@@ -90,11 +92,51 @@ namespace api_eWallet
         /// Configure application
         /// </summary>
         /// <param name="app"> refer to IapllicationBuilder interface </param>
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            // developer exception page in development environment
+            if (env.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
 
+                // Added developer exception page
+                // consists original line of code 
+                app.UseDeveloperExceptionPage();
+            }
+
+            // exception handler in production environment 
+            if (env.IsProduction())
+            {
+                // Added ExceptionHandler Page 
+                // Content is delivered to web browser
+                // It is used in production level, where original lines of code should not be visible to users.
+                app.UseExceptionHandler((options) =>
+                {
+                    options.Run(async (context) =>
+                    {
+                        // configuring status code 
+                        context.Response.StatusCode = 500;
+
+                        // configuring response type as html
+                        context.Response.ContentType = "text/html";
+
+                        // get features from IExceptionHandlerFeature interface 
+                        var ex = context.Features.Get<IExceptionHandlerFeature>();
+                        if (ex != null)
+                        {
+                            // developing error 
+                            string err = "<h1>This is custom error from Exception Handler</h1>" + // custom message 
+                                          "<h2>Error Message :" + ex.Error.Message + "</h2>" + // error message
+                                          "<h5>Error Stack" + ex.Error.StackTrace + "</h5>"; // stacktrace of error
+
+                            // providing error to response 
+                            await context.Response.WriteAsync(err);
+                        }
+                    });
+                });
+            }
+            
             app.UseRouting();
 
             app.UseMiddleware<LoggingMiddleware>();
