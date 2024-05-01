@@ -1,7 +1,6 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Models;
 using api_eWallet.Models.POCO;
-using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
 using ServiceStack.Data;
 using ServiceStack.OrmLite;

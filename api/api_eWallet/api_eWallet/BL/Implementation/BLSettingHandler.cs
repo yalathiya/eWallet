@@ -10,7 +10,7 @@ namespace api_eWallet.BL.Implementation
     /// <summary>
     /// Implementation of IBLSettings interface 
     /// </summary>
-    public class BLSettings : IBLSettings
+    public class BLSettingHandler : IBLSettingHandler
     {
         #region Private Members 
 
@@ -32,7 +32,7 @@ namespace api_eWallet.BL.Implementation
         /// Dependency injection over constructor 
         /// </summary>
         /// <param name="dbFactory"></param>
-        public BLSettings(IDbConnectionFactory dbFactory)
+        public BLSettingHandler(IDbConnectionFactory dbFactory)
         {
             _dbFactory = dbFactory;
             _objResponse = new Response();

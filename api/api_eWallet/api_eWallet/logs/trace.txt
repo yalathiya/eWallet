@@ -5423,3 +5423,572 @@ Content-Disposition: attachment; filename=Help.pdf; filename*=UTF-8''Help.pdf
 2024-05-01 16:15:26.5335||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39PCLBO2M0" is closed. The last processed stream ID was 11. 
 2024-05-01 16:15:26.5487||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN39PCLBO2M0" sending FIN because: "The client closed the connection." 
 2024-05-01 16:15:26.5706||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39PCLBO2M0" stopped. 
+2024-05-01 17:26:59.1362||DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 
+2024-05-01 17:27:00.9832||WARN|api_eWallet.Services.Implementation.NLogService|Background service for clearing old notification from table started running ..... 
+2024-05-01 17:27:03.4145||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory|Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider 
+2024-05-01 17:27:04.0451||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServer|Using development certificate: CN=localhost (Thumbprint: D317AE33326FAF3E7DC6D3ABB2812DD374780EB5) 
+2024-05-01 17:27:04.0980||INFO|Microsoft.Hosting.Lifetime|Now listening on: https://localhost:7278 
+2024-05-01 17:27:04.0980||INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5063 
+2024-05-01 17:27:04.0980||DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly api_eWallet 
+2024-05-01 17:27:04.0980||DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh 
+2024-05-01 17:27:04.0980||DEBUG|Microsoft.AspNetCore.Hosting.Diagnostics|Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net 
+2024-05-01 17:27:04.0980||INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2024-05-01 17:27:04.0980||INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2024-05-01 17:27:04.0980||INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet 
+2024-05-01 17:27:04.0980||DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting started 
+2024-05-01 17:27:04.2203||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN39QN8MM9M7" received FIN. 
+2024-05-01 17:27:04.2203||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M7" accepted. 
+2024-05-01 17:27:04.2203||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M7" started. 
+2024-05-01 17:27:04.2530||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Failed to authenticate HTTPS connection. System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-05-01 17:27:04.3580||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M7" stopped. 
+2024-05-01 17:27:04.3620||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN39QN8MM9M7" sending FIN because: "The Socket transport's send loop completed gracefully." 
+2024-05-01 17:27:04.4012||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M8" accepted. 
+2024-05-01 17:27:04.4012||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M8" started. 
+2024-05-01 17:27:04.4483||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware|Connection 0HN39QN8MM9M8 established using the following protocol: Tls12 
+2024-05-01 17:27:04.4794||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending SETTINGS frame for stream ID 0 with length 18 and flags NONE. 
+2024-05-01 17:27:04.4794||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:27:04.4867||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received SETTINGS frame for stream ID 0 with length 24 and flags NONE. 
+2024-05-01 17:27:04.4867||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-05-01 17:27:04.4867||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:27:04.4867||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 1 with length 454 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:27:04.5206||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received SETTINGS frame for stream ID 0 with length 0 and flags ACK. 
+2024-05-01 17:27:04.5617||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7278/swagger/index.html - - 
+2024-05-01 17:27:04.6333||DEBUG|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|Wildcard detected, all requests with hosts will be allowed. 
+2024-05-01 17:27:04.6333||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:27:05.0291||DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup is scheduled to include browser refresh script injection. 
+2024-05-01 17:27:05.0534||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 1 with length 66 and flags END_HEADERS. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 1024 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 1024 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 1024 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 1024 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 993 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 65 and flags NONE. 
+2024-05-01 17:27:05.3021||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 16 and flags NONE. 
+2024-05-01 17:27:05.3189||DEBUG|Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware|Response markup was updated to include browser refresh script injection. 
+2024-05-01 17:27:05.3189||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 1 with length 0 and flags END_STREAM. 
+2024-05-01 17:27:05.3189||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7278/swagger/index.html - - - 200 - text/html;charset=utf-8 772.3163ms 
+2024-05-01 17:27:05.3385||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 3 with length 109 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:27:05.3617||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 5 with length 57 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:27:05.3617||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - - 
+2024-05-01 17:27:05.3841||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7278/_vs/browserLink - - 
+2024-05-01 17:27:05.3841||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 3 with length 60 and flags END_HEADERS. 
+2024-05-01 17:27:05.3841||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 3 with length 11992 and flags NONE. 
+2024-05-01 17:27:05.3841||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 3 with length 0 and flags END_STREAM. 
+2024-05-01 17:27:05.3841||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7278/_framework/aspnetcore-browser-refresh.js - - - 200 11992 application/javascript;+charset=utf-8 26.0680ms 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 5 with length 149 and flags END_HEADERS. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 9986 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4250||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4624||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 10240 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 9517 and flags NONE. 
+2024-05-01 17:27:05.4696||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 5 with length 0 and flags END_STREAM. 
+2024-05-01 17:27:05.4696||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7278/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 95.1458ms 
+2024-05-01 17:27:05.5557||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 7 with length 66 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:27:05.5557||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - - 
+2024-05-01 17:27:05.5557||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:27:05.8427||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 7 with length 35 and flags END_HEADERS. 
+2024-05-01 17:27:05.8427||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 7 with length 9801 and flags NONE. 
+2024-05-01 17:27:05.8427||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 7 with length 0 and flags END_STREAM. 
+2024-05-01 17:27:05.8427||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 GET https://localhost:7278/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 282.9195ms 
+2024-05-01 17:28:07.2641||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 9 with length 71 and flags END_HEADERS, PRIORITY. 
+2024-05-01 17:28:07.2801||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-05-01 17:28:07.2801||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7278/api/CLAuth application/json 71 
+2024-05-01 17:28:07.2801||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-05-01 17:28:07.2801||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:28:07.2801||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received DATA frame for stream ID 9 with length 71 and flags END_STREAM. 
+2024-05-01 17:28:07.2847||DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|POST requests are not supported 
+2024-05-01 17:28:07.3266||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/CLAuth' 
+2024-05-01 17:28:07.3312||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'api_eWallet.Controllers.CLAuth.Login (api_eWallet)' with route pattern 'api/CLAuth' is valid for the request path '/api/CLAuth' 
+2024-05-01 17:28:07.3312||DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'api_eWallet.Controllers.CLAuth.Login (api_eWallet)' 
+2024-05-01 17:28:07.3312||INFO|api_eWallet.Services.Implementation.NLogService|Request: POST /api/CLAuth 
+2024-05-01 17:28:07.3312||INFO|api_eWallet.Services.Implementation.NLogService|Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 71
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+ 
+2024-05-01 17:28:07.3705||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'api_eWallet.Controllers.CLAuth.Login (api_eWallet)' 
+2024-05-01 17:28:08.3971||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "CLAuth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(api_eWallet.Models.DTO.DTOLog01) on controller api_eWallet.Controllers.CLAuth (api_eWallet). 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): api_eWallet.Middlewares.Filters.JwtAuthenticationFilter 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2024-05-01 17:28:08.3971||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: Before executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:28:08.3971||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: After executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller api_eWallet.Controllers.CLAuth (api_eWallet) 
+2024-05-01 17:28:08.3971||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller api_eWallet.Controllers.CLAuth (api_eWallet) 
+2024-05-01 17:28:08.4329||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01' ... 
+2024-05-01 17:28:08.4329||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01' using the name '' in request data ... 
+2024-05-01 17:28:08.4329||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2024-05-01 17:28:08.4570||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:00000009": started reading request body. 
+2024-05-01 17:28:08.4570||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:00000009": done reading request body. 
+2024-05-01 17:28:08.4999||DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'api_eWallet.Models.DTO.DTOLog01' 
+2024-05-01 17:28:08.4999||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01'. 
+2024-05-01 17:28:08.4999||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01'. 
+2024-05-01 17:28:08.4999||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01' ... 
+2024-05-01 17:28:08.5170||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'objDTOLog01' of type 'api_eWallet.Models.DTO.DTOLog01'. 
+2024-05-01 17:28:08.5199||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:08.5199||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:08.5199||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:08.5199||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:08.5199||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLAuth.Login (api_eWallet) - Validation state: Valid 
+2024-05-01 17:28:08.5199||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLAuth.Login (api_eWallet) with arguments (api_eWallet.Models.DTO.DTOLog01) 
+2024-05-01 17:28:08.5199||TRACE|api_eWallet.Services.Implementation.NLogService|Login Request from : yashlathiyarkit@gmail.com 
+2024-05-01 17:28:08.7420||TRACE|api_eWallet.Services.Implementation.NLogService|user with yashlathiyarkit@gmail.com is logged in successfully 
+2024-05-01 17:28:08.7420||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method api_eWallet.Controllers.CLAuth.Login (api_eWallet), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 215.1181ms. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:08.7420||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:28:08.7420||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2024-05-01 17:28:08.7545||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2024-05-01 17:28:08.7545||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2024-05-01 17:28:08.7545||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2024-05-01 17:28:08.7545||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response. 
+2024-05-01 17:28:08.7545||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'api_eWallet.Models.Response'. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 9 with length 66 and flags END_HEADERS. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 9 with length 499 and flags NONE. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:08.7942||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:28:08.8017||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action api_eWallet.Controllers.CLAuth.Login (api_eWallet) in 396.0802ms 
+2024-05-01 17:28:08.8017||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'api_eWallet.Controllers.CLAuth.Login (api_eWallet)' 
+2024-05-01 17:28:08.8017||INFO|api_eWallet.Services.Implementation.NLogService|Response: 200 (Elapsed Time: 1432 ms) 
+2024-05-01 17:28:08.8017||INFO|api_eWallet.Services.Implementation.NLogService|Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Wed, 01 May 2024 11:58:07 GMT
+Server: Kestrel
+ 
+2024-05-01 17:28:08.8017||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 9 with length 0 and flags END_STREAM. 
+2024-05-01 17:28:08.8017||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7278/api/CLAuth application/json 71 - 200 - application/json;+charset=utf-8 1525.0691ms 
+2024-05-01 17:28:41.3759||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 11 with length 381 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:28:41.3759||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-05-01 17:28:41.3759||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-05-01 17:28:41.3759||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7278/api/CLSettings/deactive - 0 
+2024-05-01 17:28:41.3759||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:28:41.3773||DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|POST requests are not supported 
+2024-05-01 17:28:41.3773||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/CLSettings/deactive' 
+2024-05-01 17:28:41.3773||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet)' with route pattern 'api/CLSettings/deactive' is valid for the request path '/api/CLSettings/deactive' 
+2024-05-01 17:28:41.3773||DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet)' 
+2024-05-01 17:28:41.3773||INFO|api_eWallet.Services.Implementation.NLogService|Request: POST /api/CLSettings/deactive 
+2024-05-01 17:28:41.3936||INFO|api_eWallet.Services.Implementation.NLogService|Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxNDU2ODI4OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.GNekuK3aB0EFkScmvCJhTVjdnzDnehUJQ_Jtw-GFGfQ
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+ 
+2024-05-01 17:28:41.3936||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet)' 
+2024-05-01 17:28:41.3936||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "DeactiveWallet", controller = "CLSettings"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeactiveWallet() on controller api_eWallet.Controllers.CLSettings (api_eWallet). 
+2024-05-01 17:28:41.4092||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): api_eWallet.Middlewares.Filters.JwtAuthenticationFilter 
+2024-05-01 17:28:41.4092||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2024-05-01 17:28:41.4092||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2024-05-01 17:28:41.4092||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-05-01 17:28:41.4092||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2024-05-01 17:28:41.4092||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: Before executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:28:41.6062||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: After executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:28:41.6062||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller api_eWallet.Controllers.CLSettings (api_eWallet) 
+2024-05-01 17:28:41.6062||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller api_eWallet.Controllers.CLSettings (api_eWallet) 
+2024-05-01 17:28:41.6062||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:41.6062||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:41.6062||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:41.6062||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:41.6062||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet) - Validation state: Valid 
+2024-05-01 17:28:41.6463||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 39.1898ms. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:28:41.6463||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2024-05-01 17:28:41.6463||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2024-05-01 17:28:41.6463||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2024-05-01 17:28:41.6463||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2024-05-01 17:28:41.6463||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response. 
+2024-05-01 17:28:41.6463||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'api_eWallet.Models.Response'. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 11 with length 34 and flags END_HEADERS. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 11 with length 94 and flags NONE. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:28:41.6463||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet) in 238.0657ms 
+2024-05-01 17:28:41.6463||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'api_eWallet.Controllers.CLSettings.DeactiveWallet (api_eWallet)' 
+2024-05-01 17:28:41.6463||INFO|api_eWallet.Services.Implementation.NLogService|Response: 200 (Elapsed Time: 240 ms) 
+2024-05-01 17:28:41.6463||INFO|api_eWallet.Services.Implementation.NLogService|Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Wed, 01 May 2024 11:58:41 GMT
+Server: Kestrel
+ 
+2024-05-01 17:28:41.6463||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:28:41.6641||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 11 with length 0 and flags END_STREAM. 
+2024-05-01 17:28:41.6641||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7278/api/CLSettings/deactive - 0 - 200 - application/json;+charset=utf-8 287.7652ms 
+2024-05-01 17:29:02.8712||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 13 with length 47 and flags END_HEADERS, PRIORITY. 
+2024-05-01 17:29:02.8712||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-05-01 17:29:02.8712||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-05-01 17:29:02.8712||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7278/api/CLTransaction/transfer application/json 113 
+2024-05-01 17:29:02.8712||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:29:02.8712||DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|POST requests are not supported 
+2024-05-01 17:29:02.8801||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/CLTransaction/transfer' 
+2024-05-01 17:29:02.8801||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' with route pattern 'api/CLTransaction/transfer' is valid for the request path '/api/CLTransaction/transfer' 
+2024-05-01 17:29:02.8801||DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:29:02.8801||INFO|api_eWallet.Services.Implementation.NLogService|Request: POST /api/CLTransaction/transfer 
+2024-05-01 17:29:02.8801||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received DATA frame for stream ID 13 with length 113 and flags END_STREAM. 
+2024-05-01 17:29:02.8801||INFO|api_eWallet.Services.Implementation.NLogService|Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxNDU2ODI4OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.GNekuK3aB0EFkScmvCJhTVjdnzDnehUJQ_Jtw-GFGfQ
+Content-Type: application/json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 113
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+ 
+2024-05-01 17:29:02.9082||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:29:02.9096||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Transfer", controller = "CLTransaction"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(api_eWallet.Models.DTO.DTOTsn01) on controller api_eWallet.Controllers.CLTransaction (api_eWallet). 
+2024-05-01 17:29:02.9096||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): api_eWallet.Middlewares.Filters.JwtAuthenticationFilter 
+2024-05-01 17:29:02.9096||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2024-05-01 17:29:02.9096||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000), api_eWallet.Middlewares.Filters.IsAccountActiveFilter 
+2024-05-01 17:29:02.9096||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-05-01 17:29:02.9096||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2024-05-01 17:29:02.9096||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: Before executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:29:02.9692||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: After executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:29:02.9692||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller api_eWallet.Controllers.CLTransaction (api_eWallet) 
+2024-05-01 17:29:02.9692||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller api_eWallet.Controllers.CLTransaction (api_eWallet) 
+2024-05-01 17:29:02.9715||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' ... 
+2024-05-01 17:29:02.9715||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' using the name '' in request data ... 
+2024-05-01 17:29:02.9715||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2024-05-01 17:29:02.9715||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:0000000D": started reading request body. 
+2024-05-01 17:29:02.9715||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:0000000D": done reading request body. 
+2024-05-01 17:29:02.9886||DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'api_eWallet.Models.DTO.DTOTsn01' 
+2024-05-01 17:29:02.9886||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:29:02.9886||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:29:02.9886||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' ... 
+2024-05-01 17:29:02.9886||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:29:02.9886||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:02.9886||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:02.9886||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:02.9886||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:02.9886||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:29:03.0078||WARN|api_eWallet.Services.Implementation.NLogService|Wallet is deactivated of user id 17 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Request was short circuited at action filter 'api_eWallet.Middlewares.Filters.IsAccountActiveFilter'. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.BadRequestObjectResult. 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2024-05-01 17:29:03.0078||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter' and content type 'text/plain' to write the response. 
+2024-05-01 17:29:03.0078||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing BadRequestObjectResult, writing value of type 'System.String'. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 13 with length 60 and flags END_HEADERS. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 13 with length 21 and flags NONE. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.BadRequestObjectResult. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:03.0078||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet) in 100.3402ms 
+2024-05-01 17:29:03.0078||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:29:03.0078||INFO|api_eWallet.Services.Implementation.NLogService|Response: 400 (Elapsed Time: 102 ms) 
+2024-05-01 17:29:03.0078||INFO|api_eWallet.Services.Implementation.NLogService|Response Headers:
+Content-Type: text/plain; charset=utf-8
+Date: Wed, 01 May 2024 11:59:02 GMT
+Server: Kestrel
+ 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:29:03.0078||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 13 with length 0 and flags END_STREAM. 
+2024-05-01 17:29:03.0078||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7278/api/CLTransaction/transfer application/json 113 - 400 - text/plain;+charset=utf-8 137.3092ms 
+2024-05-01 17:29:33.8621||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 15 with length 40 and flags END_STREAM, END_HEADERS, PRIORITY. 
+2024-05-01 17:29:33.8627||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-05-01 17:29:33.8627||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-05-01 17:29:33.8627||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7278/api/CLSettings/active - 0 
+2024-05-01 17:29:33.8627||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|POST requests are not supported 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/CLSettings/active' 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet)' with route pattern 'api/CLSettings/active' is valid for the request path '/api/CLSettings/active' 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet)' 
+2024-05-01 17:29:33.8627||INFO|api_eWallet.Services.Implementation.NLogService|Request: POST /api/CLSettings/active 
+2024-05-01 17:29:33.8627||INFO|api_eWallet.Services.Implementation.NLogService|Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxNDU2ODI4OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.GNekuK3aB0EFkScmvCJhTVjdnzDnehUJQ_Jtw-GFGfQ
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 0
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+ 
+2024-05-01 17:29:33.8627||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet)' 
+2024-05-01 17:29:33.8627||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "ActiveWallet", controller = "CLSettings"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ActiveWallet() on controller api_eWallet.Controllers.CLSettings (api_eWallet). 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): api_eWallet.Middlewares.Filters.JwtAuthenticationFilter 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000) 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-05-01 17:29:33.8627||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2024-05-01 17:29:33.8627||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: Before executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:29:33.9353||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: After executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:29:33.9353||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller api_eWallet.Controllers.CLSettings (api_eWallet) 
+2024-05-01 17:29:33.9353||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller api_eWallet.Controllers.CLSettings (api_eWallet) 
+2024-05-01 17:29:33.9353||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:33.9353||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:33.9353||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:33.9353||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:33.9353||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet) - Validation state: Valid 
+2024-05-01 17:29:33.9411||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5.5001ms. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:29:33.9411||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2024-05-01 17:29:33.9411||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2024-05-01 17:29:33.9411||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2024-05-01 17:29:33.9411||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2024-05-01 17:29:33.9411||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response. 
+2024-05-01 17:29:33.9411||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'api_eWallet.Models.Response'. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 15 with length 34 and flags END_HEADERS. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 15 with length 92 and flags NONE. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:29:33.9411||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet) in 64.8198ms 
+2024-05-01 17:29:33.9411||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'api_eWallet.Controllers.CLSettings.ActiveWallet (api_eWallet)' 
+2024-05-01 17:29:33.9411||INFO|api_eWallet.Services.Implementation.NLogService|Response: 200 (Elapsed Time: 66 ms) 
+2024-05-01 17:29:33.9411||INFO|api_eWallet.Services.Implementation.NLogService|Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Wed, 01 May 2024 11:59:33 GMT
+Server: Kestrel
+ 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:29:33.9411||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 15 with length 0 and flags END_STREAM. 
+2024-05-01 17:29:33.9567||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7278/api/CLSettings/active - 0 - 200 - application/json;+charset=utf-8 91.8451ms 
+2024-05-01 17:30:15.5033||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received HEADERS frame for stream ID 17 with length 44 and flags END_HEADERS, PRIORITY. 
+2024-05-01 17:30:15.5087||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received PING frame for stream ID 0 with length 8 and flags NONE. 
+2024-05-01 17:30:15.5087||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending PING frame for stream ID 0 with length 8 and flags ACK. 
+2024-05-01 17:30:15.5087||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received DATA frame for stream ID 17 with length 113 and flags END_STREAM. 
+2024-05-01 17:30:15.5087||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/2 POST https://localhost:7278/api/CLTransaction/transfer application/json 113 
+2024-05-01 17:30:15.5087||TRACE|Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware|All hosts are allowed. 
+2024-05-01 17:30:15.5087||DEBUG|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|POST requests are not supported 
+2024-05-01 17:30:15.5322||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|1 candidate(s) found for the request path '/api/CLTransaction/transfer' 
+2024-05-01 17:30:15.5322||DEBUG|Microsoft.AspNetCore.Routing.Matching.DfaMatcher|Endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' with route pattern 'api/CLTransaction/transfer' is valid for the request path '/api/CLTransaction/transfer' 
+2024-05-01 17:30:15.5322||DEBUG|Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware|Request matched endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:30:15.5322||INFO|api_eWallet.Services.Implementation.NLogService|Request: POST /api/CLTransaction/transfer 
+2024-05-01 17:30:30.7904||INFO|api_eWallet.Services.Implementation.NLogService|Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxNDU2ODI4OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.GNekuK3aB0EFkScmvCJhTVjdnzDnehUJQ_Jtw-GFGfQ
+Content-Type: application/json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 113
+sec-ch-ua: "Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+ 
+2024-05-01 17:30:30.8249||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:30:30.8249||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Transfer", controller = "CLTransaction"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Transfer(api_eWallet.Models.DTO.DTOTsn01) on controller api_eWallet.Controllers.CLTransaction (api_eWallet). 
+2024-05-01 17:30:30.8249||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of authorization filters (in the following order): api_eWallet.Middlewares.Filters.JwtAuthenticationFilter 
+2024-05-01 17:30:30.8249||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of resource filters (in the following order): None 
+2024-05-01 17:30:30.8249||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000), api_eWallet.Middlewares.Filters.IsAccountActiveFilter 
+2024-05-01 17:30:30.8249||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of exception filters (in the following order): None 
+2024-05-01 17:30:30.8249||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000) 
+2024-05-01 17:30:30.8249||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: Before executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:30:30.9343||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Authorization Filter: After executing OnAuthorization on filter api_eWallet.Middlewares.Filters.JwtAuthenticationFilter. 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing controller factory for controller api_eWallet.Controllers.CLTransaction (api_eWallet) 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed controller factory for controller api_eWallet.Controllers.CLTransaction (api_eWallet) 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' ... 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' using the name '' in request data ... 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'. 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:00000011": started reading request body. 
+2024-05-01 17:30:30.9343||DEBUG|Microsoft.AspNetCore.Server.Kestrel|Connection id "0HN39QN8MM9M8", Request id "0HN39QN8MM9M8:00000011": done reading request body. 
+2024-05-01 17:30:30.9438||DEBUG|Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter|JSON input formatter succeeded, deserializing to type 'api_eWallet.Models.DTO.DTOTsn01' 
+2024-05-01 17:30:30.9438||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder|Done attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:30:30.9438||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to bind parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:30:30.9438||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Attempting to validate the bound parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01' ... 
+2024-05-01 17:30:30.9438||DEBUG|Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder|Done attempting to validate the bound parameter 'objDTOTsn01' of type 'api_eWallet.Models.DTO.DTOTsn01'. 
+2024-05-01 17:30:30.9438||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:30:30.9438||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:30:30.9438||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:30:30.9438||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:30:30.9438||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuting on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:30:30.9438||TRACE|api_eWallet.Services.Implementation.NLogService|Wallet is activated of user id 17 
+2024-05-01 17:30:30.9586||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuting on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:30:30.9586||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet) - Validation state: Valid 
+2024-05-01 17:30:30.9586||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executing action method api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet) with arguments (api_eWallet.Models.DTO.DTOTsn01) 
+2024-05-01 17:30:31.4273||TRACE|api_eWallet.Services.Implementation.NLogService|Connection is opened for processing api_eWallet.Models.POCO.Tsn01 
+2024-05-01 17:30:31.4453||WARN|api_eWallet.Services.Implementation.NLogService| database rows are locked for user id 17 , 16 
+2024-05-01 17:30:31.4597||WARN|api_eWallet.Services.Implementation.NLogService|12400.5 is deducted from user id 17 
+2024-05-01 17:30:35.3045||TRACE|api_eWallet.Services.Implementation.NLogService|email is sent successfully to email-id yashlathiyarkit@gmail.com 
+2024-05-01 17:30:35.3045||WARN|api_eWallet.Services.Implementation.NLogService|12400.5 is credited to user id 16 
+2024-05-01 17:30:38.2661||TRACE|api_eWallet.Services.Implementation.NLogService|email is sent successfully to email-id prajvalgahine7121@gmail.com 
+2024-05-01 17:30:38.2835||TRACE|api_eWallet.Services.Implementation.NLogService|Transaction is added api_eWallet.Models.POCO.Tsn01 
+2024-05-01 17:30:38.2972||TRACE|api_eWallet.Services.Implementation.NLogService|Connection is closed for processing api_eWallet.Models.POCO.Tsn01 
+2024-05-01 17:30:38.2972||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action method api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7341.9118ms. 
+2024-05-01 17:30:38.2972||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:30:38.3081||TRACE|api_eWallet.Services.Implementation.NLogService|Account validation filter is applied 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter api_eWallet.Middlewares.Filters.IsAccountActiveFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: Before executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Action Filter: After executing OnActionExecuted on filter Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuting on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Before executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:30:38.3081||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter 
+2024-05-01 17:30:38.3081||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|No information found on request to perform content negotiation. 
+2024-05-01 17:30:38.3081||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select an output formatter without using a content type as no explicit content types were specified for the response. 
+2024-05-01 17:30:38.3081||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Attempting to select the first formatter in the output formatters list which can write the result. 
+2024-05-01 17:30:38.3081||DEBUG|Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector|Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response. 
+2024-05-01 17:30:38.3081||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'api_eWallet.Models.Response'. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending HEADERS frame for stream ID 17 with length 34 and flags END_HEADERS. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 17 with length 82 and flags NONE. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|After executing action result Microsoft.AspNetCore.Mvc.OkObjectResult. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: Before executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:30:38.3081||TRACE|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Result Filter: After executing OnResultExecuted on filter Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter. 
+2024-05-01 17:30:38.3081||INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet) in 7485.6375ms 
+2024-05-01 17:30:38.3081||INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'api_eWallet.Controllers.CLTransaction.Transfer (api_eWallet)' 
+2024-05-01 17:30:38.3081||INFO|api_eWallet.Services.Implementation.NLogService|Response: 200 (Elapsed Time: 7486 ms) 
+2024-05-01 17:30:38.3208||INFO|api_eWallet.Services.Implementation.NLogService|Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Wed, 01 May 2024 12:00:38 GMT
+Server: Kestrel
+ 
+2024-05-01 17:30:38.3208||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 0 with length 4 and flags 0x0. 
+2024-05-01 17:30:38.3208||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" received WINDOW_UPDATE frame for stream ID 17 with length 4 and flags 0x0. 
+2024-05-01 17:30:38.3873||TRACE|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" sending DATA frame for stream ID 17 with length 0 and flags END_STREAM. 
+2024-05-01 17:30:38.3873||INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/2 POST https://localhost:7278/api/CLTransaction/transfer application/json 113 - 200 - application/json;+charset=utf-8 22873.6973ms 
+2024-05-01 17:30:40.1750||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN39QN8MM9M8" received FIN. 
+2024-05-01 17:30:40.1991||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN39QN8MM9M8" is closed. The last processed stream ID was 17. 
+2024-05-01 17:30:40.2013||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN39QN8MM9M8" sending FIN because: "The client closed the connection." 
+2024-05-01 17:30:40.2013||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN39QN8MM9M8" stopped. 

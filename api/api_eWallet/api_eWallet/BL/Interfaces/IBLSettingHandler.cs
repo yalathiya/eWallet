@@ -5,7 +5,7 @@ namespace api_eWallet.BL.Interfaces
     /// <summary>
     /// Interface for BL Settings 
     /// </summary>
-    public interface IBLSettings
+    public interface IBLSettingHandler
     {
         #region Public Methods
 

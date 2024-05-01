@@ -83,6 +83,7 @@ namespace api_eWallet
 
             // Add Filters
             services.AddScoped<JwtAuthenticationFilter>();
+            services.AddScoped<IsAccountActiveFilter>();
 
             // Add all services in DI Container 
             services.AddMyServices();

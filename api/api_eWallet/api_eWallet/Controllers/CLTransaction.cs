@@ -1,4 +1,5 @@
 ﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Middlewares.Filters;
 using api_eWallet.Models;
 using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
@@ -10,6 +11,7 @@ namespace api_eWallet.Controllers
     /// Consists all endpoints which deal with transaction 
     /// </summary>
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(IsAccountActiveFilter))]
     [ApiController]
     public class CLTransaction : ControllerBase
     {

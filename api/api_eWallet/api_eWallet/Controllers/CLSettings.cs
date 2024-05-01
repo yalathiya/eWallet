@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_eWallet.Controllers
@@ -10,6 +12,28 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLSettings : ControllerBase
     {
+        #region Private Members
+
+        /// <summary>
+        /// BL for settings 
+        /// </summary>
+        private IBLSettingHandler _objBLSettings;
+
+        #endregion
+
+        #region Constructor
+        
+        /// <summary>
+        /// Dependency injection over constructor
+        /// </summary>
+        /// <param name="objBLSettings"></param>
+        public CLSettings(IBLSettingHandler objBLSettings)
+        {
+            _objBLSettings = objBLSettings;
+        }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -35,7 +59,7 @@ namespace api_eWallet.Controllers
         [Route("deactive")]
         public IActionResult DeactiveWallet()
         {
-            
+            return Ok(_objBLSettings.DeactivateWallet(HttpContext.GetUserIdFromClaims()));
         }
 
         /// <summary>
@@ -46,7 +70,7 @@ namespace api_eWallet.Controllers
         [Route("active")]
         public IActionResult ActiveWallet()
         {
-
+            return Ok(_objBLSettings.ActivateWallet(HttpContext.GetUserIdFromClaims()));
         }
 
         #endregion

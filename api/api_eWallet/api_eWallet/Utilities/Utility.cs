@@ -57,6 +57,9 @@ namespace api_eWallet.Utilities
             // Adding BLUserHandler
             services.AddScoped<IBLUsr01Handler, BLUsr01Handler>();
 
+            // Adding BLSettingsHandler
+            services.AddScoped<IBLSettingHandler, BLSettingHandler>();
+
             // Adding BLAuthHandler
             services.AddScoped<IBLAuthHandler, BLAuthHandler>();
 
@@ -71,7 +74,7 @@ namespace api_eWallet.Utilities
 
             // Adding DbTsn01Context
             services.AddScoped<IDbTsn01Context, DbTsn01Context>();
-
+            
             return services; 
         }
 
