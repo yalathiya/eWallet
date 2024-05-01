@@ -1,5 +1,6 @@
 ﻿using api_eWallet.Middlewares;
 using api_eWallet.Middlewares.Filters;
+using api_eWallet.Services.Implementation;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.OpenApi.Models;
@@ -40,7 +41,6 @@ namespace api_eWallet
                 // Add JwtAuthenticationFilter as a global filter, excluding specific endpoint
                 options.Filters.Add(typeof(JwtAuthenticationFilter));
             });
-
 
             // Configuring Logging
             services.AddLogging(logging =>
@@ -86,6 +86,9 @@ namespace api_eWallet
 
             // Add all services in DI Container 
             services.AddMyServices();
+
+            // hosted service
+            services.AddHostedService<BGNotificationDbClearService>();
         }
 
         /// <summary>

@@ -217,3 +217,29 @@
 2024-05-01 13:01:53.9667 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.1.2519. Product version: 5.3.1+cf6675da40ccfd4c8c526a3b2bdbeed3442910a1. GlobalAssemblyCache: False
 2024-05-01 13:01:53.9893 Info Validating config: TargetNames=exceptionsFile, errorsFile, traceFile, alldata, ConfigItems=71, FilePath=C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet\bin\Debug\net6.0\nlog.config
 2024-05-01 13:01:54.0208 Info Configuration initialized.
+2024-05-01 15:40:43.0877 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-01 15:40:43.1237 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.9.1072. Product version: 5.3.9+a64226898645e7ca88bd0f2fba51f177d8a55f28. GlobalAssemblyCache: False
+2024-05-01 15:40:43.2411 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:40:43.2673 Info Registered target NLog.Targets.FileTarget(Name=exceptionsFile)
+2024-05-01 15:40:43.2673 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:40:43.2673 Info Registered target NLog.Targets.FileTarget(Name=errorsFile)
+2024-05-01 15:40:43.2715 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:40:43.2715 Info Registered target NLog.Targets.FileTarget(Name=traceFile)
+2024-05-01 15:40:43.2893 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:40:43.2893 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=alldata)
+2024-05-01 15:40:43.3112 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.1.2519. Product version: 5.3.1+cf6675da40ccfd4c8c526a3b2bdbeed3442910a1. GlobalAssemblyCache: False
+2024-05-01 15:40:43.3419 Info Validating config: TargetNames=exceptionsFile, errorsFile, traceFile, alldata, ConfigItems=71, FilePath=C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet\bin\Debug\net6.0\nlog.config
+2024-05-01 15:40:43.3743 Info Configuration initialized.
+2024-05-01 15:44:32.7514 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-01 15:44:32.7884 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.9.1072. Product version: 5.3.9+a64226898645e7ca88bd0f2fba51f177d8a55f28. GlobalAssemblyCache: False
+2024-05-01 15:44:32.9001 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:44:32.9237 Info Registered target NLog.Targets.FileTarget(Name=exceptionsFile)
+2024-05-01 15:44:32.9237 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:44:32.9237 Info Registered target NLog.Targets.FileTarget(Name=errorsFile)
+2024-05-01 15:44:32.9237 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:44:32.9304 Info Registered target NLog.Targets.FileTarget(Name=traceFile)
+2024-05-01 15:44:32.9953 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-01 15:44:32.9953 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=alldata)
+2024-05-01 15:44:33.0325 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.1.2519. Product version: 5.3.1+cf6675da40ccfd4c8c526a3b2bdbeed3442910a1. GlobalAssemblyCache: False
+2024-05-01 15:44:33.0630 Info Validating config: TargetNames=exceptionsFile, errorsFile, traceFile, alldata, ConfigItems=71, FilePath=C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet\bin\Debug\net6.0\nlog.config
+2024-05-01 15:44:33.0962 Info Configuration initialized.
