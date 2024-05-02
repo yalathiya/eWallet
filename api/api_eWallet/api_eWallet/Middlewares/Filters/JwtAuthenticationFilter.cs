@@ -22,12 +22,12 @@ namespace api_eWallet.Middlewares.Filters
         /// <summary>
         /// Redis Stack Service 
         /// </summary>
-        private IRedisService _redisService;
+        private readonly IRedisService _redisService;
 
         /// <summary>
         /// Expiry time of cache
         /// </summary>
-        private TimeSpan _expiryTime = TimeSpan.FromMinutes(20);
+        private readonly TimeSpan _expiryTime = TimeSpan.FromMinutes(20);
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace api_eWallet.Middlewares.Filters
             // Check if authorization header is present and has the Bearer scheme
             if (authorizationHeader.Count == 1 && authorizationHeader.FirstOrDefault().StartsWith("Bearer "))
             {
-                var token = authorizationHeader.FirstOrDefault().Substring("Bearer ".Length);
+                var token = authorizationHeader.FirstOrDefault()["Bearer ".Length..];
 
                 // check token present in cache
                 string cachedValue = _redisService.Get(token);
@@ -116,7 +116,7 @@ namespace api_eWallet.Middlewares.Filters
                         return;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     // Handle token validation errors (e.g., expired token, invalid signature)
                     context.Result = new UnauthorizedResult();
