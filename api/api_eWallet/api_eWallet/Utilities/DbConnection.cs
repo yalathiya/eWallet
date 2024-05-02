@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-
-namespace api_eWallet.Utilities
+﻿namespace api_eWallet.Utilities
 {
     /// <summary>
     /// Provides Database Connection

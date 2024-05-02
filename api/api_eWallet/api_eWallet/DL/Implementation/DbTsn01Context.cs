@@ -99,7 +99,6 @@ namespace api_eWallet.DL.Implementation
 
                         _objResponse.SetResponse("Deposit Successful", null);
                         return _objResponse;
-
                     }
                     catch (Exception ex)
                     {
@@ -436,7 +435,7 @@ namespace api_eWallet.DL.Implementation
                 _logging.LogWarning($"{n01f10} is credited to user id {n01f04}");
             }
 
-            _objNot01.SetNotification(n01f04, $"{n01f10} amount is added from your wallet", true, false, DateTime.Now);
+            _objNot01.SetNotification(n01f04, $"{n01f10} amount is added to your wallet", true, false, DateTime.Now);
             _notificationService.SendNotification(_objNot01);
         }
 
