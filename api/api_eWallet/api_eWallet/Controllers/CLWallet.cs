@@ -1,4 +1,5 @@
 ﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Models.Attributes;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,7 @@ namespace api_eWallet.Controllers
         /// </summary>
         /// <returns> current balance </returns>
         [HttpGet]
+        [ATRateLimiting(MaxRequests = 5, TimeWindow = 2)]
         [Route("balance")]
         public IActionResult GetCurrentBalance()
         {

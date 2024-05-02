@@ -1,6 +1,7 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Middlewares.Filters;
 using api_eWallet.Models;
+using api_eWallet.Models.Attributes;
 using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +51,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("deposit")]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 10)]
         public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.D;
@@ -83,6 +85,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("transfer")]
+        [ATRateLimiting(MaxRequests = 2, TimeWindow = 5)]
         public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.T;
@@ -116,6 +119,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("withdraw")]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 20)]
         public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
         {
             _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.W;
@@ -149,6 +153,7 @@ namespace api_eWallet.Controllers
         /// <returns>page of transaction</returns>
         [HttpGet]
         [Route("GetTransactions")]
+        [ATRateLimiting(MaxRequests = 10, TimeWindow = 2)]
         public IActionResult GetAllTransaction(int pageNumber)
         {
             return Ok(_objBLTsn01Handler.GetAllTransactions(HttpContext.GetWalletIdFromClaims(), pageNumber));
@@ -160,6 +165,7 @@ namespace api_eWallet.Controllers
         /// <returns>transaction details</returns>
         [HttpGet]
         [Route("GetTransaction")]
+        [ATRateLimiting(MaxRequests = 10, TimeWindow = 2)]
         public IActionResult GetTransaction(int transactionId)
         {
             return Ok(_objBLTsn01Handler.GetTransaction(HttpContext.GetWalletIdFromClaims(), transactionId));
