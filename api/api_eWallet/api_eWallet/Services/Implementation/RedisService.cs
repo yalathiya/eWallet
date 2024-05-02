@@ -70,7 +70,7 @@ namespace api_eWallet.Services.Implementation
             {
                 return JsonConvert.DeserializeObject<T>(value);
             }
-            return default(T);
+            return default;
         }
 
         /// <summary>

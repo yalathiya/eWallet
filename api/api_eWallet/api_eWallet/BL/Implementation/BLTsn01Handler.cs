@@ -48,7 +48,7 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// DbContext of Tsn01
         /// </summary>
-        private IDbTsn01Context _objDbTsn01Context;
+        private readonly IDbTsn01Context _objDbTsn01Context;
 
         /// <summary>
         /// Implementation of logging
@@ -58,7 +58,7 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Notification Service 
         /// </summary>
-        private INotificationService _notificationService;
+        private readonly INotificationService _notificationService;
 
         #endregion
 
@@ -227,7 +227,7 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         public Response Save()
         {
-            Not01 objNot01 = new Not01();
+            Not01 objNot01 = new();
 
             // Wallet to Wallet Transfer
             if (EnmTransactionType == EnmTransactionType.T)
@@ -288,6 +288,12 @@ namespace api_eWallet.BL.Implementation
             _logging.LogTrace("Transaction Fetched with the transaction-id " + transactionId);
 
             return _objResponse;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is BLTsn01Handler handler &&
+                   EqualityComparer<INotificationService>.Default.Equals(_notificationService, handler._notificationService);
         }
 
         #endregion
