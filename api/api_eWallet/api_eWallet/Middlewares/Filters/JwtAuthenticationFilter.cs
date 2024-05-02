@@ -1,5 +1,4 @@
 ﻿using api_eWallet.Services.Interfaces;
-using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -38,7 +37,8 @@ namespace api_eWallet.Middlewares.Filters
         /// </summary>
         /// <param name="authService"> IAuthentication </param>
         /// <param name="redisService"> IRedisService </param>
-        public JwtAuthenticationFilter(IAuthentication authService, IRedisService redisService)
+        public JwtAuthenticationFilter(IAuthentication authService, 
+                                       IRedisService redisService)
         {
             _authService = authService;
             _redisService = redisService;

@@ -50,7 +50,8 @@ namespace api_eWallet.DL.Implementation
         /// </summary>
         /// <param name="logging"> logging support </param>
         /// <param name="notificationService"> notification service </param>
-        public DbTsn01Context(ILogging logging, INotificationService notificationService)
+        public DbTsn01Context(ILogging logging, 
+                              INotificationService notificationService)
         {
             _logging = logging;
             _connection = new MySqlConnection(Utilities.DbConnection.GetConnectionString());

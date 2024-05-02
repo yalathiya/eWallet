@@ -30,7 +30,8 @@ namespace api_eWallet.Services.Implementation
         /// </summary>
         /// <param name="config"> interface implementation of IConfiguration </param>
         /// <param name="logging"> logging support </param>
-        public EmailService(IConfiguration config, ILogging logging)
+        public EmailService(IConfiguration config, 
+                            ILogging logging)
         {
             _logging = logging;
             _config = config;

@@ -30,7 +30,8 @@ namespace api_eWallet.Middlewares
         /// </summary>
         /// <param name="next"> delegate </param>
         /// <param name="logging"> logging support </param>
-        public LoggingMiddleware(RequestDelegate next, ILogging logging)
+        public LoggingMiddleware(RequestDelegate next, 
+                                 ILogging logging)
         {
             _next = next;
             _logging = logging;

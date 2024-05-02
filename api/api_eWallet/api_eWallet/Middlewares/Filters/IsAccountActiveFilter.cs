@@ -34,7 +34,8 @@ namespace api_eWallet.Middlewares.Filters
         /// </summary>
         /// <param name="dbFactory"> ormlite db factory </param>
         /// <param name="logging"> logging support </param>
-        public IsAccountActiveFilter(ILogging logging, IDbConnectionFactory dbFactory)
+        public IsAccountActiveFilter(ILogging logging, 
+                                     IDbConnectionFactory dbFactory)
         {
             _logging = logging;
             _dbFactory = dbFactory;

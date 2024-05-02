@@ -31,7 +31,8 @@ namespace api_eWallet.Services.Implementation
         /// </summary>
         /// <param name="logging"> logging support </param>
         /// <param name="dbFactory"> db factory </param>
-        public BGNotificationDbClearService(ILogging logging, IDbConnectionFactory dbFactory)
+        public BGNotificationDbClearService(ILogging logging, 
+                                            IDbConnectionFactory dbFactory)
         {
             _logging = logging;
             _dbFactory = dbFactory;
