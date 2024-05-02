@@ -24,7 +24,7 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// refer to configuration setup of application
         /// </summary>
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
         #endregion
 

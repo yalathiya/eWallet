@@ -81,7 +81,7 @@ namespace api_eWallet.Middlewares
                 return;
             }
 
-            await UpdateClientStatisticsStorage(key, decorator.MaxRequests);
+            await UpdateClientStatisticsStorage(key);
             _logging.LogTrace("reuest is passed successfully from rate limiting middleware -- client key -- " + key);
 
             await _next(context);
@@ -115,9 +115,8 @@ namespace api_eWallet.Middlewares
         /// update clien statistics in cache 
         /// </summary>
         /// <param name="key"> client key </param>
-        /// <param name="maxRequests"> maximum requests </param>
         /// <returns> task response </returns>
-        private async Task UpdateClientStatisticsStorage(string key, int maxRequests)
+        private async Task UpdateClientStatisticsStorage(string key)
         {
             ClientStatistics objClientStatistics = await GetClientStatisticsByKey(key);
 

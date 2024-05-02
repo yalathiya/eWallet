@@ -43,7 +43,7 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Reference of Wallet related functionalities
         /// </summary>
-        private IBLWlt01Handler _objBLWlt01Handler;
+        private readonly IBLWlt01Handler _objBLWlt01Handler;
 
         /// <summary>
         /// DbContext of Tsn01
@@ -53,7 +53,7 @@ namespace api_eWallet.BL.Implementation
         /// <summary>
         /// Implementation of logging
         /// </summary>
-        private ILogging _logging;
+        private readonly ILogging _logging;
 
         /// <summary>
         /// Notification Service 

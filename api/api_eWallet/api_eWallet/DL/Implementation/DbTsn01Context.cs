@@ -110,7 +110,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Deposit of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
@@ -179,7 +179,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Transfer of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
@@ -243,7 +243,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Withdrawal of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
