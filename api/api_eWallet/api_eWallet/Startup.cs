@@ -143,7 +143,10 @@ namespace api_eWallet
             
             app.UseRouting();
 
+            // Middlewares
+
             app.UseMiddleware<LoggingMiddleware>();
+            app.UseMiddleware<RateLimitingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

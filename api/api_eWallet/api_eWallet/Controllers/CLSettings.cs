@@ -1,4 +1,5 @@
 ﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Models.Attributes;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>        
         [HttpGet]
         [AllowAnonymous]
+        [ATRateLimiting(MaxRequests = 5, TimeWindow = 2)]
         [Route("help")]
         public IActionResult Help()
         {
@@ -57,6 +59,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("deactive")]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 60)]
         public IActionResult DeactiveWallet()
         {
             return Ok(_objBLSettings.DeactivateWallet(HttpContext.GetUserIdFromClaims()));
@@ -68,6 +71,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("active")]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 60)]
         public IActionResult ActiveWallet()
         {
             return Ok(_objBLSettings.ActivateWallet(HttpContext.GetUserIdFromClaims()));

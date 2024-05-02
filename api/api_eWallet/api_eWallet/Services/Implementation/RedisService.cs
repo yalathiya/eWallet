@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Services.Interfaces;
+using Newtonsoft.Json;
 using StackExchange.Redis;
 
 namespace api_eWallet.Services.Implementation
@@ -57,6 +58,22 @@ namespace api_eWallet.Services.Implementation
         }
 
         /// <summary>
+        /// Asynchronously get value from redis cache
+        /// </summary>
+        /// <typeparam name="T"> class of return type </typeparam>
+        /// <param name="key"> key </param>
+        /// <returns> object of T </returns>
+        public async Task<T> GetCacheValueAsync<T>(string key)
+        {
+            var value = await _db.StringGetAsync(key);
+            if (value.HasValue)
+            {
+                return JsonConvert.DeserializeObject<T>(value);
+            }
+            return default(T);
+        }
+
+        /// <summary>
         /// Set value in redis cache 
         /// </summary>
         /// <param name="key"> key </param>
@@ -65,6 +82,20 @@ namespace api_eWallet.Services.Implementation
         public void Set(string key, string value, TimeSpan expiry)
         {
             _db.StringSet(key, value, expiry);
+        }
+
+        /// <summary>
+        /// Asynchronously set key - value pair in redis cache 
+        /// </summary>
+        /// <typeparam name="T"> type of class </typeparam>
+        /// <param name="key"> key </param>
+        /// <param name="value"> object of T </param>
+        /// <param name="expiry"> expiry time </param>
+        /// <returns> response of task </returns>
+        public async Task SetCacheValueAsync<T>(string key, T value, TimeSpan? expiry = null)
+        {
+            var serializedValue = JsonConvert.SerializeObject(value);
+            await _db.StringSetAsync(key, serializedValue, expiry);
         }
 
         #endregion

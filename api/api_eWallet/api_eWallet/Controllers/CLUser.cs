@@ -1,5 +1,6 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Models;
+using api_eWallet.Models.Attributes;
 using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Authorization;
@@ -52,6 +53,7 @@ namespace api_eWallet.Controllers
         /// </returns>
         [HttpPost]
         [AllowAnonymous]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 2)]
         [Route("user")]
         public IActionResult Register([FromBody] DTOUsr01 objDTOUsr01)
         {
@@ -85,6 +87,7 @@ namespace api_eWallet.Controllers
         /// </summary>
         /// <returns> User's Information </returns>
         [HttpGet]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 1)]
         [Route("info")]
         public IActionResult GetUserInfo()
         {
@@ -98,6 +101,7 @@ namespace api_eWallet.Controllers
         /// <returns></returns>
         [HttpPut]
         [Route("update")]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 10)]
         public IActionResult UpdateUser([FromBody] DTOUsr01 objDTOUsr01)
         {
             _objBLUserHandler.EnmOperation = EnmOperation.U;
