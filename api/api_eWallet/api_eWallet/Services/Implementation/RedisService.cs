@@ -24,7 +24,7 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// refer to configuration setup of application
         /// </summary>
-        private IConfiguration _config;
+        private readonly IConfiguration _config;
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace api_eWallet.Services.Implementation
             {
                 return JsonConvert.DeserializeObject<T>(value);
             }
-            return default(T);
+            return default;
         }
 
         /// <summary>

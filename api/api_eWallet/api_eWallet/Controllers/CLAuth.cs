@@ -18,7 +18,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Implemnts  IBLAuthHandler interface
         /// </summary>
-        private IBLAuthHandler _objBLAuthHandler;
+        private readonly IBLAuthHandler _objBLAuthHandler;
 
         #endregion
 

@@ -20,7 +20,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Implements IBLInterface 
         /// </summary>
-        private IBLUsr01Handler _objBLUserHandler;
+        private readonly IBLUsr01Handler _objBLUserHandler;
 
         /// <summary>
         /// Response to Action Method
