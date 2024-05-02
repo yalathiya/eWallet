@@ -17,7 +17,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Reference of IBLWlt01 Handler
         /// </summary>
-        private IBLWlt01Handler _objBLWlt01Handler;
+        private readonly IBLWlt01Handler _objBLWlt01Handler;
 
         #endregion
 

@@ -18,7 +18,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// BL for settings 
         /// </summary>
-        private IBLSettingHandler _objBLSettings;
+        private readonly IBLSettingHandler _objBLSettings;
 
         #endregion
 

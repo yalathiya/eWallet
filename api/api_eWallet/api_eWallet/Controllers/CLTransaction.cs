@@ -21,7 +21,7 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// BL logic of Transaction process
         /// </summary>
-        private IBLTsn01Handler _objBLTsn01Handler;
+        private readonly IBLTsn01Handler _objBLTsn01Handler;
 
         /// <summary>
         /// Response to action method

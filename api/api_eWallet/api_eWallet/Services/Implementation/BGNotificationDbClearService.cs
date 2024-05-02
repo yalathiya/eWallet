@@ -15,12 +15,12 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// Logging Support 
         /// </summary>
-        private ILogging _logging;
+        private readonly ILogging _logging;
 
         /// <summary>
         /// Ormlite database factory
         /// </summary>
-        private IDbConnectionFactory _dbFactory;
+        private readonly IDbConnectionFactory _dbFactory;
 
         #endregion
 

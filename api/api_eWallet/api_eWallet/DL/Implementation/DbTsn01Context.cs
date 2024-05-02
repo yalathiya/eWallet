@@ -19,7 +19,7 @@ namespace api_eWallet.DL.Implementation
         /// <summary>
         /// MySql Connection  
         /// </summary>
-        private MySqlConnection _connection;
+        private readonly MySqlConnection _connection;
 
         /// <summary>
         /// Response to action method
@@ -29,17 +29,17 @@ namespace api_eWallet.DL.Implementation
         /// <summary>
         /// logging support
         /// </summary>
-        private ILogging _logging;
+        private readonly ILogging _logging;
 
         /// <summary>
         /// Notification Service 
         /// </summary>
-        private INotificationService _notificationService;
+        private readonly INotificationService _notificationService;
 
         /// <summary>
         /// Model of notification 
         /// </summary>
-        private Not01 _objNot01;
+        private readonly Not01 _objNot01;
 
         #endregion
 
@@ -110,7 +110,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Deposit of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Deposit Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
@@ -179,7 +179,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Transfer of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Transfer Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
@@ -243,7 +243,7 @@ namespace api_eWallet.DL.Implementation
                         _objNot01.SetNotification(objTsn01.N01f02, $"Withdrawal of {objTsn01.N01f10} is failed", true, false, DateTime.Now);
                         _notificationService.SendNotification(_objNot01);
 
-                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", null);
+                        _objResponse.SetResponse(true, HttpStatusCode.InternalServerError, "Withdrawal Failed : Rollback Executed", ex.Message);
                         return _objResponse;
                     }
                 }
@@ -273,7 +273,7 @@ namespace api_eWallet.DL.Implementation
         public object GetAllTransactions(int walletId, int pageNumber)
         {
             // Transaction details 
-            DataTable dtTransactions = new DataTable();
+            DataTable dtTransactions = new();
 
             // retrieve user from the database in form of DataTable
             using (MySqlCommand command = new MySqlCommand())
