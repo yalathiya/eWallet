@@ -555,3 +555,16 @@
 2024-05-03 15:29:46.3782 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.1.2519. Product version: 5.3.1+cf6675da40ccfd4c8c526a3b2bdbeed3442910a1. GlobalAssemblyCache: False
 2024-05-03 15:29:46.4046 Info Validating config: TargetNames=exceptionsFile, errorsFile, traceFile, alldata, ConfigItems=71, FilePath=C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet\bin\Debug\net6.0\nlog.config
 2024-05-03 15:29:46.4286 Info Configuration initialized.
+2024-05-03 17:28:58.8486 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-03 17:28:59.1615 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.9.1072. Product version: 5.3.9+a64226898645e7ca88bd0f2fba51f177d8a55f28. GlobalAssemblyCache: False
+2024-05-03 17:28:59.3048 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-03 17:28:59.3369 Info Registered target NLog.Targets.FileTarget(Name=exceptionsFile)
+2024-05-03 17:28:59.3369 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-03 17:28:59.3369 Info Registered target NLog.Targets.FileTarget(Name=errorsFile)
+2024-05-03 17:28:59.3369 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-03 17:28:59.3369 Info Registered target NLog.Targets.FileTarget(Name=traceFile)
+2024-05-03 17:28:59.3634 Warn Error has been raised. Exception: NLog.NLogConfigurationException: ${level} cannot assign unknown property 'color='
+2024-05-03 17:28:59.3634 Info Registered target NLog.Targets.ColoredConsoleTarget(Name=alldata)
+2024-05-03 17:28:59.4049 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.1.2519. Product version: 5.3.1+cf6675da40ccfd4c8c526a3b2bdbeed3442910a1. GlobalAssemblyCache: False
+2024-05-03 17:28:59.4439 Info Validating config: TargetNames=exceptionsFile, errorsFile, traceFile, alldata, ConfigItems=71, FilePath=C:\Users\yash.l\source\repos\eWallet\api\api_eWallet\api_eWallet\bin\Debug\net6.0\nlog.config
+2024-05-03 17:28:59.4927 Info Configuration initialized.

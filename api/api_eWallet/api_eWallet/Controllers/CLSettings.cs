@@ -57,7 +57,7 @@ namespace api_eWallet.Controllers
         /// To deactive users wallet 
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         [Route("deactive")]
         [ATRateLimiting(MaxRequests = 1, TimeWindow = 60)]
         public IActionResult DeactiveWallet()
@@ -69,7 +69,7 @@ namespace api_eWallet.Controllers
         /// To active users wallet 
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
+        [HttpGet]
         [Route("active")]
         [ATRateLimiting(MaxRequests = 1, TimeWindow = 60)]
         public IActionResult ActiveWallet()
