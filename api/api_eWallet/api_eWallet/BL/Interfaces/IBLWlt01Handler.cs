@@ -1,4 +1,5 @@
 ﻿using api_eWallet.Models;
+using api_eWallet.Models.DTO;
 
 namespace api_eWallet.BL.Interfaces
 {
@@ -16,6 +17,20 @@ namespace api_eWallet.BL.Interfaces
         /// <returns> object of response </returns>
         Response GetCurrentBalance(int walletId);
 
+        /// <summary>
+        /// Validate interval of statement 
+        /// </summary>
+        /// <param name="objDTOIvl"> object of interval </param>
+        /// <returns> object of response </returns>
+        Response Validate(DTOIvl01 objDTOIvl);
+
+        /// <summary>
+        /// Generate file bytes for statements
+        /// </summary>
+        /// <param name="objDTOIvl"> object of interval </param>
+        /// <returns> byte array </returns>
+        byte[] GenerateFileBytes(DTOIvl01 objDTOIvl);
+        
         #endregion
 
     }
