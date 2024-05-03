@@ -11,6 +11,8 @@ using System.Net;
 using iText.Layout;
 using api_eWallet.DL.Interfaces;
 using System.Data;
+using iText.Kernel.Geom;
+using iText.Layout.Properties;
 
 namespace api_eWallet.BL.Implementation
 {
@@ -117,10 +119,17 @@ namespace api_eWallet.BL.Implementation
             {
                 using (PdfDocument pdf = new PdfDocument(writer))
                 {
-                    // Add a new page to the PDF
-                    Document document = new Document(pdf);
+                    // Define a custom page size for landscape orientation
+                    PageSize pageSize = new PageSize(842, 595); // A4 size in landscape
 
-                    document.Add(new Paragraph("Statement"));
+                    // Add a new page to the PDF
+                    Document document = new Document(pdf, pageSize);
+
+                    // Add heading to the document
+     
+                    document.Add(new Paragraph($"Statement of wallet id {walletId}")
+                                            .SetFontSize(20)
+                                            .SetTextAlignment(TextAlignment.CENTER));
 
                     DataTable dtTransactions = (DataTable)_objDbTsn01Context.GetTransactions(walletId, objDTOIvl.L01f01, objDTOIvl.L01f02);
 

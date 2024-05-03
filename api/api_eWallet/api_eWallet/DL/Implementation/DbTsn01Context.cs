@@ -363,8 +363,7 @@ namespace api_eWallet.DL.Implementation
             {
                 command.Connection = _connection;
                 command.CommandText = String.Format(@"SELECT 
-                                                        N01F01 AS TRANSACTION_ID,
-                                                        N01F02 AS WALLET_ID,
+                                                        N01F01 AS ID,
                                                         N01F03 AS FROM_USER_ID,
                                                         N01F04 AS TO_USER_ID,
                                                         N01F05 AS AMOUNT,
@@ -372,10 +371,10 @@ namespace api_eWallet.DL.Implementation
                                                             WHEN 'D' THEN 'Deposit'
                                                             WHEN 'T' THEN 'Transfer'
                                                             WHEN 'W' THEN 'Withdrawal'
-                                                        END AS TRANSACTION_TYPE,
-                                                        N01F07 AS TRANSACTION_FEES,
+                                                        END AS TYPE,
+                                                        N01F07 AS FEES,
                                                         N01F08 AS DESCRIPTION,
-                                                        N01F09 AS CREATED_ON,
+                                                        N01F09 AS DATE,
                                                         N01F10 AS TOTAL_AMOUNT
                                                      FROM
                                                         TSN01 AS TRANSACTION_DETAILS
