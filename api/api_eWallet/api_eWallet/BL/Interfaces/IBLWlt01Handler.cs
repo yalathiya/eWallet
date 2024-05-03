@@ -28,8 +28,9 @@ namespace api_eWallet.BL.Interfaces
         /// Generate file bytes for statements
         /// </summary>
         /// <param name="objDTOIvl"> object of interval </param>
+        /// <param name="walletId"> wallet id </param>
         /// <returns> byte array </returns>
-        byte[] GenerateFileBytes(DTOIvl01 objDTOIvl);
+        byte[] GenerateFileBytes(int walletId, DTOIvl01 objDTOIvl);
         
         #endregion
 

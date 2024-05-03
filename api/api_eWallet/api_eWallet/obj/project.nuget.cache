@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "JI8H1n/7+HDA/VeqlDrMX3keFKzyCYIX8wSZebkgW8QkdXDMKmanNHDPR4qhKJUFRmMdZ7nlEsaUMkRNc8BgrQ==",
+  "dgSpecHash": "QCQGzl2PW4xgnIiPdJaF1zkXFi7hIjKip+s9OQDnYi4oSjE1H4pJVGTtmZ7TsNQEuwrEreJSAJs60e1brAZQkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\yash.l\\source\\repos\\eWallet\\api\\api_eWallet\\api_eWallet\\api_eWallet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yash.l\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\itext\\8.0.4\\itext.8.0.4.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\itext.bouncy-castle-adapter\\8.0.4\\itext.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\itext.commons\\8.0.4\\itext.commons.8.0.4.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\itext7\\8.0.4\\itext7.8.0.4.nupkg.sha512",
+    "C:\\Users\\yash.l\\.nuget\\packages\\itext7.bouncy-castle-adapter\\8.0.4\\itext7.bouncy-castle-adapter.8.0.4.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
     "C:\\Users\\yash.l\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",

@@ -9,6 +9,8 @@ using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using System.Net;
 using iText.Layout;
+using api_eWallet.DL.Interfaces;
+using System.Data;
 
 namespace api_eWallet.BL.Implementation
 {
@@ -29,6 +31,11 @@ namespace api_eWallet.BL.Implementation
         /// </summary>
         private Response _objResponse;
 
+        /// <summary>
+        /// Db context of transaction
+        /// </summary>
+        private IDbTsn01Context _objDbTsn01Context;
+
         #endregion
 
         #region Constructor
@@ -37,10 +44,12 @@ namespace api_eWallet.BL.Implementation
         /// Configuring dependency injection
         /// </summary>
         /// <param name="dbFactory"> OrmLite database factory </param>
-        /// <param name="notificationService"> notification service </param>
-        public BLWlt01Handler(IDbConnectionFactory dbFactory)
+        /// <param name="dbTsn01Context"> context of Tsn01 </param>
+        public BLWlt01Handler(IDbConnectionFactory dbFactory,
+                              IDbTsn01Context dbTsn01Context)
         {
             _dbFactory = dbFactory;  
+            _objDbTsn01Context = dbTsn01Context;
         }
 
         #endregion
@@ -96,8 +105,9 @@ namespace api_eWallet.BL.Implementation
         /// Generate file bytes for statements
         /// </summary>
         /// <param name="objDTOIvl"> object of interval </param>
+        /// <param name="walletId"> wallet id </param>
         /// <returns> byte array </returns>
-        public byte[] GenerateFileBytes(DTOIvl01 objDTOIvl)
+        public byte[] GenerateFileBytes(int walletId, DTOIvl01 objDTOIvl)
         {
             // Create a memory stream to hold the PDF content
             MemoryStream stream = new MemoryStream();
@@ -109,15 +119,33 @@ namespace api_eWallet.BL.Implementation
                 {
                     // Add a new page to the PDF
                     Document document = new Document(pdf);
-                    document.Add(new Paragraph("Hello, World!"));
 
-                    // Close the document
-                    document.Close();
+                    document.Add(new Paragraph("Statement"));
+
+                    DataTable dtTransactions = (DataTable)_objDbTsn01Context.GetTransactions(walletId, objDTOIvl.L01f01, objDTOIvl.L01f02);
+
+                    // Create a table with number of columns equal to the DataTable's column count
+                    Table table = new Table(dtTransactions.Columns.Count);
+
+                    // Add headers to the table
+                    foreach (DataColumn column in dtTransactions.Columns)
+                    {
+                        table.AddHeaderCell(column.ColumnName);
+                    }
+
+                    // Add data rows to the table
+                    foreach (DataRow row in dtTransactions.Rows)
+                    {
+                        foreach (var item in row.ItemArray)
+                        {
+                            table.AddCell(item.ToString());
+                        }
+                    }
+
+                    // Add the table to the document
+                    document.Add(table);
                 }
             }
-
-            // Set the position of the memory stream to the beginning
-            stream.Position = 0;
 
             return stream.ToArray();
         }

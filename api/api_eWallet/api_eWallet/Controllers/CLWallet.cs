@@ -67,7 +67,7 @@ namespace api_eWallet.Controllers
                 return Ok(_objResponse);
             }
 
-            byte[] fileBytes = _objBLWlt01Handler.GenerateFileBytes(objIvl01);
+            byte[] fileBytes = _objBLWlt01Handler.GenerateFileBytes(HttpContext.GetWalletIdFromClaims(), objIvl01);
 
             return File(fileBytes, "application/pdf", "statement.pdf");
         }
