@@ -17096,3 +17096,4 @@ Content-Disposition: attachment; filename=statement.pdf; filename*=UTF-8''statem
 2024-05-03 14:48:18.3763||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Http2|Connection id "0HN3BA2FS3G3K" is closed. The last processed stream ID was 1. 
 2024-05-03 14:48:18.3763||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets|Connection id "0HN3BA2FS3G3K" sending FIN because: "The client closed the connection." 
 2024-05-03 14:48:19.0887||DEBUG|Microsoft.AspNetCore.Server.Kestrel.Connections|Connection id "0HN3BA2FS3G3K" stopped. 
+2024-05-03 15:29:47.0658||DEBUG|Microsoft.Extensions.Hosting.Internal.Host|Hosting starting 

@@ -152,7 +152,6 @@ namespace api_eWallet.Utilities
             return userIdClaim.Value;
         }
 
-
         /// <summary>
         /// Extension method that set Response message with all paramters 
         /// </summary>
@@ -222,6 +221,7 @@ namespace api_eWallet.Utilities
             objNot01.T01f05 = isSmsNotication;
             objNot01.T01f06 = createdOn;
         }
+
         /// <summary>
         /// Extension method to convert DataTable to a list of objects
         /// </summary>

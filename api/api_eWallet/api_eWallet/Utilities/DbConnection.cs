@@ -32,15 +32,6 @@
 
         #region Public Methods
 
-        ///// <summary>
-        ///// Establishes the MySqlConnection
-        ///// </summary>
-        ///// <returns> MySql Connection </returns>
-        //public static MySqlConnection CreateConnection()
-        //{     
-        //    return new MySqlConnection(GetConnectionString());
-        //}
-
         /// <summary>
         /// To get connection string from appSettings.json
         /// </summary>

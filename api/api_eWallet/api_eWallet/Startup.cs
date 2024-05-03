@@ -152,7 +152,6 @@ namespace api_eWallet
             {
                 endpoints.MapControllers();
             });
-
             
         }
 
