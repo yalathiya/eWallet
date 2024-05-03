@@ -1,5 +1,7 @@
 ﻿using api_eWallet.BL.Interfaces;
+using api_eWallet.Models;
 using api_eWallet.Models.Attributes;
+using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +20,11 @@ namespace api_eWallet.Controllers
         /// Reference of IBLWlt01 Handler
         /// </summary>
         private readonly IBLWlt01Handler _objBLWlt01Handler;
+
+        /// <summary>
+        /// response to action methods
+        /// </summary>
+        private Response _objResponse;
 
         #endregion
 
@@ -46,6 +53,23 @@ namespace api_eWallet.Controllers
         public IActionResult GetCurrentBalance()
         {
             return Ok(_objBLWlt01Handler.GetCurrentBalance(HttpContext.GetWalletIdFromClaims()));
+        }
+
+        [HttpPost]
+        [ATRateLimiting(MaxRequests = 1, TimeWindow = 20)]
+        [Route("statement")]
+        public IActionResult DownloadStatement([FromBody] DTOIvl01 objIvl01)
+        {
+            _objResponse = _objBLWlt01Handler.Validate(objIvl01);
+
+            if(_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
+
+            byte[] fileBytes = _objBLWlt01Handler.GenerateFileBytes(HttpContext.GetWalletIdFromClaims(), objIvl01);
+
+            return File(fileBytes, "application/pdf", "statement.pdf");
         }
 
         #endregion

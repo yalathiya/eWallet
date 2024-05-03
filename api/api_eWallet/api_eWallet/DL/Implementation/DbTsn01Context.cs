@@ -6,6 +6,7 @@ using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Net;
+using System.Transactions;
 
 namespace api_eWallet.DL.Implementation
 {
@@ -344,6 +345,47 @@ namespace api_eWallet.DL.Implementation
                 adapter.Fill(dtTransaction);
             }
             return dtTransaction.ToList();
+        }
+
+        /// <summary>
+        /// Get Transactions for specific interval 
+        /// </summary>
+        /// <param name="start"> start time </param>
+        /// <param name="end"> end time </param>
+        /// <returns> data table of transactions </returns>
+        public object GetTransactions(int walletId, DateTime start, DateTime end)
+        {
+            // Transaction details 
+            DataTable dtTransactions = new();
+
+            // retrieve user from the database in form of DataTable
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                command.Connection = _connection;
+                command.CommandText = String.Format(@"SELECT 
+                                                        N01F01 AS ID,
+                                                        N01F03 AS FROM_USER_ID,
+                                                        N01F04 AS TO_USER_ID,
+                                                        N01F05 AS AMOUNT,
+                                                        CASE N01F06
+                                                            WHEN 'D' THEN 'Deposit'
+                                                            WHEN 'T' THEN 'Transfer'
+                                                            WHEN 'W' THEN 'Withdrawal'
+                                                        END AS TYPE,
+                                                        N01F07 AS FEES,
+                                                        N01F08 AS DESCRIPTION,
+                                                        N01F09 AS DATE,
+                                                        N01F10 AS TOTAL_AMOUNT
+                                                     FROM
+                                                        TSN01 AS TRANSACTION_DETAILS
+                                                     WHERE
+                                                        N01F02 = {0}"
+                                                     , walletId);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtTransactions);
+            }
+            return dtTransactions;
         }
 
         #endregion

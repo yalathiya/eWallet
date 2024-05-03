@@ -47,6 +47,14 @@ namespace api_eWallet.DL.Interfaces
         /// <returns> object consisting transaction details </returns>
         object GetTransaction(int walletId, int transactionId);
 
+        /// <summary>
+        /// Get Transactions for specific interval 
+        /// </summary>
+        /// <param name="start"> start time </param>
+        /// <param name="end"> end time </param>
+        /// <returns></returns>
+        object GetTransactions(int walletId, DateTime start, DateTime end);
+
         #endregion
     }
 }
