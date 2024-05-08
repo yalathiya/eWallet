@@ -5,6 +5,9 @@ Authentication
   "g01f01": "yashlathiyarkit@gmail.com",
   "g01f02": "Password@123"
 }
+
+token
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxNTE1MjI3OSwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.obe3t4SjBQ4N710c4bUt-Pfvb3HuWlCFPqVfCfZDk9I
 ----------------------------------------------------------------
 ----------------------------------------------------------------
 Register User
