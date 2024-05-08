@@ -1,6 +1,7 @@
 ﻿using api_eWallet.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Razorpay.Api;
 
 namespace api_eWallet.Controllers
 {
@@ -11,6 +12,27 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLTest : ControllerBase
     {
+        #region Private Members
+
+        /// <summary>
+        /// api configurations
+        /// </summary>
+        private IConfiguration _config;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Dependency injection
+        /// </summary>
+        public CLTest(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -46,6 +68,10 @@ namespace api_eWallet.Controllers
             return Ok(p + "  " + plain + "  "+ cipher);
         }
 
+        /// <summary>
+        /// Tests Jwt authorization
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("TestsJwtAuthorization")]
         public IActionResult TestsJwtAuthorization()
@@ -53,6 +79,30 @@ namespace api_eWallet.Controllers
             return Ok("Authorized");
         }
 
+        /// <summary>
+        /// Tests razorpay payment gateway 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TestsRazorpay")]
+        public IActionResult TestsRazorpay()
+        {
+            Dictionary<string, object> input = new Dictionary<string, object>();
+            input.Add("amount", 50000); // this amount should be same as transaction amount
+            input.Add("currency", "INR");
+            input.Add("receipt", "12121");
+
+            string key = _config["Razorpay:Key"];
+            string secret = _config["Razorpay:Secret"];
+
+            RazorpayClient client = new RazorpayClient(key, secret);
+
+            Razorpay.Api.Order order = client.Order.Create(input);
+            string orderId = order["id"].ToString();
+
+            return Ok(orderId);
+        }
+        
         #endregion
     }
 }
