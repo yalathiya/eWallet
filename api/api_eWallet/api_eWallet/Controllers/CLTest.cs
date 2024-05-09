@@ -91,8 +91,15 @@ namespace api_eWallet.Controllers
         /// <returns> order id </returns>
         [HttpPost]
         [Route("GenerateOrderId")]
-        public IActionResult GenerateOrderId([FromBody] double amount)
+        public IActionResult GenerateOrderId([FromBody] Dictionary<string, string> requestData)
         {
+            if (requestData == null || !requestData.ContainsKey("amount"))
+            {
+                return BadRequest("Amount not provided");
+            }
+
+            double amount = Convert.ToDouble(requestData["amount"]);
+
             Dictionary<string, object> input = new Dictionary<string, object>();
             input.Add("amount", amount); // this amount should be same as transaction amount
             input.Add("currency", "INR");
