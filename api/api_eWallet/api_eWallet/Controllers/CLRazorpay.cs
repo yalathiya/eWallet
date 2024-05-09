@@ -49,7 +49,7 @@ namespace api_eWallet.Controllers
         /// <returns> object of response consisting order id </returns>
         [HttpPost]
         [Route("Initiate")]
-        public IActionResult InitiatePayment(double amount)
+        public IActionResult InitiatePayment([FromForm] double amount)
         {
             // create order record in database - Raz01
             _objBLRaz01Handler.EnmOperation = EnmOperation.C;
@@ -72,7 +72,7 @@ namespace api_eWallet.Controllers
 
         /// <summary>
         /// Processes payment
-        //  when transaction is processed from server side then it will call this method to process it from server side 
+        /// processes razorpay payment at server side after client side execution 
         /// </summary>
         /// <returns> object of response </returns>
         [HttpPost]
@@ -81,6 +81,13 @@ namespace api_eWallet.Controllers
         {
             // update order record - Raz01
             _objBLRaz01Handler.EnmOperation = EnmOperation.U;
+
+            // Prevalidation
+            _objResponse = _objBLRaz01Handler.Prevalidation(objDTORaz01);
+            if(_objResponse.HasError)
+            {
+                return Ok(_objResponse);
+            }
 
             // Presave
             _objBLRaz01Handler.Presave(objDTORaz01);

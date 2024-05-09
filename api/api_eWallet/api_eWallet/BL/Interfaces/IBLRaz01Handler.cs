@@ -23,6 +23,13 @@ namespace api_eWallet.BL.Interfaces
         #region Public Methods
 
         /// <summary>
+        /// Prevalidates that order id exists in database or not 
+        /// </summary>
+        /// <param name="objDTORaz01"> dto model of Raz01 </param>
+        /// <returns> object of response </returns>
+        Response Prevalidation(DTORaz01 objDTORaz01);
+
+        /// <summary>
         /// Convert DTO model to POCO Model 
         /// </summary>
         /// <param name="objDTORaz01"> DTO model of Raz01 </param>

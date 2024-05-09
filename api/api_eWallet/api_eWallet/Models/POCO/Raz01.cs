@@ -11,13 +11,13 @@ namespace api_eWallet.Models.POCO
         #region Public Members
 
         /// <summary>
-        /// Razorpay Payment Id 
+        /// Razorpay Order Id 
         /// </summary>
         [PrimaryKey]
         public string z01f01 { get; set; }
 
         /// <summary>
-        /// Razorpay Order Id
+        /// Razorpay Payment Id
         /// </summary>
         public string z01f02 { get; set; }
             
@@ -29,7 +29,7 @@ namespace api_eWallet.Models.POCO
         /// <summary>
         /// Amount 
         /// </summary>
-        public decimal z01f04 { get; set; }
+        public double z01f04 { get; set; }
 
         /// <summary>
         /// Wallet Id 
