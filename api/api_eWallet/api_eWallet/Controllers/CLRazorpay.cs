@@ -1,5 +1,6 @@
 ﻿using api_eWallet.BL.Interfaces;
 using api_eWallet.Models;
+using api_eWallet.Models.Attributes;
 using api_eWallet.Models.DTO;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,7 @@ namespace api_eWallet.Controllers
         /// </summary>
         /// <returns> object of response consisting order id </returns>
         [HttpPost]
+        [ATRateLimiting(MaxRequests = 2, TimeWindow = 5)]
         [Route("Initiate")]
         public IActionResult InitiatePayment([FromForm] double amount)
         {
@@ -76,6 +78,7 @@ namespace api_eWallet.Controllers
         /// </summary>
         /// <returns> object of response </returns>
         [HttpPost]
+        [ATRateLimiting(MaxRequests = 2, TimeWindow = 5)]
         [Route("ProcessPayment")]
         public IActionResult ProcessPayment([FromBody] DTORaz01 objDTORaz01)
         {
@@ -112,6 +115,7 @@ namespace api_eWallet.Controllers
         /// <param name="id"> payment id </param>
         /// <returns> object of response </returns>
         [HttpGet]
+        [ATRateLimiting(MaxRequests = 2, TimeWindow = 1)]
         [Route("Fetch")]
         public IActionResult FetchPayment(string id)
         {
