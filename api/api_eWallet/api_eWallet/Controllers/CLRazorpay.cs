@@ -79,8 +79,9 @@ namespace api_eWallet.Controllers
         [Route("ProcessPayment")]
         public IActionResult ProcessPayment([FromBody] DTORaz01 objDTORaz01)
         {
-            // update order record - Raz01
             _objBLRaz01Handler.EnmOperation = EnmOperation.U;
+            _objBLRaz01Handler.UserId = HttpContext.GetUserIdFromClaims();
+            _objBLRaz01Handler.WalletId = HttpContext.GetWalletIdFromClaims();
 
             // Prevalidation
             _objResponse = _objBLRaz01Handler.Prevalidation(objDTORaz01);
@@ -105,6 +106,18 @@ namespace api_eWallet.Controllers
             return Ok(_objResponse);
         }
 
+        /// <summary>
+        /// Fetch Payment by payment id 
+        /// </summary>
+        /// <param name="id"> payment id </param>
+        /// <returns> object of response </returns>
+        [HttpGet]
+        [Route("Fetch")]
+        public IActionResult FetchPayment(string id)
+        {
+            _objResponse = _objBLRaz01Handler.FetchPayment(id);
+            return Ok(_objResponse);
+        }
         #endregion
 
     }

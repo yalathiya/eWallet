@@ -18,12 +18,11 @@ namespace api_eWallet.Services.Interfaces
         string GenerateOrderId(Dictionary<string, string> requestData);
 
         /// <summary>
-        /// Process Razorpay Payment
+        /// Fetch payment by id 
         /// </summary>
-        /// <param name="objDTORaz01"> object of dto model of razorpay </param>
-        /// <param name="walletId"> wallet id </param>
-        /// <returns> object of response </returns>
-        Response ProcessPayment(DTORaz01 objDTORaz01, int walletId);
+        /// <param name="paymentId"> payment id </param>
+        /// <returns> payment details </returns>
+        public object FetchPaymentById(string paymentId);
 
         #endregion
     }

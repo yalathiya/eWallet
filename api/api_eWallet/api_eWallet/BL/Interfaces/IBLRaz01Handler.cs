@@ -18,6 +18,16 @@ namespace api_eWallet.BL.Interfaces
         /// </summary>
         EnmOperation EnmOperation { get; set; }
 
+        /// <summary>
+        /// User id 
+        /// </summary>
+        int UserId { get; set; }
+
+        /// <summary>
+        /// Wallet Id
+        /// </summary>
+        int WalletId { get; set; }
+
         #endregion
 
         #region Public Methods
@@ -52,6 +62,13 @@ namespace api_eWallet.BL.Interfaces
         /// save razorpay payment as per operation   
         /// </summary>
         Response Save();
+
+        /// <summary>
+        /// Fetch razorpay payment 
+        /// </summary>
+        /// <param name="id"> razorpay payment id </param>
+        /// <returns> object of response </returns>
+        Response FetchPayment(string id);
 
         #endregion
     }

@@ -1,6 +1,4 @@
-﻿using api_eWallet.Models.DTO;
-using api_eWallet.Models;
-using api_eWallet.Services.Interfaces;
+﻿using api_eWallet.Services.Interfaces;
 using Razorpay.Api;
 
 namespace api_eWallet.Services.Implementation
@@ -17,6 +15,25 @@ namespace api_eWallet.Services.Implementation
         /// </summary>
         private IConfiguration _config;
 
+        /// <summary>
+        /// Logging Support 
+        /// </summary>
+        private ILogging _logging;
+
+        /// <summary>
+        /// Razorpay key 
+        /// </summary>
+        private string _key;
+
+        /// <summary>
+        /// Razorpay secret value 
+        /// </summary>
+        private string _secret;
+
+        /// <summary>
+        /// Razorpay Client
+        /// </summary>
+        private RazorpayClient _client;
         #endregion
 
         #region Constructor
@@ -24,10 +41,16 @@ namespace api_eWallet.Services.Implementation
         /// <summary>
         /// Dependency Injection over Constructor
         /// </summary>
-        /// <param name="config"> app configurations </param>
-        public RazorpayService(IConfiguration configuration)
+        /// <param name="configuration"> app configurations </param>
+        /// <param name="logging"> logging support </param>
+        public RazorpayService(IConfiguration configuration,
+                               ILogging logging)
         {
             _config = configuration;
+            _logging = logging;
+            _key = _config["Razorpay:Key"];
+            _secret = _config["Razorpay:Secret"];
+            _client = new RazorpayClient(_key, _secret);
         }
 
         #endregion
@@ -45,30 +68,29 @@ namespace api_eWallet.Services.Implementation
             string walletId = requestData["walletId"];
 
             Dictionary<string, object> input = new Dictionary<string, object>();
-            input.Add("amount", amount); // this amount should be same as transaction amount
+            input.Add("amount", amount*100); // this amount should be same as transaction amount
             input.Add("currency", "INR");
             input.Add("receipt", walletId);
 
-            string key = _config["Razorpay:Key"];
-            string secret = _config["Razorpay:Secret"];
-
-            RazorpayClient client = new RazorpayClient(key, secret);
-
-            Razorpay.Api.Order order = client.Order.Create(input);
+            Razorpay.Api.Order order = _client.Order.Create(input);
             string orderId = order["id"].ToString();
 
+            _logging.LogTrace($"razorpay order is created {orderId} walletId : {walletId} amount : {amount}");
+            
             return orderId;
         }
 
         /// <summary>
-        /// Process Razorpay Payment
+        /// Fetch payment by id 
         /// </summary>
-        /// <param name="objDTORaz01"> object of dto model of razorpay </param>
-        /// <param name="walletId"> wallet id </param>
-        /// <returns></returns>
-        public Response ProcessPayment(DTORaz01 objDTORaz01, int walletId)
+        /// <param name="paymentId"> payment id </param>
+        /// <returns> payment details </returns>
+        public object FetchPaymentById(string paymentId)
         {
-            throw new NotImplementedException();
+            Razorpay.Api.Payment payment = _client.Payment.Fetch(paymentId);
+
+            _logging.LogTrace("Fetched Payment of " +  paymentId);  
+            return payment;
         }
 
         #endregion
