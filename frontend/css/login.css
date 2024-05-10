@@ -1,0 +1,9 @@
+.login,
+.razorpay {
+  margin-top: 50px;
+  width: 400px;
+  margin-inline: auto;
+  border: solid gray 1px;
+  border-radius: 10px;
+  padding: 30px;
+}
