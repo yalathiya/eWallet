@@ -78,5 +78,16 @@ CREATE TABLE `dac02` (
   UNIQUE KEY `c02f01_UNIQUE` (`c02f01`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Deactivated Accounts ';
 
+-- razorpay payments table
 
+CREATE TABLE `raz01` (
+  `z01f01` varchar(50) NOT NULL COMMENT 'Razorpay Payment Id',
+  `z01f02` varchar(50) DEFAULT NULL COMMENT 'Razorpay Order Id ',
+  `z01f03` varchar(45) DEFAULT NULL COMMENT 'Razorpay Signature',
+  `z01f04` decimal(10,0) DEFAULT NULL COMMENT 'Amount',
+  `z01f05` int DEFAULT NULL COMMENT 'Wallet Id ',
+  `z01f06` varchar(45) DEFAULT NULL COMMENT 'Razorpay Status',
+  `z01f07` tinyint DEFAULT NULL COMMENT 'is reflected in wallet table',
+  PRIMARY KEY (`z01f01`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Razorpay Payments '
 

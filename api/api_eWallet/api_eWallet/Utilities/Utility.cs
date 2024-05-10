@@ -45,6 +45,9 @@ namespace api_eWallet.Utilities
             // Register RedisStackService
             services.AddSingleton<IRedisService, RedisService>();
 
+            // Register Razorpay Service
+            services.AddScoped<IRazorpayService, RazorpayService>();
+
             // Register Authentication Service 
             services.AddSingleton<IAuthentication, AuthenticationService>();
             
@@ -65,6 +68,9 @@ namespace api_eWallet.Utilities
 
             // Adding BLWltHandler
             services.AddScoped<IBLWlt01Handler, BLWlt01Handler>();
+
+            // Adding BLRaz01Handler
+            services.AddScoped<IBLRaz01Handler, BLRaz01Handler>();
 
             // Adding BLTsnHandler
             services.AddScoped<IBLTsn01Handler, BLTsn01Handler>();

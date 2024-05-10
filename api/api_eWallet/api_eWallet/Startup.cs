@@ -42,6 +42,17 @@ namespace api_eWallet
                 options.Filters.Add(typeof(JwtAuthenticationFilter));
             });
 
+            // Add CORS
+            services.AddCors( o =>
+            {
+                o.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+            });
+
             // Configuring Logging
             services.AddLogging(logging =>
             {
@@ -143,6 +154,11 @@ namespace api_eWallet
             
             app.UseRouting();
 
+            // Use CORS
+            app.UseCors("MyPolicy");
+
+            app.UseAuthorization();
+
             // Middlewares
 
             app.UseMiddleware<LoggingMiddleware>();
@@ -152,7 +168,8 @@ namespace api_eWallet
             {
                 endpoints.MapControllers();
             });
-            
+
+           
         }
 
         #endregion
