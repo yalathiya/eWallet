@@ -13,6 +13,7 @@
           "NLog": "5.3.1",
           "NLog.Web.AspNetCore": "5.3.9",
           "Newtonsoft.Json": "13.0.3",
+          "Razorpay": "3.1.1",
           "ServiceStack.OrmLite": "8.2.2",
           "ServiceStack.OrmLite.MySql": "8.2.2",
           "StackExchange.Redis": "2.7.33",
@@ -425,6 +426,26 @@
           "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
+      "Portable.BouncyCastle/1.9.0": {
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "assemblyVersion": "1.9.0.0",
+            "fileVersion": "1.9.0.1"
+          }
+        }
+      },
+      "Razorpay/3.1.1": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Portable.BouncyCastle": "1.9.0"
+        },
+        "runtime": {
+          "lib/net45/Razorpay.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -1467,6 +1488,20 @@
       "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
       "path": "pipelines.sockets.unofficial/2.2.8",
       "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
+    "Portable.BouncyCastle/1.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
+      "path": "portable.bouncycastle/1.9.0",
+      "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
+    },
+    "Razorpay/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I2B2i8F7aC5T1CqMosKM7vf7im0ta57FgxCPaqjAWsccwA0M88ym2bilQRQXevOlXk09hWdqbG/659m2Pm3tLg==",
+      "path": "razorpay/3.1.1",
+      "hashPath": "razorpay.3.1.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

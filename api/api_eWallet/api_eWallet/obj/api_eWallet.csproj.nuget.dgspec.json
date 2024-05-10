@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
+            "Razorpay": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "ServiceStack.OrmLite": {
               "target": "Package",
               "version": "[8.2.2, )"

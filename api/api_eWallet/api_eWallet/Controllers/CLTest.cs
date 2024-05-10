@@ -1,6 +1,12 @@
-﻿using api_eWallet.Services.Interfaces;
+﻿using api_eWallet.Models;
+using api_eWallet.Models.DTO;
+using api_eWallet.Services.Interfaces;
+using api_eWallet.Utilities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using Razorpay.Api;
 
 namespace api_eWallet.Controllers
 {
@@ -11,6 +17,27 @@ namespace api_eWallet.Controllers
     [ApiController]
     public class CLTest : ControllerBase
     {
+        #region Private Members
+
+        /// <summary>
+        /// api configurations
+        /// </summary>
+        private IConfiguration _config;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Dependency injection
+        /// </summary>
+        public CLTest(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
@@ -46,6 +73,10 @@ namespace api_eWallet.Controllers
             return Ok(p + "  " + plain + "  "+ cipher);
         }
 
+        /// <summary>
+        /// Tests Jwt authorization
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("TestsJwtAuthorization")]
         public IActionResult TestsJwtAuthorization()
@@ -53,6 +84,73 @@ namespace api_eWallet.Controllers
             return Ok("Authorized");
         }
 
+        /// <summary>
+        /// Tests razorpay payment gateway 
+        /// generates order id 
+        /// </summary>
+        /// <returns> order id </returns>
+        [HttpPost]
+        [Route("GenerateOrderId")]
+        public IActionResult GenerateOrderId([FromBody] Dictionary<string, string> requestData)
+        {
+            if (requestData == null || !requestData.ContainsKey("amount"))
+            {
+                return BadRequest("Amount not provided");
+            }
+
+            double amount = Convert.ToDouble(requestData["amount"]);
+
+            Dictionary<string, object> input = new Dictionary<string, object>();
+            input.Add("amount", amount); // this amount should be same as transaction amount
+            input.Add("currency", "INR");
+            input.Add("receipt", HttpContext.GetUserIdFromClaims().ToString());
+
+            string key = _config["Razorpay:Key"];
+            string secret = _config["Razorpay:Secret"];
+
+            RazorpayClient client = new RazorpayClient(key, secret);
+
+            Razorpay.Api.Order order = client.Order.Create(input);
+            string orderId = order["id"].ToString();
+
+            Response objResponse = new Response();
+            objResponse.SetResponse(orderId, null);
+            return Ok(objResponse);
+        }
+
+        /// <summary>
+        /// Processes razorpay payment 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PaymentByRazorpay")]
+        public IActionResult PaymentByRazorpay([FromBody] DTORaz01 objDTORaz01)
+        {
+            //// authorization header
+            //_httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(System.Text.Encoding.ASCII.GetBytes(_config["Razorpay:Key"] + ":" + _config["Razorpay:Secret"])));
+
+            //// Make the GET request synchronously
+            //var response = _httpClient.GetAsync($"https://api.razorpay.com/v1/payments/{objDTORaz01.razorpay_payment_id}").Result;
+
+            //// Check if the request was successful
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    // Read the response content synchronously
+            //    var content = response.Content.ReadAsStringAsync().Result;
+
+            //    // Deserialize the content into PaymentDetails object
+            //    //var paymentDetails = Newtonsoft.Json.JsonConvert.DeserializeObject<PaymentDetails>(content);
+
+            //    return Ok(content);
+            //}
+            //else
+            //{
+            //    // Handle unsuccessful response
+            //    throw new Exception($"Failed to fetch payment details. Status code: {response.StatusCode}");
+            //}
+            //return Ok(objDTORaz01.razorpay_payment_id);
+            return Ok();
+        }
         #endregion
     }
 }
