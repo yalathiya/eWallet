@@ -1,4 +1,9 @@
-﻿namespace api_eWallet.Utilities
+﻿using MySql.Data.MySqlClient;
+using System.Data;
+using System.Data.Common;
+using System.Transactions;
+
+namespace api_eWallet.Utilities
 {
     /// <summary>
     /// Provides Database Connection
@@ -49,6 +54,26 @@
 
             return connectionString;
         }
+
+        public static DataTable ExecuteQuery(string query)
+        {
+            MySqlConnection _connection = new MySqlConnection(GetConnectionString());
+
+            // Transaction details 
+            DataTable dt = new DataTable();
+
+            // retrieve user from the database in form of DataTable
+            using (MySqlCommand command = new MySqlCommand())
+            {
+                command.Connection = _connection;
+                command.CommandText = query;
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dt);
+            }
+
+            return dt;
+        } 
 
         #endregion
     }

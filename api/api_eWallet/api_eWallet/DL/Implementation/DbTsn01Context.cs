@@ -6,7 +6,6 @@ using api_eWallet.Utilities;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Net;
-using System.Transactions;
 
 namespace api_eWallet.DL.Implementation
 {
@@ -274,13 +273,8 @@ namespace api_eWallet.DL.Implementation
         public object GetAllTransactions(int walletId, int pageNumber)
         {
             // Transaction details 
-            DataTable dtTransactions = new();
-
-            // retrieve user from the database in form of DataTable
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = _connection;
-                command.CommandText = String.Format(@"SELECT 
+            DataTable dtTransactions = DbConnection.ExecuteQuery(String.Format(
+                                                    @"SELECT 
                                                         N01F01 AS TRANSACTION_ID,
                                                         N01F05 AS AMOUNT,
                                                         CASE N01F06
@@ -296,12 +290,9 @@ namespace api_eWallet.DL.Implementation
                                                      LIMIT 
                                                         10
                                                      OFFSET
-                                                        {1}"
-                                                     , walletId, pageNumber*10);
+                                                        {1}", 
+                                                    walletId, pageNumber * 10));
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(dtTransactions);
-            }
             return dtTransactions.ToList();
         }
 
@@ -314,13 +305,8 @@ namespace api_eWallet.DL.Implementation
         public object GetTransaction(int walletId, int transactionId)
         {
             // Transaction details 
-            DataTable dtTransaction = new DataTable();
-
-            // retrieve user from the database in form of DataTable
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = _connection;
-                command.CommandText = String.Format(@"SELECT 
+            DataTable dtTransaction = DbConnection.ExecuteQuery(String.Format(
+                                                    @"SELECT 
                                                         N01F01 AS TRANSACTION_ID,
                                                         N01F02 AS WALLET_ID,
                                                         N01F03 AS FROM_USER_ID,
@@ -338,12 +324,9 @@ namespace api_eWallet.DL.Implementation
                                                      FROM
                                                         TSN01 AS TRANSACTION_DETAILS
                                                      WHERE
-                                                        N01F01 = {0} AND N01F02 = {1}"
-                                                     , transactionId, walletId);
+                                                        N01F01 = {0} AND N01F02 = {1}",
+                                                    transactionId, walletId));
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(dtTransaction);
-            }
             return dtTransaction.ToList();
         }
 
@@ -356,13 +339,8 @@ namespace api_eWallet.DL.Implementation
         public object GetTransactions(int walletId, DateTime start, DateTime end)
         {
             // Transaction details 
-            DataTable dtTransactions = new();
-
-            // retrieve user from the database in form of DataTable
-            using (MySqlCommand command = new MySqlCommand())
-            {
-                command.Connection = _connection;
-                command.CommandText = String.Format(@"SELECT 
+            DataTable dtTransactions = DbConnection.ExecuteQuery(String.Format(
+                                                    @"SELECT 
                                                         N01F01 AS ID,
                                                         N01F03 AS FROM_USER_ID,
                                                         N01F04 AS TO_USER_ID,
@@ -379,12 +357,8 @@ namespace api_eWallet.DL.Implementation
                                                      FROM
                                                         TSN01 AS TRANSACTION_DETAILS
                                                      WHERE
-                                                        N01F02 = {0}"
-                                                     , walletId);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                adapter.Fill(dtTransactions);
-            }
+                                                        N01F02 = {0}",
+                                                    walletId));
             return dtTransactions;
         }
 

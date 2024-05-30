@@ -36,11 +36,13 @@ namespace api_eWallet
         public void ConfigureServices(IServiceCollection services)
         {
             // Configures Controllers
-            services.AddControllers(options =>
+            services
+                .AddControllers(options =>
             {
                 // Add JwtAuthenticationFilter as a global filter, excluding specific endpoint
                 options.Filters.Add(typeof(JwtAuthenticationFilter));
-            });
+            })
+                .AddNewtonsoftJson();
 
             // Add CORS
             services.AddCors( o =>
@@ -91,6 +93,8 @@ namespace api_eWallet
                     }
                 });
             });
+
+            services.AddSwaggerGenNewtonsoftSupport();
 
             // Add Filters
             services.AddScoped<JwtAuthenticationFilter>();
