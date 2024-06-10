@@ -1,0 +1,71 @@
+2024-06-10 13:12:21.7201 TRACE razorpay order is created order_OKymgWnGOXX3sz walletId : 12 amount : 4200
+2024-06-10 13:12:21.9185 TRACE Order Created Successfully order_OKymgWnGOXX3sz
+2024-06-10 13:12:21.9185 INFO Response: 200 (Elapsed Time: 2243 ms)
+2024-06-10 13:12:21.9185 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 07:42:20 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 91
+
+2024-06-10 13:12:52.1263 INFO Request: POST /api/CLRazorpay/ProcessPayment
+2024-06-10 13:12:52.1263 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODAwODkxOCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.2RuERc_bNZATlcHaq4MZrq_kl0HFHGZneKxZhJwCbWU
+Content-Type: application/json
+Origin: http://127.0.0.1:5501
+Referer: http://127.0.0.1:5501/
+Content-Length: 193
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-10 13:12:52.3266 TRACE client statistics is updated for client key - /api/CLRazorpay/ProcessPayment_::1 
+2024-06-10 13:12:52.3449 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLRazorpay/ProcessPayment_::1
+2024-06-10 13:12:52.4033 TRACE Signature varification successful order_OKymgWnGOXX3sz
+2024-06-10 13:12:52.4448 TRACE Payment captured in database pay_OKyn1UCvSy54xO
+2024-06-10 13:12:52.4686 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:12:52.4686 TRACE Transaction is started : api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:12:52.4686 WARN  database rows are locked for user id 17 , 0
+2024-06-10 13:12:52.4854 WARN 4200 is credited to user id 17
+2024-06-10 13:12:59.0046 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-10 13:12:59.0197 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:12:59.0197 TRACE transaction is commited : api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:12:59.0287 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:12:59.0287 TRACE Transaction is reflected in database pay_OKyn1UCvSy54xO
+2024-06-10 13:12:59.0287 WARN completed razorpay transaction pay_OKyn1UCvSy54xO
+2024-06-10 13:13:02.1069 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-10 13:13:02.1069 INFO Response: 200 (Elapsed Time: 9966 ms)
+2024-06-10 13:13:02.1069 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 07:43:01 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 78
+
+2024-06-10 13:15:22.4468 INFO Request: POST /api/CLTransaction/transfer
+2024-06-10 13:21:42.2716 TRACE Wallet is activated of user id 17
+2024-06-10 13:21:42.3035 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:21:42.3035 WARN  database rows are locked for user id 17 , 0
+2024-06-10 13:21:42.3035 WARN 102 is deducted from user id 17
+2024-06-10 13:21:45.5320 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-10 13:21:45.5320 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:21:45.5380 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-10 13:21:45.5380 TRACE Account validation filter is applied
+2024-06-10 13:21:45.5380 INFO Response: 200 (Elapsed Time: 3424 ms)
+2024-06-10 13:21:45.5380 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 07:51:44 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 81
+

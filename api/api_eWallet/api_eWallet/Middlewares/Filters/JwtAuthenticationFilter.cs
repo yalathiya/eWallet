@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using NLog;
 using System.Security.Claims;
 
 namespace api_eWallet.Middlewares.Filters
@@ -46,7 +47,7 @@ namespace api_eWallet.Middlewares.Filters
 
         #endregion
 
-        #region OnAuthorization
+        #region Public Methods
 
         /// <summary>
         /// Core Logic of Authorization Filters
@@ -61,6 +62,7 @@ namespace api_eWallet.Middlewares.Filters
             // Check if the endpoint is excluded from authentication
             if (endpoint?.Metadata?.GetMetadata<IAllowAnonymous>() != null)
             {
+                GlobalDiagnosticsContext.Set("UserId", "Without Authorization");
                 return; // Skip authentication for this endpoint
             }
 
@@ -91,6 +93,10 @@ namespace api_eWallet.Middlewares.Filters
                     // Set the ClaimsPrincipal in HttpContext.User
                     context.HttpContext.User = claimsPrincipal;
 
+                    string[] claimsInCachedValue = cachedValue.Split('"');
+
+                    GlobalDiagnosticsContext.Set("UserId", claimsInCachedValue[0]);
+
                     // extend expiry time
                     _redisService.Set(token, cachedValue, _expiryTime);
 
@@ -111,6 +117,8 @@ namespace api_eWallet.Middlewares.Filters
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_userId")?.Value,
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_walletId")?.Value,
                                                         claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_emailId")?.Value);
+
+                        GlobalDiagnosticsContext.Set("UserId", claimsPrincipal.Claims.FirstOrDefault(c => c.Type == "jwt_userId")?.Value);
 
                         _redisService.Set(token, value, _expiryTime);
                         return;

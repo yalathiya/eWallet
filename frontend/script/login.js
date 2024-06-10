@@ -7,8 +7,8 @@ $("#loginForm").submit(function (e) {
 
   // Define the data you want to send
   var credential = {
-    G01f01: email,
-    G01f02: password,
+    G01101: email,
+    G01102: password,
   };
 
   //   console.log(credential);

@@ -69,6 +69,18 @@ namespace api_eWallet.Services.Implementation
         }
 
         /// <summary>
+        /// Trace log with user id 
+        /// </summary>
+        /// <param name="message"> message </param>
+        /// <param name="userId"> folder which will be created on the basis of userId </param>
+        public void LogTrace(string message, string userId)
+        {
+            LogEventInfo theEvent = new LogEventInfo(NLog.LogLevel.Trace, "UserWiseLogging", message);
+            theEvent.Properties["UserId"] = userId;
+            _logger.Log(theEvent);
+        }
+
+        /// <summary>
         /// Logs Warning
         /// </summary>
         /// <param name="message"> warning message </param>

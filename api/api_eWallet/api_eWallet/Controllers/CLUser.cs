@@ -2,9 +2,11 @@
 using api_eWallet.Models;
 using api_eWallet.Models.Attributes;
 using api_eWallet.Models.DTO;
+using api_eWallet.Services.Interfaces;
 using api_eWallet.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace api_eWallet.Controllers
 {
@@ -27,6 +29,11 @@ namespace api_eWallet.Controllers
         /// </summary>
         private Response _objResponse;
 
+        /// <summary>
+        /// Logging support 
+        /// </summary>
+        private ILogging _logging;
+
         #endregion
 
         #region Constructor
@@ -34,10 +41,12 @@ namespace api_eWallet.Controllers
         /// <summary>
         /// Reference from DI
         /// </summary>
-        /// <param name="objBLUser"></param>
-        public CLUser(IBLUsr01Handler objBLUser)
+        /// <param name="objBLUser"> bl layer of user </param>
+        /// <param name="logging"> logging support </param>
+        public CLUser(IBLUsr01Handler objBLUser, ILogging logging)
         {
             _objBLUserHandler = objBLUser;
+            _logging = logging;
         }
 
         #endregion
@@ -57,6 +66,8 @@ namespace api_eWallet.Controllers
         [Route("user")]
         public IActionResult Register([FromBody] DTOUsr01 objDTOUsr01)
         {
+            _logging.LogTrace("***" + JsonConvert.SerializeObject(objDTOUsr01));
+
             _objBLUserHandler.EnmOperation = EnmOperation.C;
 
             // prevalidation

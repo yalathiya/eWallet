@@ -38,6 +38,13 @@
         /// <param name="message"> message </param>
         void LogTrace(string message);
 
+        /// <summary>
+        /// Logs trace with user id 
+        /// </summary>
+        /// <param name="message"> message </param>
+        /// <param name="userId"> user id ( folder name )</param>
+        void LogTrace(string message, string userId);
+
         #endregion
     }
 }

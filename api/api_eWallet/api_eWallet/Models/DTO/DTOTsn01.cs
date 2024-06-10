@@ -15,7 +15,7 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [Required(ErrorMessage = "wallet id required")]
         [Range(1, int.MaxValue, ErrorMessage = "Invalid Wallet id")]
-        [JsonProperty("n01102")]
+        [JsonProperty("n01101")]
         public int N01f02 { get; set; }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [Required(ErrorMessage = "from-userid required")]
         [Range(1, int.MaxValue, ErrorMessage = "Invalid from-user-id")]
-        [JsonProperty("n01103")]
+        [JsonProperty("n01102")]
         public int N01f03 { get; set; }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [Required(ErrorMessage = "to-userid required")]
         [Range(0, int.MaxValue, ErrorMessage = "Invalid to-userid")]
-        [JsonProperty("n01104")]
+        [JsonProperty("n01103")]
         public int N01f04 { get; set; }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [Required(ErrorMessage = "Amount Required")]
         [Range(1, double.MaxValue, ErrorMessage = "Invalid amount")]
-        [JsonProperty("n01105")]
+        [JsonProperty("n01104")]
         public double N01f05 { get; set; }
 
         /// <summary>
@@ -47,13 +47,13 @@ namespace api_eWallet.Models.DTO
         /// </summary>
         [Required(ErrorMessage = "Transaction Fees Required")]
         [Range(0, double.MaxValue, ErrorMessage = "Invalid Transaction Fees")]
-        [JsonProperty("n01107")]
+        [JsonProperty("n01105")]
         public double N01f07 { get; set; }
 
         /// <summary>
         /// Description of Transaction
         /// </summary>
-        [JsonProperty("n01108")]
+        [JsonProperty("n01106")]
         public string N01f08 { get; set; }
 
         #endregion
