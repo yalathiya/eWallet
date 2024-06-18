@@ -46,84 +46,15 @@ namespace api_eWallet.Controllers
         #region Public Methods
 
         /// <summary>
-        /// Deposit Money to Wallet from bank account 
+        /// Perform all type of transaction based on EnmTransactionType
+        /// Transactions can be Deposit, Wallet to Wallet transfer or Withdraw
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [Route("deposit")]
-        [ATRateLimiting(MaxRequests = 1, TimeWindow = 10)]
-        public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
-        {
-            _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.D;
-
-            // prevalidation
-            _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
-            if (_objResponse.HasError)
-            {
-                return Ok(_objResponse);
-            }
-
-            // Presave
-            _objBLTsn01Handler.Presave(objDTOTsn01);
-
-            // validation
-            _objResponse = _objBLTsn01Handler.Validate();
-            if (_objResponse.HasError)
-            {
-                return Ok(_objResponse);
-            }
-
-            // save
-            _objResponse = _objBLTsn01Handler.Save();
-
-            return Ok(_objResponse);
-        }
-
-        /// <summary>
-        /// Transfer Money from My Wallet to another Wallet  
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("transfer")]
+        [Route("transact")]
         [ATRateLimiting(MaxRequests = 2, TimeWindow = 5)]
-        public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
+        public IActionResult Transact([FromBody] DTOTsn01 objDTOTsn01)
         {
-            _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.T;
-
-            // prevalidation
-            _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
-            if (_objResponse.HasError)
-            {
-                return Ok(_objResponse);
-            }
-
-            // Presave
-            _objBLTsn01Handler.Presave(objDTOTsn01);
-
-            // validation
-            _objResponse = _objBLTsn01Handler.Validate();
-            if (_objResponse.HasError)
-            {
-                return Ok(_objResponse);
-            }
-
-            // save
-            _objResponse = _objBLTsn01Handler.Save();
-
-            return Ok(_objResponse);
-        }
-
-        /// <summary>
-        /// Withdraw money from wallet & transfer it into bank account   
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        [Route("withdraw")]
-        [ATRateLimiting(MaxRequests = 1, TimeWindow = 20)]
-        public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
-        {
-            _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.W;
-
             // prevalidation
             _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
             if (_objResponse.HasError)
@@ -170,6 +101,108 @@ namespace api_eWallet.Controllers
         {
             return Ok(_objBLTsn01Handler.GetTransaction(HttpContext.GetWalletIdFromClaims(), transactionId));
         }
+
+        ///// <summary>
+        ///// Deposit Money to Wallet from bank account 
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("deposit")]
+        //[ATRateLimiting(MaxRequests = 1, TimeWindow = 10)]
+        //public IActionResult Deposit([FromBody] DTOTsn01 objDTOTsn01)
+        //{
+        //    _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.D;
+
+        //    // prevalidation
+        //    _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // Presave
+        //    _objBLTsn01Handler.Presave(objDTOTsn01);
+
+        //    // validation
+        //    _objResponse = _objBLTsn01Handler.Validate();
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // save
+        //    _objResponse = _objBLTsn01Handler.Save();
+
+        //    return Ok(_objResponse);
+        //}
+
+        ///// <summary>
+        ///// Transfer Money from My Wallet to another Wallet  
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("transfer")]
+        //[ATRateLimiting(MaxRequests = 2, TimeWindow = 5)]
+        //public IActionResult Transfer([FromBody] DTOTsn01 objDTOTsn01)
+        //{
+        //    _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.T;
+
+        //    // prevalidation
+        //    _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // Presave
+        //    _objBLTsn01Handler.Presave(objDTOTsn01);
+
+        //    // validation
+        //    _objResponse = _objBLTsn01Handler.Validate();
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // save
+        //    _objResponse = _objBLTsn01Handler.Save();
+
+        //    return Ok(_objResponse);
+        //}
+
+        ///// <summary>
+        ///// Withdraw money from wallet & transfer it into bank account   
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost]
+        //[Route("withdraw")]
+        //[ATRateLimiting(MaxRequests = 1, TimeWindow = 20)]
+        //public IActionResult Withdraw([FromBody] DTOTsn01 objDTOTsn01)
+        //{
+        //    _objBLTsn01Handler.EnmTransactionType = EnmTransactionType.W;
+
+        //    // prevalidation
+        //    _objResponse = _objBLTsn01Handler.Prevalidation(objDTOTsn01, HttpContext.GetWalletIdFromClaims());
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // Presave
+        //    _objBLTsn01Handler.Presave(objDTOTsn01);
+
+        //    // validation
+        //    _objResponse = _objBLTsn01Handler.Validate();
+        //    if (_objResponse.HasError)
+        //    {
+        //        return Ok(_objResponse);
+        //    }
+
+        //    // save
+        //    _objResponse = _objBLTsn01Handler.Save();
+
+        //    return Ok(_objResponse);
+        //}
 
         #endregion
     }

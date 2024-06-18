@@ -98,22 +98,35 @@ namespace api_eWallet.BL.Implementation
         {
             _objResponse = new Response();
 
-            if(objDTOTsn01.N01f02 != walletId)
+            if (objDTOTsn01.N01f02 != walletId)
             {
-
                 _objResponse.SetResponse(true, HttpStatusCode.Forbidden, "Request is forbidden due to access constraints", null);
                 return _objResponse;
             }
 
-            if(EnmTransactionType == EnmTransactionType.T)
+            if (objDTOTsn01.N01f06 == EnmTransactionType.T.ToString())
             {
+                EnmTransactionType = EnmTransactionType.T;
                 if (objDTOTsn01.N01f04 == 0)
                 {
                     _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid to-user id", null);
                     return _objResponse;
                 }
             }
-            
+            else if (objDTOTsn01.N01f06 == EnmTransactionType.W.ToString())
+            {
+                EnmTransactionType = EnmTransactionType.W;
+            }
+            else if (objDTOTsn01.N01f06 == EnmTransactionType.D.ToString())
+            {
+                EnmTransactionType = EnmTransactionType.D;
+            }
+            else
+            {
+                _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid transaction type", null);
+                return _objResponse;
+            }
+
             _objResponse.SetResponse("prevalidation successful", null);
             return _objResponse;
         }
@@ -126,25 +139,23 @@ namespace api_eWallet.BL.Implementation
         {
             _objTsn01 = objDTOTsn01.ConvertModel<Tsn01>();
 
+            _objTsn01.N01f06 = EnmTransactionType.ToString();
             _objTsn01.N01f09 = DateTime.Now;
 
             // Wallet to Wallet Transfer
             if(EnmTransactionType == EnmTransactionType.T)
             {
-                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05;
             }
             // Deposit
             else if(EnmTransactionType == EnmTransactionType.D)
             {
-                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05;
                 _objTsn01.N01f04 = 0;
             }
             // Withdrawal
             else if(EnmTransactionType == EnmTransactionType.W)
             {
-                _objTsn01.N01f06 = EnmTransactionType.ToString();
                 _objTsn01.N01f10 = _objTsn01.N01f05 + _objTsn01.N01f07;
                 _objTsn01.N01f04 = 0;
             }
@@ -161,7 +172,6 @@ namespace api_eWallet.BL.Implementation
             // Wallet to Wallet Transfer
             if (EnmTransactionType == EnmTransactionType.T)
             {
-
                 if(_objTsn01.N01f07 != 0.0)
                 {
                     _objResponse.SetResponse(true, HttpStatusCode.BadRequest, "Invalid Transaction Fees", null);

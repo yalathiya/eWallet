@@ -164,6 +164,7 @@ namespace api_eWallet.BL.Implementation
 
             if(EnmOperation == EnmOperation.C)
             {
+                //// do not prepare methods when no use of multiple
                 if (IsMobileExist(_objUsr01.R01f07))
                 {
                     _objResponse.SetResponse(true, System.Net.HttpStatusCode.BadRequest, "Mobile Number already exists in database", null);
@@ -207,6 +208,8 @@ namespace api_eWallet.BL.Implementation
                 {
                     userId = (int)db.Insert(_objUsr01, selectIdentity: true);
 
+                    //// do the same process in presave
+                   
                     // Add Wallet Details 
                     Wlt01 objWlt01 = new Wlt01();
                     objWlt01.T01f02 = userId;

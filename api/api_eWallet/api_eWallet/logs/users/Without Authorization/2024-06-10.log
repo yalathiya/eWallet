@@ -165,3 +165,129 @@ priority: u=1, i
 
 2024-06-10 13:20:19.3417 TRACE client statistics is updated for client key - /api/CLTransaction/transfer_::1 
 2024-06-10 13:20:19.3417 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transfer_::1
+2024-06-10 16:56:52.9855 TRACE Login Request from : yashlathiyarkit@gmail.com
+2024-06-10 16:56:53.6439 INFO Request: POST /api/CLAuth
+2024-06-10 16:56:53.7433 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+Origin: http://127.0.0.1:5501
+Referer: http://127.0.0.1:5501/
+Content-Length: 62
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-10 16:56:53.8378 INFO Request: POST /api/CLAuth
+2024-06-10 16:56:53.9142 TRACE user with yashlathiyarkit@gmail.com is logged in successfully
+2024-06-10 16:56:54.0402 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+Origin: http://127.0.0.1:5501
+Referer: http://127.0.0.1:5501/
+Content-Length: 62
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-10 16:56:54.1273 INFO Response: 200 (Elapsed Time: 3142 ms)
+2024-06-10 16:56:54.1273 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 11:26:53 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 499
+
+2024-06-10 16:56:54.1449 TRACE client statistics is updated for client key - /api/CLAuth_::1 
+2024-06-10 16:56:54.1449 TRACE client statistics is updated for client key - /api/CLAuth_::1 
+2024-06-10 16:56:54.1449 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLAuth_::1
+2024-06-10 16:56:54.1449 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLAuth_::1
+2024-06-10 16:56:54.1449 INFO Request: GET /api/CLUser/info
+2024-06-10 16:56:54.1449 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+:method: GET
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODAyMjQxMywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.kIvYH8O75pnKCFDhSMhBoRaOITFTZzBrEnoffr2nSu4
+Origin: http://127.0.0.1:5501
+Referer: http://127.0.0.1:5501/
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-10 16:56:54.1449 TRACE Login Request from : yashlathiyarkit@gmail.com
+2024-06-10 16:56:54.1449 TRACE Login Request from : yashlathiyarkit@gmail.com
+2024-06-10 16:56:54.1741 TRACE user with yashlathiyarkit@gmail.com is logged in successfully
+2024-06-10 16:56:54.1741 INFO Response: 200 (Elapsed Time: 97 ms)
+2024-06-10 16:56:54.1741 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 11:26:53 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 499
+
+2024-06-10 16:56:54.2289 TRACE client statistics is updated for client key - /api/CLUser/info_::1 
+2024-06-10 16:56:54.2416 TRACE user with yashlathiyarkit@gmail.com is logged in successfully
+2024-06-10 16:56:54.2416 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLUser/info_::1
+2024-06-10 16:56:54.2602 INFO Response: 200 (Elapsed Time: 222 ms)
+2024-06-10 16:56:54.2711 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 11:26:53 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 499
+
+2024-06-10 16:57:04.9408 TRACE Login Request from : yashlathiyarkit@gmail.com
+2024-06-10 16:57:04.9408 TRACE user with yashlathiyarkit@gmail.com is logged in successfully
+2024-06-10 16:57:04.9408 INFO Response: 200 (Elapsed Time: 61 ms)
+2024-06-10 16:57:04.9408 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Mon, 10 Jun 2024 11:27:04 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 499
+
+2024-06-10 16:57:04.9584 INFO Request: GET /api/CLUser/info
+2024-06-10 16:57:04.9584 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+:method: GET
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODAyMjQyNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.BCmssPK7v9hq0sPrlqapyvefk3pUag9mXLni2cxLSyY
+Origin: http://127.0.0.1:5501
+Referer: http://127.0.0.1:5501/
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not.A/Brand";v="24"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-10 16:57:05.0267 TRACE client statistics is updated for client key - /api/CLUser/info_::1 
+2024-06-10 16:57:05.0267 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLUser/info_::1

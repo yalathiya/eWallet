@@ -272,26 +272,28 @@ namespace api_eWallet.DL.Implementation
         /// <returns> list of transactions </returns>
         public object GetAllTransactions(int walletId, int pageNumber)
         {
+            string query = String.Format(
+                                         @"SELECT 
+                                             N01F01 AS TRANSACTION_ID,
+                                             N01F05 AS AMOUNT,
+                                             CASE N01F06
+                                                 WHEN 'D' THEN 'Deposit'
+                                                 WHEN 'T' THEN 'Transfer'
+                                                 WHEN 'W' THEN 'Withdrawal'
+                                             END AS TRANSACTION_TYPE,
+                                             N01F09 AS CREATED_ON
+                                          FROM
+                                             TSN01 AS TRANSACTION_DETAILS
+                                          WHERE
+                                             N01F02 = {0}
+                                          LIMIT 
+                                             10
+                                          OFFSET
+                                             {1}",
+                                         walletId, pageNumber * 10);
+
             // Transaction details 
-            DataTable dtTransactions = DbConnection.ExecuteQuery(String.Format(
-                                                    @"SELECT 
-                                                        N01F01 AS TRANSACTION_ID,
-                                                        N01F05 AS AMOUNT,
-                                                        CASE N01F06
-                                                            WHEN 'D' THEN 'Deposit'
-                                                            WHEN 'T' THEN 'Transfer'
-                                                            WHEN 'W' THEN 'Withdrawal'
-                                                        END AS TRANSACTION_TYPE,
-                                                        N01F09 AS CREATED_ON
-                                                     FROM
-                                                        TSN01 AS TRANSACTION_DETAILS
-                                                     WHERE
-                                                        N01F02 = {0}
-                                                     LIMIT 
-                                                        10
-                                                     OFFSET
-                                                        {1}", 
-                                                    walletId, pageNumber * 10));
+            DataTable dtTransactions = DbConnection.ExecuteQuery(query);
 
             return dtTransactions.ToList();
         }
@@ -304,28 +306,30 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object consisting transaction details </returns>
         public object GetTransaction(int walletId, int transactionId)
         {
+            string query = String.Format(
+                                         @"SELECT 
+                                             N01F01 AS TRANSACTION_ID,
+                                             N01F02 AS WALLET_ID,
+                                             N01F03 AS FROM_USER_ID,
+                                             N01F04 AS TO_USER_ID,
+                                             N01F05 AS AMOUNT,
+                                             CASE N01F06
+                                                 WHEN 'D' THEN 'Deposit'
+                                                 WHEN 'T' THEN 'Transfer'
+                                                 WHEN 'W' THEN 'Withdrawal'
+                                             END AS TRANSACTION_TYPE,
+                                             N01F07 AS TRANSACTION_FEES,
+                                             N01F08 AS DESCRIPTION,
+                                             N01F09 AS CREATED_ON,
+                                             N01F10 AS TOTAL_AMOUNT
+                                          FROM
+                                             TSN01 AS TRANSACTION_DETAILS
+                                          WHERE
+                                             N01F01 = {0} AND N01F02 = {1}",
+                                         transactionId, walletId);
+
             // Transaction details 
-            DataTable dtTransaction = DbConnection.ExecuteQuery(String.Format(
-                                                    @"SELECT 
-                                                        N01F01 AS TRANSACTION_ID,
-                                                        N01F02 AS WALLET_ID,
-                                                        N01F03 AS FROM_USER_ID,
-                                                        N01F04 AS TO_USER_ID,
-                                                        N01F05 AS AMOUNT,
-                                                        CASE N01F06
-                                                            WHEN 'D' THEN 'Deposit'
-                                                            WHEN 'T' THEN 'Transfer'
-                                                            WHEN 'W' THEN 'Withdrawal'
-                                                        END AS TRANSACTION_TYPE,
-                                                        N01F07 AS TRANSACTION_FEES,
-                                                        N01F08 AS DESCRIPTION,
-                                                        N01F09 AS CREATED_ON,
-                                                        N01F10 AS TOTAL_AMOUNT
-                                                     FROM
-                                                        TSN01 AS TRANSACTION_DETAILS
-                                                     WHERE
-                                                        N01F01 = {0} AND N01F02 = {1}",
-                                                    transactionId, walletId));
+            DataTable dtTransaction = DbConnection.ExecuteQuery(query);
 
             return dtTransaction.ToList();
         }
@@ -338,27 +342,33 @@ namespace api_eWallet.DL.Implementation
         /// <returns> data table of transactions </returns>
         public object GetTransactions(int walletId, DateTime start, DateTime end)
         {
+            string query = String.Format(
+                                         @"SELECT 
+                                             N01F01 AS ID,
+                                             N01F03 AS FROM_USER_ID,
+                                             N01F04 AS TO_USER_ID,
+                                             N01F05 AS AMOUNT,
+                                             CASE N01F06
+                                                 WHEN 'D' THEN 'Deposit'
+                                                 WHEN 'T' THEN 'Transfer'
+                                                 WHEN 'W' THEN 'Withdrawal'
+                                             END AS TYPE,
+                                             N01F07 AS FEES,
+                                             N01F08 AS DESCRIPTION,
+                                             N01F09 AS DATE,
+                                             N01F10 AS TOTAL_AMOUNT
+                                         FROM
+                                             TSN01 AS TRANSACTION_DETAILS
+                                         WHERE
+                                             N01F02 = {0} AND
+                                             N01F09 >= '{1}' AND
+                                             N01F09 <= '{2}'",
+                                         walletId,
+                                         start.ToString("yyyy-MM-dd HH:mm:ss"),
+                                         end.ToString("yyyy-MM-dd HH:mm:ss"));
+
             // Transaction details 
-            DataTable dtTransactions = DbConnection.ExecuteQuery(String.Format(
-                                                    @"SELECT 
-                                                        N01F01 AS ID,
-                                                        N01F03 AS FROM_USER_ID,
-                                                        N01F04 AS TO_USER_ID,
-                                                        N01F05 AS AMOUNT,
-                                                        CASE N01F06
-                                                            WHEN 'D' THEN 'Deposit'
-                                                            WHEN 'T' THEN 'Transfer'
-                                                            WHEN 'W' THEN 'Withdrawal'
-                                                        END AS TYPE,
-                                                        N01F07 AS FEES,
-                                                        N01F08 AS DESCRIPTION,
-                                                        N01F09 AS DATE,
-                                                        N01F10 AS TOTAL_AMOUNT
-                                                     FROM
-                                                        TSN01 AS TRANSACTION_DETAILS
-                                                     WHERE
-                                                        N01F02 = {0}",
-                                                    walletId));
+            DataTable dtTransactions = DbConnection.ExecuteQuery(query);
             return dtTransactions;
         }
 

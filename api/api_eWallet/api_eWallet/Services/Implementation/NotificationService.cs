@@ -54,6 +54,7 @@ namespace api_eWallet.Services.Implementation
                 db.Insert<Not01>(objNot01);
             }
 
+            //// by single field 
             // is email notification
             if (objNot01.T01f04)
             {

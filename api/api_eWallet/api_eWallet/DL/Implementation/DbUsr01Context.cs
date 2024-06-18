@@ -19,19 +19,20 @@ namespace api_eWallet.DL.Implementation
         /// <returns> object of user details </returns>
         public object GetUsr01ById(int r01f01)
         {
-            // Object of user details 
-            DataTable userDetails = DbConnection.ExecuteQuery(String.Format(
+            string query = String.Format(
                                                     @"SELECT 
                                                         R01f01 AS USER_ID,
                                                         R01f04 AS EMAIL_ID,
                                                         R01f05 AS FIRST_NAME,
                                                         R01f06 AS LAST_NAME,
-                                                        R01f07 AS MONILE_NUMBER
+                                                        R01f07 AS MOBILE_NUMBER
                                                      FROM
                                                         USR01 AS USER_DETAILS
                                                      WHERE
-                                                        R01F01 = {0}", 
-                                                    r01f01));
+                                                        R01F01 = {0}",
+                                                    r01f01);
+            // Object of user details 
+            DataTable userDetails = DbConnection.ExecuteQuery(query);
 
             return userDetails.ToList();
         }

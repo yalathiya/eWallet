@@ -54,7 +54,14 @@ namespace api_eWallet.Models.DTO
         /// Description of Transaction
         /// </summary>
         [JsonProperty("n01106")]
+        //[RegularExpression("^(W|T|D)$", ErrorMessage = "Enter valid transaction type.")]
         public string N01f08 { get; set; }
+
+        /// <summary>
+        /// Enum type of transaction 
+        /// </summary>
+        [JsonProperty("n01107")]
+        public string N01f06 { get; set; }
 
         #endregion
 

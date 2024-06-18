@@ -1,0 +1,271 @@
+2024-06-18 10:57:04.3505 TRACE Wallet is activated of user id 17
+2024-06-18 10:57:04.3695 TRACE Account validation filter is applied
+2024-06-18 10:57:04.3695 INFO Response: 200 (Elapsed Time: 181 ms)
+2024-06-18 10:57:04.3753 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:27:03 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 83
+
+2024-06-18 10:57:18.9453 INFO Request: POST /api/CLTransaction/transact
+2024-06-18 10:57:18.9453 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MTkxNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.TxkuGob8GLRbb8IKroeHcoRQCo75qIo0ol8iuh5jfnA
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 128
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 10:57:19.0218 TRACE client statistics is updated for client key - /api/CLTransaction/transact_::1 
+2024-06-18 10:57:19.0218 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transact_::1
+2024-06-18 10:57:19.0635 TRACE Wallet is activated of user id 17
+2024-06-18 10:57:19.1288 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 10:57:19.1288 WARN  database rows are locked for user id 17 , 16
+2024-06-18 10:57:19.1453 WARN 100000 is deducted from user id 17
+2024-06-18 10:57:23.4032 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-18 10:57:23.4481 WARN 100000 is credited to user id 16
+2024-06-18 10:57:26.8132 TRACE email is sent successfully to email-id prajvalgahine7121@gmail.com
+2024-06-18 10:57:26.8132 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-18 10:57:26.8304 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 10:57:26.8304 TRACE Account validation filter is applied
+2024-06-18 10:57:26.8304 INFO Response: 200 (Elapsed Time: 7874 ms)
+2024-06-18 10:57:26.8304 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:27:26 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 82
+
+2024-06-18 11:00:40.4738 INFO Request: POST /api/CLTransaction/transact
+2024-06-18 11:00:40.4738 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MTkxNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.TxkuGob8GLRbb8IKroeHcoRQCo75qIo0ol8iuh5jfnA
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 126
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:00:40.5379 TRACE client statistics is updated for client key - /api/CLTransaction/transact_::1 
+2024-06-18 11:00:40.5379 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transact_::1
+2024-06-18 11:00:40.5747 TRACE Wallet is activated of user id 17
+2024-06-18 11:00:40.5747 TRACE Account validation filter is applied
+2024-06-18 11:00:40.5814 INFO Response: 200 (Elapsed Time: 93 ms)
+2024-06-18 11:00:40.5814 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:30:39 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 83
+
+2024-06-18 11:00:55.6949 INFO Request: POST /api/CLTransaction/transact
+2024-06-18 11:00:55.6949 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MTkxNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.TxkuGob8GLRbb8IKroeHcoRQCo75qIo0ol8iuh5jfnA
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 124
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:00:55.7754 TRACE client statistics is updated for client key - /api/CLTransaction/transact_::1 
+2024-06-18 11:00:55.7754 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transact_::1
+2024-06-18 11:00:55.8128 TRACE Wallet is activated of user id 17
+2024-06-18 11:00:55.8226 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:00:55.8226 TRACE Transaction is started : api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:00:55.8226 WARN  database rows are locked for user id 17 , 0
+2024-06-18 11:00:55.8226 WARN 33000 is credited to user id 17
+2024-06-18 11:00:59.4271 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-18 11:00:59.4271 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:00:59.4271 TRACE transaction is commited : api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:00:59.4271 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:00:59.4271 TRACE Account validation filter is applied
+2024-06-18 11:00:59.4271 INFO Response: 200 (Elapsed Time: 3712 ms)
+2024-06-18 11:00:59.4271 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:30:58 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 78
+
+2024-06-18 11:02:16.3999 INFO Request: POST /api/CLTransaction/transact
+2024-06-18 11:02:16.4138 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MTkxNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.TxkuGob8GLRbb8IKroeHcoRQCo75qIo0ol8iuh5jfnA
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 134
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:02:16.4972 TRACE client statistics is updated for client key - /api/CLTransaction/transact_::1 
+2024-06-18 11:02:16.5048 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transact_::1
+2024-06-18 11:02:16.5419 TRACE Wallet is activated of user id 17
+2024-06-18 11:02:16.5419 TRACE Account validation filter is applied
+2024-06-18 11:02:16.5419 INFO Response: 200 (Elapsed Time: 111 ms)
+2024-06-18 11:02:16.5419 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:32:15 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 83
+
+2024-06-18 11:02:54.2562 INFO Request: POST /api/CLTransaction/transact
+2024-06-18 11:02:54.2878 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MTkxNCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.TxkuGob8GLRbb8IKroeHcoRQCo75qIo0ol8iuh5jfnA
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 137
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:02:54.3781 TRACE client statistics is updated for client key - /api/CLTransaction/transact_::1 
+2024-06-18 11:02:54.3781 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLTransaction/transact_::1
+2024-06-18 11:02:54.4169 TRACE Wallet is activated of user id 17
+2024-06-18 11:02:54.4462 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:02:54.4462 WARN  database rows are locked for user id 17 , 0
+2024-06-18 11:02:54.4462 WARN 447.78 is deducted from user id 17
+2024-06-18 11:02:57.8353 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-18 11:02:57.8815 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:02:57.8987 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:02:57.8987 TRACE Account validation filter is applied
+2024-06-18 11:02:57.8987 INFO Response: 200 (Elapsed Time: 3594 ms)
+2024-06-18 11:02:57.9137 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:32:57 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 81
+
+2024-06-18 11:04:44.8199 INFO Request: POST /api/CLAuth
+2024-06-18 11:04:44.8199 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json
+Origin: null
+Content-Length: 62
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:04:44.9182 TRACE client statistics is updated for client key - /api/CLAuth_::1 
+2024-06-18 11:04:44.9182 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLAuth_::1
+2024-06-18 11:04:58.3856 TRACE razorpay order is created order_OO6t5HHkZIV9qH walletId : 12 amount : 33000
+2024-06-18 11:04:58.5008 TRACE Order Created Successfully order_OO6t5HHkZIV9qH
+2024-06-18 11:04:58.5951 INFO Response: 200 (Elapsed Time: 3246 ms)
+2024-06-18 11:04:58.6561 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:34:58 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 91
+
+2024-06-18 11:05:24.7469 INFO Request: POST /api/CLRazorpay/ProcessPayment
+2024-06-18 11:05:24.7469 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfZW1haWxJZCI6Inlhc2hsYXRoaXlhcmtpdEBnbWFpbC5jb20iLCJqd3RfdXNlcklkIjoiMTciLCJqd3Rfd2FsbGV0SWQiOiIxMiIsImV4cCI6MTcxODY5MjQ4NCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI3ODtodHRwOi8vbG9jYWxob3N0OjUwNjM7aHR0cDovL2xvY2FsaG9zdDozMjgwOSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNzg7aHR0cDovL2xvY2FsaG9zdDo1MDYzO2h0dHA6Ly9sb2NhbGhvc3Q6MzI4MDkifQ.e0YecXnF9wXg0T1Ex09T4rOoYA7R_Vkr_vkQ7g7ois0
+Content-Type: application/json
+Origin: null
+Content-Length: 193
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: cross-site
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 11:05:24.8322 TRACE client statistics is updated for client key - /api/CLRazorpay/ProcessPayment_::1 
+2024-06-18 11:05:24.8322 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLRazorpay/ProcessPayment_::1
+2024-06-18 11:05:24.8694 TRACE Signature varification successful order_OO6t5HHkZIV9qH
+2024-06-18 11:05:24.9003 TRACE Payment captured in database pay_OO6tMqruLU5NPf
+2024-06-18 11:05:24.9003 TRACE Connection is opened for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:05:24.9003 TRACE Transaction is started : api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:05:24.9154 WARN  database rows are locked for user id 17 , 0
+2024-06-18 11:05:24.9154 WARN 33000 is credited to user id 17
+2024-06-18 11:05:28.2957 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-18 11:05:28.2957 TRACE Transaction is added api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:05:28.2957 TRACE transaction is commited : api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:05:28.2957 TRACE Connection is closed for processing api_eWallet.Models.POCO.Tsn01
+2024-06-18 11:05:28.2957 TRACE Transaction is reflected in database pay_OO6tMqruLU5NPf
+2024-06-18 11:05:28.3085 WARN completed razorpay transaction pay_OO6tMqruLU5NPf
+2024-06-18 11:05:31.6235 TRACE email is sent successfully to email-id yashlathiyarkit@gmail.com
+2024-06-18 11:05:31.6235 INFO Response: 200 (Elapsed Time: 6845 ms)
+2024-06-18 11:05:31.6235 INFO Response Headers:
+Content-Type: application/json; charset=utf-8
+Date: Tue, 18 Jun 2024 05:35:31 GMT
+Server: Kestrel
+Access-Control-Allow-Origin: *
+Content-Length: 78
+

@@ -1,0 +1,23 @@
+2024-06-18 10:54:36.3116 WARN Background service for clearing old notification from table started running .....
+2024-06-18 10:55:13.4511 INFO Request: POST /api/CLAuth
+2024-06-18 10:55:13.4511 INFO Request Headers:
+Accept: */*
+Host: localhost:7278
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+:method: POST
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: en-US,en;q=0.9
+Content-Type: application/json-patch+json
+Origin: https://localhost:7278
+Referer: https://localhost:7278/swagger/index.html
+Content-Length: 71
+sec-ch-ua: "Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+sec-fetch-mode: cors
+sec-fetch-dest: empty
+priority: u=1, i
+
+2024-06-18 10:55:13.6326 TRACE client statistics is updated for client key - /api/CLAuth_::1 
+2024-06-18 10:55:13.6326 TRACE reuest is passed successfully from rate limiting middleware -- client key -- /api/CLAuth_::1
